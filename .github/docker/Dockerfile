@@ -20,4 +20,4 @@ COPY . .
 #RUN cd /github/workspace && composer install
 #RUN file="$(ls -1 ./*)" && echo $file
 #ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
-ENTRYPOINT ["sh", "-c", "file=\"$GITHUB_WORKSPACE\" && echo \" >>> $file <<<<\"""]
+ENTRYPOINT ["sh", "-c", "file=\"$GITHUB_WORKSPACE\" && echo \" >>> $file <<<<\""]
