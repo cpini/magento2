@@ -20,9 +20,3 @@ jobs:
     - name: Setup unit test container
       id: unit_test
       uses: ./.github/actions/unit-tests
-    - name: Run composer install
-      run: |
-        composer install
-    - name: Run unit tests
-      run: |
-        vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist
