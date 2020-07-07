@@ -16,6 +16,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
  && echo "max_input_vars=1000" > /usr/local/etc/php/conf.d/max-input-vars-php.ini \
  && curl -sS https://getcomposer.org/installer | php \
  && mv composer.phar /usr/local/bin/composer 
+WORKDIR /var/www/html
 COPY . .
-RUN composer install -d=./ --no-cache
+RUN composer install -d=/var/www/html --no-cache
 ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
