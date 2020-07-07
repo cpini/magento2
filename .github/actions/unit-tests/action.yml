@@ -4,3 +4,5 @@ description: 'Exectue Magento2 QA unit tests'
 runs:
   using: 'docker'
   image: '../../docker/Dockerfile'
+  env:
+      GITHUB_WORKSPACE: /var/www/html
