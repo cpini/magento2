@@ -9,7 +9,7 @@ namespace Magento\Framework\MessageQueue\Bulk;
  * Factory class for @see \Magento\Framework\MessageQueue\ExchangeInterface
  *
  * @api
- * @since 102.0.4
+ * @since 100.2.0
  */
 class ExchangeFactory implements ExchangeFactoryInterface
 {
@@ -27,7 +27,7 @@ class ExchangeFactory implements ExchangeFactoryInterface
      * Object Manager instance
      *
      * @var \Magento\Framework\ObjectManagerInterface
-     * @since 102.0.4
+     * @since 100.2.0
      */
     protected $objectManager = null;
 
@@ -37,6 +37,7 @@ class ExchangeFactory implements ExchangeFactoryInterface
      * @param \Magento\Framework\MessageQueue\ConnectionTypeResolver $connectionTypeResolver
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
      * @param ExchangeFactoryInterface[] $exchangeFactories
+     * @since 100.2.0
      */
     public function __construct(
         \Magento\Framework\MessageQueue\ConnectionTypeResolver $connectionTypeResolver,
@@ -50,7 +51,7 @@ class ExchangeFactory implements ExchangeFactoryInterface
 
     /**
      * @inheritdoc
-     * @since 102.0.4
+     * @since 100.2.0
      */
     public function create($connectionName, array $data = [])
     {

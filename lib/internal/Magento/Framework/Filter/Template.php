@@ -22,7 +22,6 @@ use Magento\Framework\Stdlib\StringUtils;
  * Template filter
  *
  * @api
- * @since 100.0.2
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class Template implements \Zend_Filter_Interface
@@ -92,7 +91,7 @@ class Template implements \Zend_Filter_Interface
     /**
      * @var bool
      */
-    private $strictMode = false;
+    private $strictMode = true;
 
     /**
      * @var VariableResolverInterface|null
@@ -245,7 +244,7 @@ class Template implements \Zend_Filter_Interface
      *
      * @param string[] $construction
      * @return string
-     * @deprecated 102.0.4 Use the directive interfaces instead
+     * @deprecated Use the directive interfaces instead
      */
     public function varDirective($construction)
     {
@@ -260,8 +259,7 @@ class Template implements \Zend_Filter_Interface
      *
      * @param string[] $construction
      * @return string
-     * @deprecated 102.0.4 Use the directive interfaces instead
-     * @since 102.0.4
+     * @deprecated Use the directive interfaces instead
      */
     public function forDirective($construction)
     {
@@ -285,7 +283,7 @@ class Template implements \Zend_Filter_Interface
      *
      * @param string[] $construction
      * @return mixed
-     * @deprecated 102.0.4 Use the directive interfaces instead
+     * @deprecated Use the directive interfaces instead
      */
     public function templateDirective($construction)
     {
@@ -300,7 +298,7 @@ class Template implements \Zend_Filter_Interface
      *
      * @param string[] $construction
      * @return string
-     * @deprecated 102.0.4 Use the directive interfaces instead
+     * @deprecated Use the directive interfaces instead
      */
     public function dependDirective($construction)
     {
@@ -317,7 +315,7 @@ class Template implements \Zend_Filter_Interface
      *
      * @param string[] $construction
      * @return string
-     * @deprecated 102.0.4 Use the directive interfaces instead
+     * @deprecated Use the directive interfaces instead
      */
     public function ifDirective($construction)
     {
@@ -334,7 +332,7 @@ class Template implements \Zend_Filter_Interface
      *
      * @param string $value raw parameters
      * @return array
-     * @deprecated 102.0.4 Use the directive interfaces instead
+     * @deprecated Use the directive interfaces instead
      */
     protected function getParameters($value)
     {
@@ -355,7 +353,7 @@ class Template implements \Zend_Filter_Interface
      * @param string $value raw parameters
      * @param string $default default value
      * @return string
-     * @deprecated 102.0.4 Use \Magento\Framework\Filter\VariableResolverInterface instead
+     * @deprecated Use \Magento\Framework\Filter\VariableResolverInterface instead
      */
     protected function getVariable($value, $default = '{no_value_defined}')
     {
@@ -371,7 +369,7 @@ class Template implements \Zend_Filter_Interface
      *
      * @param array $stack
      * @return array
-     * @deprecated 102.0.4 Use new directive processor interfaces
+     * @deprecated Use new directive processor interfaces
      */
     protected function getStackArgs($stack)
     {
@@ -398,7 +396,6 @@ class Template implements \Zend_Filter_Interface
      *
      * @param bool $strictMode Enable strict parsing of directives
      * @return bool The previous mode from before the change
-     * @since 102.0.4
      */
     public function setStrictMode(bool $strictMode): bool
     {
@@ -412,7 +409,6 @@ class Template implements \Zend_Filter_Interface
      * Return if the template is rendered with strict directive processing
      *
      * @return bool
-     * @since 102.0.4
      */
     public function isStrictMode(): bool
     {

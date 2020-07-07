@@ -13,20 +13,19 @@ use Magento\Framework\Serialize\Serializer\Json;
 /**
  * Abstract resource model
  *
+ * phpcs:disable Magento2.Classes.AbstractApi
  * @api
- * @since 100.0.2
  */
 abstract class AbstractResource
 {
     /**
      * @var Json
-     * @since 101.0.0
+     * @since 100.2.0
      */
     protected $serializer;
 
     /**
      * @var \Psr\Log\LoggerInterface
-     * @since 102.0.0
      */
     protected $_logger;
 
@@ -83,6 +82,7 @@ abstract class AbstractResource
     /**
      * Commit resource transaction
      *
+     * @deprecated see \Magento\Framework\Model\ExecuteCommitCallbacks::afterCommit
      * @return $this
      * @api
      */
@@ -94,14 +94,15 @@ abstract class AbstractResource
          */
         if ($this->getConnection()->getTransactionLevel() === 0) {
             $callbacks = CallbackPool::get(spl_object_hash($this->getConnection()));
-            try {
-                foreach ($callbacks as $callback) {
+            foreach ($callbacks as $callback) {
+                try {
                     call_user_func($callback);
+                } catch (\Exception $e) {
+                    $this->getLogger()->critical($e);
                 }
-            } catch (\Exception $e) {
-                $this->getLogger()->critical($e);
             }
         }
+
         return $this;
     }
 
@@ -249,8 +250,8 @@ abstract class AbstractResource
      * Get serializer
      *
      * @return Json
-     * @deprecated 101.0.0
-     * @since 101.0.0
+     * @deprecated 100.2.0
+     * @since 100.2.0
      */
     protected function getSerializer()
     {
@@ -264,7 +265,7 @@ abstract class AbstractResource
      * Get logger
      *
      * @return \Psr\Log\LoggerInterface
-     * @deprecated 101.0.1
+     * @deprecated
      */
     private function getLogger()
     {

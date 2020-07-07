@@ -12,7 +12,6 @@ namespace Magento\Framework\Validation;
  * ValidationResult represents a container storing all the validation errors that happened during the entity validation.
  *
  * @api
- * @since 101.0.7
  */
 class ValidationResult
 {
@@ -31,7 +30,6 @@ class ValidationResult
 
     /**
      * @return bool
-     * @since 101.0.7
      */
     public function isValid(): bool
     {
@@ -40,7 +38,6 @@ class ValidationResult
 
     /**
      * @return array
-     * @since 101.0.7
      */
     public function getErrors(): array
     {

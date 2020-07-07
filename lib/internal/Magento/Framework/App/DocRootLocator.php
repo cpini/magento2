@@ -22,7 +22,7 @@ class DocRootLocator
     private $request;
 
     /**
-     * @deprecated 102.0.2
+     * @deprecated
      * @var ReadFactory
      */
     private $readFactory;

@@ -10,14 +10,9 @@ namespace Magento\Framework\Session;
 use Magento\Framework\App\State;
 
 /**
-<<<<<<< HEAD
- * Class SidResolver
- * @deprecated 102.0.2 SIDs in URLs are no longer used
-=======
  * Resolves SID by processing request parameters.
  *
  * @deprecated 2.3.3 SIDs in URLs are no longer used
->>>>>>> origin/2.4-develop
  */
 class SidResolver implements SidResolverInterface
 {

@@ -108,11 +108,7 @@ class SaveHandler implements SaveHandlerInterface
     }
 
     /**
-<<<<<<< HEAD
-     * Garbage Collection - remove old session data older than $maxLifetime (in seconds)
-=======
      * Garbage Collection - remove old session data older than $maxLifetime (in seconds).
->>>>>>> origin/2.4-develop
      *
      * @param int $maxLifetime
      * @return bool

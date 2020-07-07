@@ -15,7 +15,6 @@ use Magento\Framework\Translate\InlineInterface;
  * Actual for controller actions that serve ajax requests
  *
  * @api
- * @since 100.0.2
  */
 class Json extends AbstractResult
 {

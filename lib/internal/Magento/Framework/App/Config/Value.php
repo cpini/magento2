@@ -24,7 +24,6 @@ namespace Magento\Framework\App\Config;
  * @api
  *
  * @SuppressWarnings(PHPMD.NumberOfChildren)
- * @since 100.0.2
  */
 class Value extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\App\Config\ValueInterface
 {
@@ -135,7 +134,6 @@ class Value extends \Magento\Framework\Model\AbstractModel implements \Magento\F
      * {@inheritdoc}. In addition, it sets status 'invalidate' for config caches
      *
      * @return $this
-     * @since 100.1.0
      */
     public function afterDelete()
     {

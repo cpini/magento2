@@ -23,7 +23,6 @@ use Psr\Log\LoggerInterface;
  *
  * @api
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @since 100.0.2
  */
 class Bootstrap
 {
@@ -224,10 +223,12 @@ class Bootstrap
     /**
      * Factory method for creating application instances
      *
+     * In case of failure,
+     * the application will be terminated by "exit(1)"
+     *
      * @param string $type
      * @param array $arguments
      * @return \Magento\Framework\AppInterface | void
-     * @throws \InvalidArgumentException
      */
     public function createApplication($type, $arguments = [])
     {

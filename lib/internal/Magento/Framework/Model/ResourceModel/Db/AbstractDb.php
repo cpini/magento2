@@ -20,7 +20,6 @@ use Magento\Framework\Phrase;
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  * phpcs:disable Magento2.Classes.AbstractApi
  * @api
- * @since 100.0.2
  */
 abstract class AbstractDb extends AbstractResource
 {

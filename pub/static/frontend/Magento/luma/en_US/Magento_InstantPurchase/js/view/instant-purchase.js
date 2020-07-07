@@ -1,0 +1,1 @@
+/var/www/html/app/code/Magento/InstantPurchase/view/frontend/web/js/view/instant-purchase.js

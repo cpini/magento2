@@ -14,7 +14,6 @@ use Magento\Framework\Api\Search\SearchCriteriaInterface;
  * Filter poll apply filters from search criteria
  *
  * @api
- * @since 100.0.2
  */
 class FilterPool
 {

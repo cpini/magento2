@@ -149,7 +149,7 @@ class DeploymentConfig
      */
     private function load()
     {
-        if (null === $this->data) {
+        if (empty($this->data)) {
             $this->data = $this->reader->load();
             if ($this->overrideData) {
                 $this->data = array_replace($this->data, $this->overrideData);
@@ -184,6 +184,7 @@ class DeploymentConfig
                 $newPath = $key;
             }
             if (isset($flattenResult[$newPath])) {
+                //phpcs:ignore Magento2.Exceptions.DirectThrow
                 throw new RuntimeException(new Phrase("Key collision '%1' is already defined.", [$newPath]));
             }
             $flattenResult[$newPath] = $param;

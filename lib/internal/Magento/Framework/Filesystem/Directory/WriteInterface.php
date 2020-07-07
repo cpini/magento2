@@ -8,7 +8,6 @@ namespace Magento\Framework\Filesystem\Directory;
 /**
  * Interface \Magento\Framework\Filesystem\Directory\WriteInterface
  * @api
- * @since 100.0.2
  */
 interface WriteInterface extends ReadInterface
 {

@@ -24,7 +24,6 @@ use Magento\Framework\DataObject\IdentityInterface;
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @SuppressWarnings(PHPMD.TooManyFields)
  * @SuppressWarnings(PHPMD.NumberOfChildren)
- * @since 100.0.2
  */
 abstract class AbstractBlock extends \Magento\Framework\DataObject implements BlockInterface
 {
@@ -177,7 +176,7 @@ abstract class AbstractBlock extends \Magento\Framework\DataObject implements Bl
 
     /**
      * @var \Magento\Framework\App\CacheInterface
-     * @since 101.0.0
+     * @since 100.2.0
      */
     protected $_cache;
 
@@ -906,12 +905,8 @@ abstract class AbstractBlock extends \Magento\Framework\DataObject implements Bl
      *
      * @param string $string
      * @return string
-<<<<<<< HEAD
-     * @since 101.0.0
-=======
      * @since 100.2.0
      * @deprecated Use $escaper directly in templates and in blocks.
->>>>>>> origin/2.4-develop
      */
     public function escapeJs($string)
     {
@@ -924,12 +919,8 @@ abstract class AbstractBlock extends \Magento\Framework\DataObject implements Bl
      * @param string $string
      * @param boolean $escapeSingleQuote
      * @return string
-<<<<<<< HEAD
-     * @since 101.0.0
-=======
      * @since 100.2.0
      * @deprecated Use $escaper directly in templates and in blocks.
->>>>>>> origin/2.4-develop
      */
     public function escapeHtmlAttr($string, $escapeSingleQuote = true)
     {
@@ -941,12 +932,8 @@ abstract class AbstractBlock extends \Magento\Framework\DataObject implements Bl
      *
      * @param string $string
      * @return string
-<<<<<<< HEAD
-     * @since 101.0.0
-=======
      * @since 100.2.0
      * @deprecated Use $escaper directly in templates and in blocks.
->>>>>>> origin/2.4-develop
      */
     public function escapeCss($string)
     {
@@ -986,7 +973,7 @@ abstract class AbstractBlock extends \Magento\Framework\DataObject implements Bl
      *
      * @param string $data
      * @return string
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      */
     public function escapeXssInUrl($data)
     {
@@ -1001,7 +988,7 @@ abstract class AbstractBlock extends \Magento\Framework\DataObject implements Bl
      * @param string $data
      * @param bool $addSlashes
      * @return string
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      */
     public function escapeQuote($data, $addSlashes = false)
     {
@@ -1015,7 +1002,7 @@ abstract class AbstractBlock extends \Magento\Framework\DataObject implements Bl
      * @param string $quote
      *
      * @return string|array
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      */
     public function escapeJsQuote($data, $quote = '\'')
     {

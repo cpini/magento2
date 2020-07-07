@@ -12,7 +12,6 @@ use Magento\Framework\Phrase\RendererInterface;
 
 /**
  * @api
- * @since 100.0.2
  */
 class Phrase implements \JsonSerializable
 {
@@ -102,7 +101,7 @@ class Phrase implements \JsonSerializable
     {
         try {
             return self::getRenderer()->render([$this->text], $this->getArguments());
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return $this->getText();
         }
     }
