@@ -124,6 +124,7 @@ class Reader
         }
         return $result ?: [];
     }
+<<<<<<< HEAD
 
     /**
      * Loads the configuration file.
@@ -141,4 +142,6 @@ class Reader
     {
         return $this->load($fileKey);
     }
+=======
+>>>>>>> origin/2.4-develop
 }

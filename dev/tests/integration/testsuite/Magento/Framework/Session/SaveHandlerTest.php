@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Framework\Session;
 
 use Magento\Framework\App\DeploymentConfig;
@@ -67,6 +68,7 @@ class SaveHandlerTest extends \PHPUnit\Framework\TestCase
                     [Config::PARAM_SESSION_SAVE_PATH, null, 'explicit_save_path'],
                 ]
             );
+<<<<<<< HEAD
 
         $redisHandlerMock = $this->getMockBuilder(SaveHandler\Redis::class)
             ->disableOriginalConstructor()
@@ -80,6 +82,21 @@ class SaveHandlerTest extends \PHPUnit\Framework\TestCase
             ->with('redis')
             ->willReturn($redisHandlerMock);
 
+=======
+
+        $redisHandlerMock = $this->getMockBuilder(SaveHandler\Redis::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $redisHandlerMock->method('open')
+            ->with('explicit_save_path', 'test_session_id')
+            ->willReturn(true);
+
+        $this->saveHandlerFactoryMock->expects($this->exactly(1))
+            ->method('create')
+            ->with('redis')
+            ->willReturn($redisHandlerMock);
+
+>>>>>>> origin/2.4-develop
         $sessionConfig = $this->objectManager->create(ConfigInterface::class);
         /** @var SaveHandler $saveHandler */
         $saveHandler = $this->objectManager->create(SaveHandler::class, ['sessionConfig' => $sessionConfig]);

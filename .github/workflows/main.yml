@@ -1,4 +1,8 @@
 # This is a basic workflow to help you get started with Actions
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/2.4-develop
 name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
@@ -9,6 +13,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+<<<<<<< HEAD
   # This workflow contains a single job called "unit-tests"
   unit-tests:
     # The type of runner that the job will run on
@@ -20,3 +25,30 @@ jobs:
     - name: Setup unit test container
       id: unit_test
       uses: ./.github/actions/unit-tests
+=======
+  # This workflow contains a single job called "build"
+  build:
+    defaults:
+      run:
+        shell: ash
+        working-directory: /var/www/html
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container:
+      image: php:7.3-fpm-alpine
+      options: --cpus 1
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    #- uses: docker://php:7.3-fpm-alpine
+
+    # Runs a single command using the runners shell
+    - name: General PHP Unit Test
+      run: cd ./dev/tests/unit && /usr/local/bin/php -d memory_limit=2G ./vendor/phpunit/phpunit/phpunit
+    #  working-directory: /var/www/html
+    # Runs a set of commands using the runners shell
+    #- name: Run a multi-line script
+    #  run: |
+    #    echo Add other actions to build,
+    #    echo test, and deploy your project.
+>>>>>>> origin/2.4-develop

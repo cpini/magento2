@@ -14,7 +14,11 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchVersionInterface;
 
 /**
+<<<<<<< HEAD
  * Class UpdateDefaultAttributeValue
+=======
+ * Updates 'is_anchor' attribute default value.
+>>>>>>> origin/2.4-develop
  */
 class UpdateDefaultAttributeValue implements DataPatchInterface, PatchVersionInterface
 {
@@ -53,6 +57,11 @@ class UpdateDefaultAttributeValue implements DataPatchInterface, PatchVersionInt
             'default_value',
             1
         );
+<<<<<<< HEAD
+=======
+
+        return $this;
+>>>>>>> origin/2.4-develop
     }
 
     /**

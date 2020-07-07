@@ -38,6 +38,18 @@ class Attribute extends \Magento\Eav\Model\Entity\Attribute implements
 
     const KEY_IS_GLOBAL = 'is_global';
 
+    private const ALLOWED_INPUT_TYPES = [
+        'boolean'     => true,
+        'date'        => true,
+        'datetime'    => true,
+        'multiselect' => true,
+        'price'       => true,
+        'select'      => true,
+        'text'        => true,
+        'textarea'    => true,
+        'weight'      => true,
+    ];
+
     /**
      * @var LockValidatorInterface
      */
@@ -384,7 +396,7 @@ class Attribute extends \Magento\Eav\Model\Entity\Attribute implements
     /**
      * Retrieve source model
      *
-     * @return \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
+     * @return \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource|string|null
      */
     public function getSourceModel()
     {
@@ -404,18 +416,7 @@ class Attribute extends \Magento\Eav\Model\Entity\Attribute implements
      */
     public function isAllowedForRuleCondition()
     {
-        $allowedInputTypes = [
-            'boolean',
-            'date',
-            'datetime',
-            'multiselect',
-            'price',
-            'select',
-            'text',
-            'textarea',
-            'weight',
-        ];
-        return $this->getIsVisible() && in_array($this->getFrontendInput(), $allowedInputTypes);
+        return $this->getIsVisible() && isset(self::ALLOWED_INPUT_TYPES[$this->getFrontendInput()]);
     }
 
     /**
