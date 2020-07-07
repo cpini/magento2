@@ -12,7 +12,6 @@ use Magento\Sales\Api\Data\OrderInterface;
  * Class ReturnProcessor
  *
  * @api
- * @since 100.0.0
  */
 class ReturnProcessor
 {
@@ -69,7 +68,6 @@ class ReturnProcessor
      * @param array $returnToStockItems
      * @param bool $isAutoReturn
      * @return void
-     * @since 100.0.0
      */
     public function execute(
         CreditmemoInterface $creditmemo,

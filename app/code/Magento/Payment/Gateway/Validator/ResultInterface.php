@@ -33,7 +33,6 @@ interface ResultInterface
      * Returns list of error codes.
      *
      * @return string[]
-     * @since 100.3.0
      */
     public function getErrorCodes();
 }

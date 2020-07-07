@@ -16,11 +16,7 @@ use Magento\CatalogInventory\Api\StockRegistryInterface;
 /**
  * Adds filter by stock status to base select
  *
-<<<<<<< HEAD
- * @deprecated 101.0.0
-=======
  * @deprecated MySQL search engine is not recommended.
->>>>>>> origin/2.4-develop
  * @see \Magento\ElasticSearch
  */
 class StockStatusFilter

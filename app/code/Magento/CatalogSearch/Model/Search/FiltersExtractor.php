@@ -12,13 +12,8 @@ use Magento\Framework\Search\Request\Filter\BoolExpression;
 /**
  * Extracts filters from QueryInterface
  *
-<<<<<<< HEAD
- * @deprecated 101.0.0
- * @see \Magento\ElasticSearch
-=======
  * @deprecated Use Magento\Elasticsearch implementation of QueryInterface
  * @see \Magento\Elasticsearch
->>>>>>> origin/2.4-develop
  */
 class FiltersExtractor
 {

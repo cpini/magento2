@@ -12,9 +12,9 @@ use Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\FieldT
  * Class FieldType
  *
  * @api
- * @since 100.2.2
+ * @since 100.1.0
  *
- * @deprecated 100.3.0 This class provide not full data about field type. Only basic rules apply on this class.
+ * @deprecated This class provide not full data about field type. Only basic rules apply on this class.
  * @see ResolverInterface
  */
 class FieldType
@@ -38,12 +38,12 @@ class FieldType
     /**
      * Get field type.
      *
-     * @deprecated 100.3.0
+     * @deprecated
      * @see ResolverInterface::getFieldType
      *
      * @param AbstractAttribute $attribute
      * @return string
-     * @since 100.2.2
+     * @since 100.1.0
      */
     public function getFieldType($attribute)
     {

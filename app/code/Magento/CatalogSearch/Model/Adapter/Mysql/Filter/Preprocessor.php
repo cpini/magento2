@@ -28,7 +28,7 @@ use Magento\Store\Model\Store;
  *
  * @SuppressWarnings(PHPMD.CookieAndSessionMisuse)
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class Preprocessor implements PreprocessorInterface

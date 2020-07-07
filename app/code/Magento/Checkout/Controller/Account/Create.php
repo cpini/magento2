@@ -10,7 +10,7 @@ use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\NoSuchEntityException;
 
 /**
- * @deprecated 100.2.5
+ * @deprecated
  * @see DelegateCreate
  */
 class Create extends \Magento\Framework\App\Action\Action

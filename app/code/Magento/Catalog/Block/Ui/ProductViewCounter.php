@@ -26,12 +26,8 @@ use Magento\Store\Model\StoreManager;
  * by customer on frontend and data to synchronize this tracks with backend
  *
  * @api
-<<<<<<< HEAD
- * @since 102.0.0
-=======
  * @since 101.1.0
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
->>>>>>> origin/2.4-develop
  */
 class ProductViewCounter extends Template
 {
@@ -126,7 +122,7 @@ class ProductViewCounter extends Template
      * requests and will be flushed with full page cache
      *
      * @return string {JSON encoded data}
-     * @since 102.0.0
+     * @since 101.1.0
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */

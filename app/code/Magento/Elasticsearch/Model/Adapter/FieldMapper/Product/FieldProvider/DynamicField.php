@@ -29,7 +29,7 @@ class DynamicField implements FieldProviderInterface
     /**
      * Category list.
      *
-     * @deprecated 100.3.2
+     * @deprecated
      * @var CategoryListInterface
      */
     private $categoryList;

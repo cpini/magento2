@@ -14,7 +14,6 @@ namespace Magento\AsynchronousOperations\Api\Data;
  * Indicate if entity param was Accepted|Rejected to bulk schedule
  *
  * @api
- * @since 100.2.3
  */
 interface ItemStatusInterface
 {
@@ -31,7 +30,6 @@ interface ItemStatusInterface
      * Get entity Id.
      *
      * @return int
-     * @since 100.2.3
      */
     public function getId();
 
@@ -40,7 +38,6 @@ interface ItemStatusInterface
      *
      * @param int $entityId
      * @return $this
-     * @since 100.2.3
      */
     public function setId($entityId);
 
@@ -48,7 +45,6 @@ interface ItemStatusInterface
      * Get hash of entity data.
      *
      * @return string md5 hash of entity params array.
-     * @since 100.2.3
      */
     public function getDataHash();
 
@@ -57,7 +53,6 @@ interface ItemStatusInterface
      *
      * @param string $hash md5 hash of entity params array.
      * @return $this
-     * @since 100.2.3
      */
     public function setDataHash($hash);
 
@@ -65,7 +60,6 @@ interface ItemStatusInterface
      * Get status.
      *
      * @return string accepted|rejected
-     * @since 100.2.3
      */
     public function getStatus();
 
@@ -74,7 +68,6 @@ interface ItemStatusInterface
      *
      * @param string $status accepted|rejected
      * @return $this
-     * @since 100.2.3
      */
     public function setStatus($status = self::STATUS_ACCEPTED);
 
@@ -82,7 +75,6 @@ interface ItemStatusInterface
      * Get error information.
      *
      * @return string|null
-     * @since 100.2.3
      */
     public function getErrorMessage();
 
@@ -91,7 +83,6 @@ interface ItemStatusInterface
      *
      * @param string|null|\Exception $error
      * @return $this
-     * @since 100.2.3
      */
     public function setErrorMessage($error = null);
 
@@ -99,7 +90,6 @@ interface ItemStatusInterface
      * Get error code.
      *
      * @return int|null
-     * @since 100.2.3
      */
     public function getErrorCode();
 
@@ -108,7 +98,6 @@ interface ItemStatusInterface
      *
      * @param int|null|\Exception $errorCode Default: null
      * @return $this
-     * @since 100.2.3
      */
     public function setErrorCode($errorCode = null);
 }

@@ -11,11 +11,7 @@ namespace Magento\Downloadable\Block\Adminhtml\Catalog\Product\Edit\Tab\Download
  * @author      Magento Core Team <core@magentocommerce.com>
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  *
-<<<<<<< HEAD
- * @deprecated 100.3.1
-=======
  * @deprecated in favor of new class which adds grid links
->>>>>>> origin/2.4-develop
  * @see \Magento\Downloadable\Ui\DataProvider\Product\Form\Modifier\Links
  */
 class Links extends \Magento\Backend\Block\Template
@@ -184,7 +180,7 @@ class Links extends \Magento\Backend\Block\Template
             \Magento\Backend\Block\Widget\Button::class
         )->setData(
             [
-                'label' => $this->escapeHtmlAttr(__('Add New Link')),
+                'label' => __('Add New Link'),
                 'id' => 'add_link_item',
                 'class' => 'action-add',
                 'data_attribute' => ['action' => 'add-link'],

@@ -13,7 +13,7 @@ use Magento\Framework\DB\Select;
 /**
  * This strategy handles static attributes
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class StaticAttributeStrategy implements FilterStrategyInterface

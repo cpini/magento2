@@ -237,13 +237,8 @@ class Address extends AbstractAddress implements
     protected $_addressTotalFactory;
 
     /**
-<<<<<<< HEAD
-     * @var \Magento\Quote\Model\Quote\Address\RateFactory
-     * @since 101.0.0
-=======
      * @var RateFactory
      * @since 100.2.0
->>>>>>> origin/2.4-develop
      */
     protected $_addressRateFactory;
 

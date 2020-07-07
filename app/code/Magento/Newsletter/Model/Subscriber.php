@@ -588,7 +588,6 @@ class Subscriber extends AbstractModel
      * Set date of last changed status
      *
      * @return $this
-     * @since 100.2.1
      */
     public function beforeSave()
     {

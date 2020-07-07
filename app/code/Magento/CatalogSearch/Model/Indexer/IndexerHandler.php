@@ -18,7 +18,7 @@ use Magento\Framework\Indexer\SaveHandler\Batch;
  *
  * @api
  * @since 100.0.2
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class IndexerHandler implements IndexerInterface

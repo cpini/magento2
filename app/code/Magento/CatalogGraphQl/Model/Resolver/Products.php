@@ -25,36 +25,11 @@ use Magento\CatalogGraphQl\DataProvider\Product\SearchCriteriaBuilder;
 class Products implements ResolverInterface
 {
     /**
-<<<<<<< HEAD
-     * @var Builder
-     * @deprecated 100.3.4
-     */
-    private $searchCriteriaBuilder;
-
-    /**
-     * @var Search
-=======
      * @var ProductQueryInterface
->>>>>>> origin/2.4-develop
      */
     private $searchQuery;
 
     /**
-<<<<<<< HEAD
-     * @var Filter
-     * @deprecated 100.3.4
-     */
-    private $filterQuery;
-
-    /**
-     * @var SearchFilter
-     * @deprecated 100.3.4
-     */
-    private $searchFilter;
-
-    /**
-=======
->>>>>>> origin/2.4-develop
      * @var SearchCriteriaBuilder
      */
     private $searchApiCriteriaBuilder;

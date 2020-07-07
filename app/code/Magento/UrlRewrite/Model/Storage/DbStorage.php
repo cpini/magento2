@@ -348,7 +348,7 @@ class DbStorage extends AbstractStorage
      *
      * @param      UrlRewrite[] $urls
      * @return     array
-     * @deprecated 101.0.3 Not used anymore.
+     * @deprecated Not used anymore.
      */
     protected function createFilterDataBasedOnUrls($urls): array
     {

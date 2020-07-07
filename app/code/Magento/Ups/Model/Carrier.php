@@ -1565,13 +1565,8 @@ XMLAuth;
      * Send and process shipment accept request
      *
      * @param Element $shipmentConfirmResponse
-<<<<<<< HEAD
-     * @return \Magento\Framework\DataObject
-     * @deprecated 100.3.3 New asynchronous methods introduced.
-=======
      * @return DataObject
      * @deprecated New asynchronous methods introduced.
->>>>>>> origin/2.4-develop
      * @see requestToShipment
      */
     protected function _sendShipmentAcceptRequest(Element $shipmentConfirmResponse)
@@ -1757,7 +1752,7 @@ XMLAuth;
      *
      * @param DataObject $request
      * @return DataObject
-     * @deprecated 100.3.3 New asynchronous methods introduced.
+     * @deprecated New asynchronous methods introduced.
      * @see requestToShipment
      */
     protected function _doShipmentRequest(DataObject $request)

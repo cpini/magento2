@@ -120,7 +120,7 @@ class Dashboard extends Template
      * Retrieve the Url for customer orders.
      *
      * @return string
-     * @deprecated 102.0.3 Action does not exist
+     * @deprecated Action does not exist
      */
     public function getOrdersUrl()
     {

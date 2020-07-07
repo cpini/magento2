@@ -10,7 +10,6 @@ namespace Magento\Search\Model\Search;
 /**
  * Returns max  page size by search engine name
  * @api
- * @since 101.0.0
  */
 class PageSizeProvider
 {
@@ -40,7 +39,6 @@ class PageSizeProvider
      * Returns max_page_size depends on engine
      *
      * @return integer
-     * @since 101.0.0
      */
     public function getMaxPageSize() : int
     {

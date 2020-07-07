@@ -16,7 +16,7 @@ class Messages extends \Magento\Backend\Block\Template
 
     /**
      * @var \Magento\Framework\Json\Helper\Data
-     * @deprecated 100.3.0
+     * @deprecated
      */
     protected $jsonHelper;
 

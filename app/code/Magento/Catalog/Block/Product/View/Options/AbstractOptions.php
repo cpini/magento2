@@ -119,7 +119,6 @@ abstract class AbstractOptions extends \Magento\Framework\View\Element\Template
      * Retrieve formatted price
      *
      * @return string
-     * @since 102.0.6
      */
     public function getFormattedPrice()
     {
@@ -139,7 +138,7 @@ abstract class AbstractOptions extends \Magento\Framework\View\Element\Template
      *
      * @return string
      *
-     * @deprecated 102.0.6
+     * @deprecated
      * @see getFormattedPrice()
      */
     public function getFormatedPrice()

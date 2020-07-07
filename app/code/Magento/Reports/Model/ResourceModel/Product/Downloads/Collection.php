@@ -100,7 +100,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
 
     /**
      * @inheritDoc
-     * @since 100.3.2
      */
     public function getSelectCountSql()
     {

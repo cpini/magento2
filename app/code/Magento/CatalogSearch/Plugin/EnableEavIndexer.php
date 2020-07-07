@@ -10,7 +10,7 @@ namespace Magento\CatalogSearch\Plugin;
 /**
  * Enable Product EAV indexer in configuration for MySQL search engine
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class EnableEavIndexer

@@ -84,13 +84,8 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
                                     <?php if ($_product->isSaleable()) :?>
                                         <?php $postParams = $block->getAddToCartPostParams($_product); ?>
                                         <form data-role="tocart-form"
-<<<<<<< HEAD
-                                              data-product-sku="<?= $block->escapeHtmlAttr($_product->getSku()) ?>"
-                                              action="<?= $block->escapeUrl($postParams['action']) ?>"
-=======
                                               data-product-sku="<?= $escaper->escapeHtml($_product->getSku()) ?>"
                                               action="<?= $escaper->escapeUrl($postParams['action']) ?>"
->>>>>>> origin/2.4-develop
                                               method="post">
                                             <input type="hidden"
                                                    name="product"

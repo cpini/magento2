@@ -33,7 +33,6 @@ abstract class AbstractType
      * Maintain a list of invisible attributes
      *
      * @var array
-     * @since 100.2.5
      */
     public static $invAttributesCache = [];
 

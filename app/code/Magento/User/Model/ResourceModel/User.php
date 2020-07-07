@@ -254,15 +254,11 @@ class User extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function delete(\Magento\Framework\Model\AbstractModel $user)
     {
-<<<<<<< HEAD
-        $user->beforeDelete();
-=======
         $uid = $user->getId();
         if (!$uid) {
             return false;
         }
 
->>>>>>> origin/2.4-develop
         $this->_beforeDelete($user);
         $connection = $this->getConnection();
         $connection->beginTransaction();
@@ -277,13 +273,8 @@ class User extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 
             return false;
         }
-<<<<<<< HEAD
-        $user->afterDelete();
-=======
 
->>>>>>> origin/2.4-develop
         $connection->commit();
-        $user->afterDeleteCommit();
         $this->_afterDelete($user);
 
         return true;

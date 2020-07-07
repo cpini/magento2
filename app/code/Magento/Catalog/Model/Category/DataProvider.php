@@ -238,7 +238,7 @@ class DataProvider extends ModifierPoolDataProvider
 
     /**
      * @inheritdoc
-     * @since 102.0.0
+     * @since 101.1.0
      */
     public function getMeta()
     {
@@ -487,7 +487,7 @@ class DataProvider extends ModifierPoolDataProvider
      * @param Category $category
      * @param array $categoryData
      * @return array
-     * @deprecated 102.0.0
+     * @deprecated 101.1.0
      * @since 101.0.0
      */
     protected function addUseDefaultSettings($category, $categoryData)
@@ -703,56 +703,4 @@ class DataProvider extends ModifierPoolDataProvider
         $fieldsMap = $this->getFieldsMap();
         return $this->arrayUtils->flatten($fieldsMap);
     }
-<<<<<<< HEAD
-
-    /**
-     * Retrieve scope overridden value
-     *
-     * @return ScopeOverriddenValue
-     * @deprecated 102.0.0
-     */
-    private function getScopeOverriddenValue(): ScopeOverriddenValue
-    {
-        if (null === $this->scopeOverriddenValue) {
-            $this->scopeOverriddenValue = \Magento\Framework\App\ObjectManager::getInstance()->get(
-                ScopeOverriddenValue::class
-            );
-        }
-
-        return $this->scopeOverriddenValue;
-    }
-
-    /**
-     * Retrieve array manager
-     *
-     * @return ArrayManager
-     * @deprecated 102.0.0
-     */
-    private function getArrayManager(): ArrayManager
-    {
-        if (null === $this->arrayManager) {
-            $this->arrayManager = \Magento\Framework\App\ObjectManager::getInstance()->get(
-                ArrayManager::class
-            );
-        }
-
-        return $this->arrayManager;
-    }
-
-    /**
-     * Get FileInfo instance
-     *
-     * @return FileInfo
-     *
-     * @deprecated 102.0.0
-     */
-    private function getFileInfo(): FileInfo
-    {
-        if ($this->fileInfo === null) {
-            $this->fileInfo = ObjectManager::getInstance()->get(FileInfo::class);
-        }
-        return $this->fileInfo;
-    }
-=======
->>>>>>> origin/2.4-develop
 }

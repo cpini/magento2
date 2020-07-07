@@ -17,7 +17,6 @@ use Magento\Catalog\Api\Data\ProductOptionExtensionFactory;
  * Adds product option to the order item according to product options processors pool.
  *
  * @api
- * @since 102.0.1
  */
 class ProductOption
 {
@@ -55,7 +54,6 @@ class ProductOption
      * Adds product option to the order item.
      *
      * @param OrderItemInterface $orderItem
-     * @since 102.0.1
      */
     public function add(OrderItemInterface $orderItem): void
     {

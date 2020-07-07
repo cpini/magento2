@@ -438,7 +438,7 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
     /**
      * Retrieve success message
      *
-     * @deprecated 102.0.4
+     * @deprecated
      * @see getMessageManagerSuccessMessage()
      * @return string
      */

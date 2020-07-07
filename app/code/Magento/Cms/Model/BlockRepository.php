@@ -196,7 +196,7 @@ class BlockRepository implements BlockRepositoryInterface
     /**
      * Retrieve collection processor
      *
-     * @deprecated 102.0.0
+     * @deprecated 101.1.0
      * @return CollectionProcessorInterface
      */
     private function getCollectionProcessor()

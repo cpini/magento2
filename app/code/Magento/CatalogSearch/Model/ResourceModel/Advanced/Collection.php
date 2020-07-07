@@ -59,7 +59,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
 
     /**
      * @var \Magento\Framework\Search\Adapter\Mysql\TemporaryStorageFactory
-     * @deprecated 101.0.0 There must be no dependencies on specific adapter in generic search implementation
+     * @deprecated There must be no dependencies on specific adapter in generic search implementation
      */
     private $temporaryStorageFactory;
 
@@ -250,7 +250,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
 
     /**
      * @inheritdoc
-     * @since 101.0.2
      */
     public function setOrder($attribute, $dir = Select::SQL_DESC)
     {
@@ -268,7 +267,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
 
     /**
      * @inheritdoc
-     * @since 101.0.2
      */
     public function addCategoryFilter(\Magento\Catalog\Model\Category $category)
     {
@@ -288,7 +286,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
 
     /**
      * @inheritdoc
-     * @since 101.0.2
      */
     public function setVisibility($visibility)
     {
@@ -355,7 +352,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
 
     /**
      * @inheritDoc
-     * @since 101.0.4
      */
     public function clear()
     {
@@ -365,7 +361,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
 
     /**
      * @inheritDoc
-     * @since 101.0.4
      */
     protected function _reset()
     {
@@ -375,7 +370,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
 
     /**
      * @inheritdoc
-     * @since 101.0.4
      */
     public function _loadEntities($printQuery = false, $logQuery = false)
     {

@@ -400,7 +400,7 @@ class Helper
      * Get link resolver instance
      *
      * @return LinkResolver
-     * @deprecated 102.0.0
+     * @deprecated 101.0.0
      */
     private function getLinkResolver()
     {
@@ -412,25 +412,6 @@ class Helper
     }
 
     /**
-<<<<<<< HEAD
-     * Get DateTimeFilter instance
-     *
-     * @return \Magento\Framework\Stdlib\DateTime\Filter\DateTime
-     * @deprecated 102.0.0
-     */
-    private function getDateTimeFilter()
-    {
-        if ($this->dateTimeFilter === null) {
-            $this->dateTimeFilter = ObjectManager::getInstance()
-                ->get(\Magento\Framework\Stdlib\DateTime\Filter\DateTime::class);
-        }
-
-        return $this->dateTimeFilter;
-    }
-
-    /**
-=======
->>>>>>> origin/2.4-develop
      * Remove ids of non selected websites from $websiteIds array and return filtered data
      *
      * $websiteIds parameter expects array with website ids as keys and 1 (selected) or 0 (non selected) as values

@@ -12,7 +12,7 @@ use Magento\Catalog\Model\Product;
 /**
  * Checks if FilterInterface is by custom attribute
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class CustomAttributeFilterCheck

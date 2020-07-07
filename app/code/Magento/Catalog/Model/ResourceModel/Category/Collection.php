@@ -463,7 +463,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      * Add navigation max depth filter
      *
      * @return $this
-     * @since 103.0.0
      */
     public function addNavigationMaxDepthFilter()
     {

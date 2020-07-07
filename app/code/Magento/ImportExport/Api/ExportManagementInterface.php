@@ -12,7 +12,6 @@ use Magento\ImportExport\Api\Data\ExportInfoInterface;
 /**
  * Describes how to do export operation with data interface.
  * @api
- * @since 100.3.2
  */
 interface ExportManagementInterface
 {
@@ -21,7 +20,6 @@ interface ExportManagementInterface
      *
      * @param ExportInfoInterface $exportInfo
      * @return string
-     * @since 100.3.2
      */
     public function export(ExportInfoInterface $exportInfo);
 }

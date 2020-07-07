@@ -11,7 +11,6 @@ use Magento\Captcha\Block\Captcha;
  * Block with apply-coupon form.
  *
  * @api
- * @since 100.0.2
  */
 class Coupon extends \Magento\Checkout\Block\Cart\AbstractCart
 {
@@ -45,7 +44,6 @@ class Coupon extends \Magento\Checkout\Block\Cart\AbstractCart
 
     /**
      * @inheritDoc
-     * @since 100.3.2
      */
     protected function _prepareLayout()
     {

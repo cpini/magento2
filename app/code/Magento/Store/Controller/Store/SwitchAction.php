@@ -36,7 +36,7 @@ class SwitchAction extends Action implements HttpGetActionInterface, HttpPostAct
 
     /**
      * @var HttpContext
-     * @deprecated 100.2.5
+     * @deprecated
      */
     protected $httpContext;
 
@@ -47,7 +47,7 @@ class SwitchAction extends Action implements HttpGetActionInterface, HttpPostAct
 
     /**
      * @var StoreManagerInterface
-     * @deprecated 100.2.5
+     * @deprecated
      */
     protected $storeManager;
 

@@ -10,11 +10,7 @@ namespace Magento\Downloadable\Block\Adminhtml\Catalog\Product\Edit\Tab\Download
  *
  * @author      Magento Core Team <core@magentocommerce.com>
  *
-<<<<<<< HEAD
- * @deprecated 100.3.1
-=======
  * @deprecated because of new class which adds grids samples
->>>>>>> origin/2.4-develop
  * @see \Magento\Downloadable\Ui\DataProvider\Product\Form\Modifier\Samples
  */
 class Samples extends \Magento\Backend\Block\Widget

@@ -12,7 +12,7 @@ use Magento\Framework\Search\Request\IndexScopeResolverInterface;
 /**
  * Provides a functionality to replace main index with its temporary representation
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class IndexSwitcher implements IndexSwitcherInterface

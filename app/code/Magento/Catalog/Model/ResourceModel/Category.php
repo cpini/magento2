@@ -284,9 +284,6 @@ class Category extends AbstractResource
         $object->setAttributeSetId(
             $object->getAttributeSetId() ?: $this->getEntityType()->getDefaultAttributeSetId()
         );
-
-        $this->castPathIdsToInt($object);
-
         if ($object->isObjectNew()) {
             if ($object->getPosition() === null) {
                 $object->setPosition($this->_getMaxPosition($object->getPath()) + 1);
@@ -1192,26 +1189,5 @@ class Category extends AbstractResource
             )->order('path');
 
         return $connection->fetchAll($select);
-    }
-
-    /**
-     * Cast category path ids to int.
-     *
-     * @param DataObject $object
-     * @return void
-     */
-    private function castPathIdsToInt(DataObject $object): void
-    {
-        if (is_string($object->getPath())) {
-            $pathIds = explode('/', $object->getPath());
-
-            array_walk(
-                $pathIds,
-                function (&$pathId) {
-                    $pathId = (int)$pathId;
-                }
-            );
-            $object->setPath(implode('/', $pathIds));
-        }
     }
 }

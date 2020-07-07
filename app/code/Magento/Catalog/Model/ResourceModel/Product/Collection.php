@@ -731,7 +731,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      * Add Store ID to products from collection.
      *
      * @return $this
-     * @since 102.0.8
      */
     protected function prepareStoreId()
     {
@@ -2208,7 +2207,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      *
      * @param int $customerGroupId
      * @return $this
-     * @since 102.0.0
+     * @since 101.1.0
      */
     public function addTierPriceDataByGroupId($customerGroupId)
     {
@@ -2388,7 +2387,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
      * Get product entity metadata
      *
      * @return \Magento\Framework\EntityManager\EntityMetadataInterface
-     * @since 102.0.0
+     * @since 101.1.0
      */
     public function getProductEntityMetadata()
     {

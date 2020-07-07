@@ -280,7 +280,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * Get send order currency to Google Adwords
      *
      * @return boolean
-     * @since 100.3.0
      */
     public function hasSendConversionValueCurrency()
     {
@@ -294,7 +293,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * Get Google AdWords conversion value currency
      *
      * @return string|false
-     * @since 100.3.0
      */
     public function getConversionValueCurrency()
     {

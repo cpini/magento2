@@ -11,7 +11,6 @@ use Magento\Framework\View\Element\Template;
  * Displays buttons on shopping cart page
  *
  * @api
- * @since 100.0.2
  */
 class QuoteShortcutButtons extends \Magento\Catalog\Block\ShortcutButtons
 {

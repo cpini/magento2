@@ -12,7 +12,7 @@ use Magento\Framework\Search\Request\FilterInterface;
 /**
  * This class is a container for all data that is required for creating select query by search request
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class SelectContainer

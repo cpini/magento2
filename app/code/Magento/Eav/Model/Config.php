@@ -507,12 +507,12 @@ class Config
     /**
      * Get attributes by entity type
      *
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      * @see \Magento\Eav\Model\Config::getEntityAttributes
      *
      * @param string $entityType
      * @return AbstractAttribute[]
-     * @since 101.0.0
+     * @since 100.2.0
      */
     public function getAttributes($entityType)
     {
@@ -722,7 +722,7 @@ class Config
     /**
      * Get codes of all entity type attributes
      *
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      * @see \Magento\Eav\Model\Config::getEntityAttributes
      *
      * @param mixed $entityType
@@ -743,7 +743,7 @@ class Config
      *
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
-     * @since 101.0.0
+     * @since 100.2.0
      */
     public function getEntityAttributes($entityType, $object = null)
     {

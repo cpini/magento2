@@ -20,28 +20,7 @@ use Magento\CatalogGraphQl\Model\Resolver\Products\Query\ProductQueryInterface;
 class Products implements ResolverInterface
 {
     /**
-<<<<<<< HEAD
-     * @var \Magento\Catalog\Api\ProductRepositoryInterface
-     */
-    private $productRepository;
-
-    /**
-     * @var Builder
-     * @deprecated 100.3.4
-     */
-    private $searchCriteriaBuilder;
-
-    /**
-     * @var Filter
-     * @deprecated 100.3.4
-     */
-    private $filterQuery;
-
-    /**
-     * @var Search
-=======
      * @var ProductQueryInterface
->>>>>>> origin/2.4-develop
      */
     private $searchQuery;
 

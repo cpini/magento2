@@ -11,7 +11,6 @@ use Magento\Store\Model\ScopeInterface;
  * Cart sidebar block
  *
  * @api
- * @since 100.0.2
  */
 class Sidebar extends AbstractCart
 {

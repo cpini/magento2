@@ -87,7 +87,6 @@ abstract class Index extends Action
 
     /**
      * @inheritDoc
-     * @since 100.2.6
      */
     public function dispatch(\Magento\Framework\App\RequestInterface $request)
     {

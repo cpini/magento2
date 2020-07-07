@@ -109,7 +109,6 @@ class Websites extends \Magento\Ui\Component\Listing\Columns\Column
      * Apply sorting.
      *
      * @return void
-     * @since 103.0.2
      */
     protected function applySorting()
     {

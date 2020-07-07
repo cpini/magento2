@@ -22,7 +22,7 @@ use Magento\Store\Model\Store;
 /**
  * Build select for attribute.
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class SelectBuilderForAttribute

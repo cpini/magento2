@@ -92,17 +92,10 @@ class SearchResultApplier implements SearchResultApplierInterface
             $maxAllowedPageNumber = ceil($itemsCount/$size);
             if ($currentPage < 1) {
                 $currentPage = 1;
-<<<<<<< HEAD
             }
             if ($currentPage > $maxAllowedPageNumber) {
                 $currentPage = $maxAllowedPageNumber;
             }
-=======
-            }
-            if ($currentPage > $maxAllowedPageNumber) {
-                $currentPage = $maxAllowedPageNumber;
-            }
->>>>>>> origin/2.4-develop
 
             $offset = $this->getOffset($currentPage, $size);
             $items = array_slice($items, $offset, $size);

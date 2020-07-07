@@ -225,10 +225,10 @@ abstract class AbstractElement implements StructureElementInterface
      * Get instance of ElementVisibilityInterface.
      *
      * @return ElementVisibilityInterface
-     * @deprecated 101.0.0 Added to not break backward compatibility of the constructor signature
+     * @deprecated 100.2.0 Added to not break backward compatibility of the constructor signature
      *             by injecting the new dependency directly.
      *             The method can be removed in a future major release, when constructor signature can be changed.
-     * @since 101.0.0
+     * @since 100.2.0
      */
     public function getElementVisibility()
     {

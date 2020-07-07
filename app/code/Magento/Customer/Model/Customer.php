@@ -802,7 +802,7 @@ class Customer extends \Magento\Framework\Model\AbstractModel
      * Check if accounts confirmation is required in config
      *
      * @return bool
-     * @deprecated 101.0.4
+     * @deprecated
      * @see AccountConfirmation::isConfirmationRequired
      */
     public function isConfirmationRequired()
@@ -982,7 +982,6 @@ class Customer extends \Magento\Framework\Model\AbstractModel
      * Retrieve attribute set id for customer.
      *
      * @return int
-     * @since 102.0.1
      */
     public function getAttributeSetId()
     {
@@ -1182,7 +1181,7 @@ class Customer extends \Magento\Framework\Model\AbstractModel
      * Check whether confirmation may be skipped when registering using certain email address
      *
      * @return bool
-     * @deprecated 101.0.4
+     * @deprecated
      * @see AccountConfirmation::isConfirmationRequired
      */
     protected function canSkipConfirmation()

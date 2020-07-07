@@ -119,12 +119,12 @@ class User extends AbstractModel implements StorageInterface, UserInterface
     protected $_encryptor;
 
     /**
-     * @deprecated 101.1.0
+     * @deprecated
      */
     protected $_transportBuilder;
 
     /**
-     * @deprecated 101.1.0
+     * @deprecated
      */
     protected $_storeManager;
 
@@ -144,7 +144,7 @@ class User extends AbstractModel implements StorageInterface, UserInterface
     private $notificator;
 
     /**
-     * @deprecated 101.1.0
+     * @deprecated
      */
     private $deploymentConfig;
 
@@ -450,7 +450,7 @@ class User extends AbstractModel implements StorageInterface, UserInterface
      *
      * @return $this
      * @throws NotificationExceptionInterface
-     * @deprecated 101.1.0
+     * @deprecated
      * @see NotificatorInterface::sendForgotPassword()
      */
     public function sendPasswordResetConfirmationEmail()
@@ -528,7 +528,7 @@ class User extends AbstractModel implements StorageInterface, UserInterface
      * @throws NotificationExceptionInterface
      * @return $this
      * @since 100.1.0
-     * @deprecated 101.1.0
+     * @deprecated
      * @see NotificatorInterface::sendUpdated()
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */

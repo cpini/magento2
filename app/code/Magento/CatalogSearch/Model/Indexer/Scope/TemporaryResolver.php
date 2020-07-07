@@ -12,7 +12,7 @@ use Magento\Framework\Search\Request\Dimension;
 /**
  * Resolves name of a temporary table for indexation
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 class TemporaryResolver implements \Magento\Framework\Search\Request\IndexScopeResolverInterface

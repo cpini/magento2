@@ -15,7 +15,6 @@ use Magento\Framework\Exception\NoSuchEntityException;
  * Customer address grid
  *
  * @api
- * @since 102.0.1
  */
 class Grid extends \Magento\Framework\View\Element\Template
 {
@@ -65,7 +64,6 @@ class Grid extends \Magento\Framework\View\Element\Template
      *
      * @return void
      * @throws \Magento\Framework\Exception\LocalizedException
-     * @since 102.0.1
      */
     protected function _prepareLayout(): void
     {
@@ -77,7 +75,6 @@ class Grid extends \Magento\Framework\View\Element\Template
      * Generate and return "New Address" URL
      *
      * @return string
-     * @since 102.0.1
      */
     public function getAddAddressUrl(): string
     {
@@ -88,7 +85,6 @@ class Grid extends \Magento\Framework\View\Element\Template
      * Generate and return "Delete" URL
      *
      * @return string
-     * @since 102.0.1
      */
     public function getDeleteUrl(): string
     {
@@ -102,7 +98,6 @@ class Grid extends \Magento\Framework\View\Element\Template
      *
      * @param int $addressId
      * @return string
-     * @since 102.0.1
      */
     public function getAddressEditUrl($addressId): string
     {
@@ -117,7 +112,6 @@ class Grid extends \Magento\Framework\View\Element\Template
      * @return \Magento\Customer\Api\Data\AddressInterface[]
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws NoSuchEntityException
-     * @since 102.0.1
      */
     public function getAdditionalAddresses(): array
     {
@@ -138,7 +132,6 @@ class Grid extends \Magento\Framework\View\Element\Template
      * Return stored customer or get it from session
      *
      * @return \Magento\Customer\Api\Data\CustomerInterface
-     * @since 102.0.1
      */
     public function getCustomer(): \Magento\Customer\Api\Data\CustomerInterface
     {
@@ -155,7 +148,6 @@ class Grid extends \Magento\Framework\View\Element\Template
      *
      * @param \Magento\Customer\Api\Data\AddressInterface $address
      * @return string
-     * @since 102.0.1
      */
     public function getStreetAddress(\Magento\Customer\Api\Data\AddressInterface $address): string
     {
@@ -173,7 +165,6 @@ class Grid extends \Magento\Framework\View\Element\Template
      *
      * @param string $countryCode
      * @return string
-     * @since 102.0.1
      */
     public function getCountryByCode(string $countryCode): string
     {

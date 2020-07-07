@@ -10,7 +10,7 @@ use Magento\CatalogSearch\Model\Search\SelectContainer\SelectContainer;
 /**
  * This interface represents strategy that will be used to create base select for search request
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
  */
 interface BaseSelectStrategyInterface
