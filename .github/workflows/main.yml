@@ -13,14 +13,16 @@ jobs:
   unit-tests:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container:
-      image: '../docker/Dockerfile'
-      volumes:
-        - $GITHUB_WORKSPACE:/var/www/html
     name: QA run
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Execute script
+    - name: Setup unit test container
+      id: unit_test
+      uses: ./.github/actions/unit-tests
+    - name: Run composer install
+      run: |
+        composer install
+    - name: Run unit tests
       run: |
         vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist
