@@ -26,19 +26,19 @@ class SaveHandlerTest extends \PHPUnit\Framework\TestCase
     private $objectManager;
 
     /**
-     * @var DeploymentConfig|\PHPUnit_Framework_MockObject_MockObject
+     * @var DeploymentConfig|\PHPUnit\Framework\MockObject\MockObject
      */
     private $deploymentConfigMock;
 
     /**
-     * @var SaveHandlerFactory|\PHPUnit_Framework_MockObject_MockObject
+     * @var SaveHandlerFactory|\PHPUnit\Framework\MockObject\MockObject
      */
     private $saveHandlerFactoryMock;
 
     /**
      * @inheritdoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->objectManager = Bootstrap::getObjectManager();
         $this->deploymentConfigMock = $this->createMock(DeploymentConfig::class);
@@ -50,7 +50,7 @@ class SaveHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * @inheritdoc
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->objectManager->removeSharedInstance(DeploymentConfig::class);
         $this->objectManager->removeSharedInstance(SaveHandlerFactory::class);
@@ -68,7 +68,6 @@ class SaveHandlerTest extends \PHPUnit\Framework\TestCase
                     [Config::PARAM_SESSION_SAVE_PATH, null, 'explicit_save_path'],
                 ]
             );
-<<<<<<< HEAD
 
         $redisHandlerMock = $this->getMockBuilder(SaveHandler\Redis::class)
             ->disableOriginalConstructor()
@@ -82,21 +81,6 @@ class SaveHandlerTest extends \PHPUnit\Framework\TestCase
             ->with('redis')
             ->willReturn($redisHandlerMock);
 
-=======
-
-        $redisHandlerMock = $this->getMockBuilder(SaveHandler\Redis::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $redisHandlerMock->method('open')
-            ->with('explicit_save_path', 'test_session_id')
-            ->willReturn(true);
-
-        $this->saveHandlerFactoryMock->expects($this->exactly(1))
-            ->method('create')
-            ->with('redis')
-            ->willReturn($redisHandlerMock);
-
->>>>>>> origin/2.4-develop
         $sessionConfig = $this->objectManager->create(ConfigInterface::class);
         /** @var SaveHandler $saveHandler */
         $saveHandler = $this->objectManager->create(SaveHandler::class, ['sessionConfig' => $sessionConfig]);

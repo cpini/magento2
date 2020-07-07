@@ -20,11 +20,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function readAllWebsites()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'readAllWebsites');
-        if (!$pluginInfo) {
-            return parent::readAllWebsites();
-        } else {
-            return $this->___callPlugins('readAllWebsites', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('readAllWebsites', func_get_args(), $pluginInfo) : parent::readAllWebsites();
     }
 
     /**
@@ -33,11 +29,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function getDefaultStoresSelect($includeDefault = false)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getDefaultStoresSelect');
-        if (!$pluginInfo) {
-            return parent::getDefaultStoresSelect($includeDefault);
-        } else {
-            return $this->___callPlugins('getDefaultStoresSelect', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getDefaultStoresSelect', func_get_args(), $pluginInfo) : parent::getDefaultStoresSelect($includeDefault);
     }
 
     /**
@@ -46,11 +38,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function countAll($includeDefault = false)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'countAll');
-        if (!$pluginInfo) {
-            return parent::countAll($includeDefault);
-        } else {
-            return $this->___callPlugins('countAll', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('countAll', func_get_args(), $pluginInfo) : parent::countAll($includeDefault);
     }
 
     /**
@@ -59,11 +47,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function getIdFieldName()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getIdFieldName');
-        if (!$pluginInfo) {
-            return parent::getIdFieldName();
-        } else {
-            return $this->___callPlugins('getIdFieldName', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getIdFieldName', func_get_args(), $pluginInfo) : parent::getIdFieldName();
     }
 
     /**
@@ -72,11 +56,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function getMainTable()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getMainTable');
-        if (!$pluginInfo) {
-            return parent::getMainTable();
-        } else {
-            return $this->___callPlugins('getMainTable', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getMainTable', func_get_args(), $pluginInfo) : parent::getMainTable();
     }
 
     /**
@@ -85,11 +65,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function getTable($tableName)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getTable');
-        if (!$pluginInfo) {
-            return parent::getTable($tableName);
-        } else {
-            return $this->___callPlugins('getTable', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getTable', func_get_args(), $pluginInfo) : parent::getTable($tableName);
     }
 
     /**
@@ -98,11 +74,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function getConnection()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getConnection');
-        if (!$pluginInfo) {
-            return parent::getConnection();
-        } else {
-            return $this->___callPlugins('getConnection', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getConnection', func_get_args(), $pluginInfo) : parent::getConnection();
     }
 
     /**
@@ -111,11 +83,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function load(\Magento\Framework\Model\AbstractModel $object, $value, $field = null)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'load');
-        if (!$pluginInfo) {
-            return parent::load($object, $value, $field);
-        } else {
-            return $this->___callPlugins('load', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('load', func_get_args(), $pluginInfo) : parent::load($object, $value, $field);
     }
 
     /**
@@ -124,11 +92,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function save(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
-        if (!$pluginInfo) {
-            return parent::save($object);
-        } else {
-            return $this->___callPlugins('save', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($object);
     }
 
     /**
@@ -137,11 +101,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function delete(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        if (!$pluginInfo) {
-            return parent::delete($object);
-        } else {
-            return $this->___callPlugins('delete', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($object);
     }
 
     /**
@@ -150,11 +110,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function addUniqueField($field)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'addUniqueField');
-        if (!$pluginInfo) {
-            return parent::addUniqueField($field);
-        } else {
-            return $this->___callPlugins('addUniqueField', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('addUniqueField', func_get_args(), $pluginInfo) : parent::addUniqueField($field);
     }
 
     /**
@@ -163,11 +119,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function resetUniqueField()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'resetUniqueField');
-        if (!$pluginInfo) {
-            return parent::resetUniqueField();
-        } else {
-            return $this->___callPlugins('resetUniqueField', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('resetUniqueField', func_get_args(), $pluginInfo) : parent::resetUniqueField();
     }
 
     /**
@@ -176,11 +128,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function unserializeFields(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'unserializeFields');
-        if (!$pluginInfo) {
-            return parent::unserializeFields($object);
-        } else {
-            return $this->___callPlugins('unserializeFields', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('unserializeFields', func_get_args(), $pluginInfo) : parent::unserializeFields($object);
     }
 
     /**
@@ -189,11 +137,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function getUniqueFields()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getUniqueFields');
-        if (!$pluginInfo) {
-            return parent::getUniqueFields();
-        } else {
-            return $this->___callPlugins('getUniqueFields', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getUniqueFields', func_get_args(), $pluginInfo) : parent::getUniqueFields();
     }
 
     /**
@@ -202,11 +146,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function hasDataChanged($object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'hasDataChanged');
-        if (!$pluginInfo) {
-            return parent::hasDataChanged($object);
-        } else {
-            return $this->___callPlugins('hasDataChanged', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('hasDataChanged', func_get_args(), $pluginInfo) : parent::hasDataChanged($object);
     }
 
     /**
@@ -215,11 +155,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function getChecksum($table)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getChecksum');
-        if (!$pluginInfo) {
-            return parent::getChecksum($table);
-        } else {
-            return $this->___callPlugins('getChecksum', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getChecksum', func_get_args(), $pluginInfo) : parent::getChecksum($table);
     }
 
     /**
@@ -228,11 +164,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function afterLoad(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'afterLoad');
-        if (!$pluginInfo) {
-            return parent::afterLoad($object);
-        } else {
-            return $this->___callPlugins('afterLoad', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('afterLoad', func_get_args(), $pluginInfo) : parent::afterLoad($object);
     }
 
     /**
@@ -241,11 +173,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function beforeSave(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'beforeSave');
-        if (!$pluginInfo) {
-            return parent::beforeSave($object);
-        } else {
-            return $this->___callPlugins('beforeSave', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('beforeSave', func_get_args(), $pluginInfo) : parent::beforeSave($object);
     }
 
     /**
@@ -254,11 +182,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function afterSave(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'afterSave');
-        if (!$pluginInfo) {
-            return parent::afterSave($object);
-        } else {
-            return $this->___callPlugins('afterSave', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('afterSave', func_get_args(), $pluginInfo) : parent::afterSave($object);
     }
 
     /**
@@ -267,11 +191,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function beforeDelete(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'beforeDelete');
-        if (!$pluginInfo) {
-            return parent::beforeDelete($object);
-        } else {
-            return $this->___callPlugins('beforeDelete', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('beforeDelete', func_get_args(), $pluginInfo) : parent::beforeDelete($object);
     }
 
     /**
@@ -280,11 +200,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function afterDelete(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'afterDelete');
-        if (!$pluginInfo) {
-            return parent::afterDelete($object);
-        } else {
-            return $this->___callPlugins('afterDelete', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('afterDelete', func_get_args(), $pluginInfo) : parent::afterDelete($object);
     }
 
     /**
@@ -293,11 +209,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function serializeFields(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'serializeFields');
-        if (!$pluginInfo) {
-            return parent::serializeFields($object);
-        } else {
-            return $this->___callPlugins('serializeFields', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('serializeFields', func_get_args(), $pluginInfo) : parent::serializeFields($object);
     }
 
     /**
@@ -306,11 +218,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function beginTransaction()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'beginTransaction');
-        if (!$pluginInfo) {
-            return parent::beginTransaction();
-        } else {
-            return $this->___callPlugins('beginTransaction', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('beginTransaction', func_get_args(), $pluginInfo) : parent::beginTransaction();
     }
 
     /**
@@ -319,11 +227,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function addCommitCallback($callback)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'addCommitCallback');
-        if (!$pluginInfo) {
-            return parent::addCommitCallback($callback);
-        } else {
-            return $this->___callPlugins('addCommitCallback', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('addCommitCallback', func_get_args(), $pluginInfo) : parent::addCommitCallback($callback);
     }
 
     /**
@@ -332,11 +236,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function commit()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'commit');
-        if (!$pluginInfo) {
-            return parent::commit();
-        } else {
-            return $this->___callPlugins('commit', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('commit', func_get_args(), $pluginInfo) : parent::commit();
     }
 
     /**
@@ -345,11 +245,7 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function rollBack()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'rollBack');
-        if (!$pluginInfo) {
-            return parent::rollBack();
-        } else {
-            return $this->___callPlugins('rollBack', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('rollBack', func_get_args(), $pluginInfo) : parent::rollBack();
     }
 
     /**
@@ -358,10 +254,6 @@ class Interceptor extends \Magento\Store\Model\ResourceModel\Website implements 
     public function getValidationRulesBeforeSave()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getValidationRulesBeforeSave');
-        if (!$pluginInfo) {
-            return parent::getValidationRulesBeforeSave();
-        } else {
-            return $this->___callPlugins('getValidationRulesBeforeSave', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getValidationRulesBeforeSave', func_get_args(), $pluginInfo) : parent::getValidationRulesBeforeSave();
     }
 }

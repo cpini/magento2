@@ -20,11 +20,7 @@ class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Repository im
     public function get($attributeCode)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
-        if (!$pluginInfo) {
-            return parent::get($attributeCode);
-        } else {
-            return $this->___callPlugins('get', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($attributeCode);
     }
 
     /**
@@ -33,11 +29,7 @@ class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Repository im
     public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getList');
-        if (!$pluginInfo) {
-            return parent::getList($searchCriteria);
-        } else {
-            return $this->___callPlugins('getList', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getList', func_get_args(), $pluginInfo) : parent::getList($searchCriteria);
     }
 
     /**
@@ -46,11 +38,7 @@ class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Repository im
     public function save(\Magento\Catalog\Api\Data\ProductAttributeInterface $attribute)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
-        if (!$pluginInfo) {
-            return parent::save($attribute);
-        } else {
-            return $this->___callPlugins('save', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($attribute);
     }
 
     /**
@@ -59,11 +47,7 @@ class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Repository im
     public function delete(\Magento\Catalog\Api\Data\ProductAttributeInterface $attribute)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        if (!$pluginInfo) {
-            return parent::delete($attribute);
-        } else {
-            return $this->___callPlugins('delete', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($attribute);
     }
 
     /**
@@ -72,11 +56,7 @@ class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Repository im
     public function deleteById($attributeCode)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'deleteById');
-        if (!$pluginInfo) {
-            return parent::deleteById($attributeCode);
-        } else {
-            return $this->___callPlugins('deleteById', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('deleteById', func_get_args(), $pluginInfo) : parent::deleteById($attributeCode);
     }
 
     /**
@@ -85,10 +65,6 @@ class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Repository im
     public function getCustomAttributesMetadata($dataObjectClassName = null)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCustomAttributesMetadata');
-        if (!$pluginInfo) {
-            return parent::getCustomAttributesMetadata($dataObjectClassName);
-        } else {
-            return $this->___callPlugins('getCustomAttributesMetadata', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getCustomAttributesMetadata', func_get_args(), $pluginInfo) : parent::getCustomAttributesMetadata($dataObjectClassName);
     }
 }

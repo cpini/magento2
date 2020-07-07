@@ -20,11 +20,7 @@ class Interceptor extends \Magento\Config\App\Config\Source\DumpConfigSourceAggr
     public function get($path = '')
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
-        if (!$pluginInfo) {
-            return parent::get($path);
-        } else {
-            return $this->___callPlugins('get', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($path);
     }
 
     /**
@@ -33,10 +29,6 @@ class Interceptor extends \Magento\Config\App\Config\Source\DumpConfigSourceAggr
     public function getExcludedFields()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getExcludedFields');
-        if (!$pluginInfo) {
-            return parent::getExcludedFields();
-        } else {
-            return $this->___callPlugins('getExcludedFields', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getExcludedFields', func_get_args(), $pluginInfo) : parent::getExcludedFields();
     }
 }

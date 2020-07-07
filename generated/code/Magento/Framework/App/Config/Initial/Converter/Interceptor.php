@@ -20,10 +20,6 @@ class Interceptor extends \Magento\Framework\App\Config\Initial\Converter implem
     public function convert($source)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'convert');
-        if (!$pluginInfo) {
-            return parent::convert($source);
-        } else {
-            return $this->___callPlugins('convert', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('convert', func_get_args(), $pluginInfo) : parent::convert($source);
     }
 }

@@ -554,7 +554,7 @@ class Proxy extends \Magento\Framework\App\Request\Http implements \Magento\Fram
     /**
      * {@inheritdoc}
      */
-    public function setServer(\Zend\Stdlib\ParametersInterface $server)
+    public function setServer(\Laminas\Stdlib\ParametersInterface $server)
     {
         return $this->_getSubject()->setServer($server);
     }
@@ -570,7 +570,7 @@ class Proxy extends \Magento\Framework\App\Request\Http implements \Magento\Fram
     /**
      * {@inheritdoc}
      */
-    public function setEnv(\Zend\Stdlib\ParametersInterface $env)
+    public function setEnv(\Laminas\Stdlib\ParametersInterface $env)
     {
         return $this->_getSubject()->setEnv($env);
     }
@@ -626,7 +626,7 @@ class Proxy extends \Magento\Framework\App\Request\Http implements \Magento\Fram
     /**
      * {@inheritdoc}
      */
-    public function setQuery(\Zend\Stdlib\ParametersInterface $query)
+    public function setQuery(\Laminas\Stdlib\ParametersInterface $query)
     {
         return $this->_getSubject()->setQuery($query);
     }
@@ -642,7 +642,7 @@ class Proxy extends \Magento\Framework\App\Request\Http implements \Magento\Fram
     /**
      * {@inheritdoc}
      */
-    public function setPost(\Zend\Stdlib\ParametersInterface $post)
+    public function setPost(\Laminas\Stdlib\ParametersInterface $post)
     {
         return $this->_getSubject()->setPost($post);
     }
@@ -658,7 +658,7 @@ class Proxy extends \Magento\Framework\App\Request\Http implements \Magento\Fram
     /**
      * {@inheritdoc}
      */
-    public function setFiles(\Zend\Stdlib\ParametersInterface $files)
+    public function setFiles(\Laminas\Stdlib\ParametersInterface $files)
     {
         return $this->_getSubject()->setFiles($files);
     }
@@ -826,7 +826,7 @@ class Proxy extends \Magento\Framework\App\Request\Http implements \Magento\Fram
     /**
      * {@inheritdoc}
      */
-    public function setHeaders(\Zend\Http\Headers $headers)
+    public function setHeaders(\Laminas\Http\Headers $headers)
     {
         return $this->_getSubject()->setHeaders($headers);
     }

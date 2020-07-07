@@ -20,11 +20,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function loadByCode(\Magento\Framework\Model\AbstractModel $object, $entityTypeId, $code)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'loadByCode');
-        if (!$pluginInfo) {
-            return parent::loadByCode($object, $entityTypeId, $code);
-        } else {
-            return $this->___callPlugins('loadByCode', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('loadByCode', func_get_args(), $pluginInfo) : parent::loadByCode($object, $entityTypeId, $code);
     }
 
     /**
@@ -33,11 +29,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function deleteEntity(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'deleteEntity');
-        if (!$pluginInfo) {
-            return parent::deleteEntity($object);
-        } else {
-            return $this->___callPlugins('deleteEntity', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('deleteEntity', func_get_args(), $pluginInfo) : parent::deleteEntity($object);
     }
 
     /**
@@ -46,11 +38,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function saveInSetIncluding(\Magento\Framework\Model\AbstractModel $object, $attributeEntityId = null, $attributeSetId = null, $attributeGroupId = null, $attributeSortOrder = null)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'saveInSetIncluding');
-        if (!$pluginInfo) {
-            return parent::saveInSetIncluding($object, $attributeEntityId, $attributeSetId, $attributeGroupId, $attributeSortOrder);
-        } else {
-            return $this->___callPlugins('saveInSetIncluding', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('saveInSetIncluding', func_get_args(), $pluginInfo) : parent::saveInSetIncluding($object, $attributeEntityId, $attributeSetId, $attributeGroupId, $attributeSortOrder);
     }
 
     /**
@@ -59,11 +47,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getIdByCode($entityType, $code)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getIdByCode');
-        if (!$pluginInfo) {
-            return parent::getIdByCode($entityType, $code);
-        } else {
-            return $this->___callPlugins('getIdByCode', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getIdByCode', func_get_args(), $pluginInfo) : parent::getIdByCode($entityType, $code);
     }
 
     /**
@@ -72,11 +56,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getEntityAttribute($entityAttributeId)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getEntityAttribute');
-        if (!$pluginInfo) {
-            return parent::getEntityAttribute($entityAttributeId);
-        } else {
-            return $this->___callPlugins('getEntityAttribute', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getEntityAttribute', func_get_args(), $pluginInfo) : parent::getEntityAttribute($entityAttributeId);
     }
 
     /**
@@ -85,11 +65,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getAttributeCodesByFrontendType($frontendType)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getAttributeCodesByFrontendType');
-        if (!$pluginInfo) {
-            return parent::getAttributeCodesByFrontendType($frontendType);
-        } else {
-            return $this->___callPlugins('getAttributeCodesByFrontendType', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getAttributeCodesByFrontendType', func_get_args(), $pluginInfo) : parent::getAttributeCodesByFrontendType($frontendType);
     }
 
     /**
@@ -98,11 +74,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getFlatUpdateSelect(\Magento\Eav\Model\Entity\Attribute\AbstractAttribute $attribute, $storeId)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getFlatUpdateSelect');
-        if (!$pluginInfo) {
-            return parent::getFlatUpdateSelect($attribute, $storeId);
-        } else {
-            return $this->___callPlugins('getFlatUpdateSelect', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getFlatUpdateSelect', func_get_args(), $pluginInfo) : parent::getFlatUpdateSelect($attribute, $storeId);
     }
 
     /**
@@ -111,11 +83,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function describeTable($table)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'describeTable');
-        if (!$pluginInfo) {
-            return parent::describeTable($table);
-        } else {
-            return $this->___callPlugins('describeTable', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('describeTable', func_get_args(), $pluginInfo) : parent::describeTable($table);
     }
 
     /**
@@ -124,11 +92,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getAdditionalAttributeTable($entityTypeId)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getAdditionalAttributeTable');
-        if (!$pluginInfo) {
-            return parent::getAdditionalAttributeTable($entityTypeId);
-        } else {
-            return $this->___callPlugins('getAdditionalAttributeTable', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getAdditionalAttributeTable', func_get_args(), $pluginInfo) : parent::getAdditionalAttributeTable($entityTypeId);
     }
 
     /**
@@ -137,11 +101,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getStoreLabelsByAttributeId($attributeId)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStoreLabelsByAttributeId');
-        if (!$pluginInfo) {
-            return parent::getStoreLabelsByAttributeId($attributeId);
-        } else {
-            return $this->___callPlugins('getStoreLabelsByAttributeId', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getStoreLabelsByAttributeId', func_get_args(), $pluginInfo) : parent::getStoreLabelsByAttributeId($attributeId);
     }
 
     /**
@@ -150,11 +110,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getValidAttributeIds($attributeIds)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getValidAttributeIds');
-        if (!$pluginInfo) {
-            return parent::getValidAttributeIds($attributeIds);
-        } else {
-            return $this->___callPlugins('getValidAttributeIds', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getValidAttributeIds', func_get_args(), $pluginInfo) : parent::getValidAttributeIds($attributeIds);
     }
 
     /**
@@ -163,11 +119,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getIdFieldName()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getIdFieldName');
-        if (!$pluginInfo) {
-            return parent::getIdFieldName();
-        } else {
-            return $this->___callPlugins('getIdFieldName', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getIdFieldName', func_get_args(), $pluginInfo) : parent::getIdFieldName();
     }
 
     /**
@@ -176,11 +128,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getMainTable()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getMainTable');
-        if (!$pluginInfo) {
-            return parent::getMainTable();
-        } else {
-            return $this->___callPlugins('getMainTable', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getMainTable', func_get_args(), $pluginInfo) : parent::getMainTable();
     }
 
     /**
@@ -189,11 +137,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getTable($tableName)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getTable');
-        if (!$pluginInfo) {
-            return parent::getTable($tableName);
-        } else {
-            return $this->___callPlugins('getTable', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getTable', func_get_args(), $pluginInfo) : parent::getTable($tableName);
     }
 
     /**
@@ -202,11 +146,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getConnection()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getConnection');
-        if (!$pluginInfo) {
-            return parent::getConnection();
-        } else {
-            return $this->___callPlugins('getConnection', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getConnection', func_get_args(), $pluginInfo) : parent::getConnection();
     }
 
     /**
@@ -215,11 +155,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function load(\Magento\Framework\Model\AbstractModel $object, $value, $field = null)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'load');
-        if (!$pluginInfo) {
-            return parent::load($object, $value, $field);
-        } else {
-            return $this->___callPlugins('load', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('load', func_get_args(), $pluginInfo) : parent::load($object, $value, $field);
     }
 
     /**
@@ -228,11 +164,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function save(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
-        if (!$pluginInfo) {
-            return parent::save($object);
-        } else {
-            return $this->___callPlugins('save', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($object);
     }
 
     /**
@@ -241,11 +173,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function delete(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        if (!$pluginInfo) {
-            return parent::delete($object);
-        } else {
-            return $this->___callPlugins('delete', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($object);
     }
 
     /**
@@ -254,11 +182,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function addUniqueField($field)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'addUniqueField');
-        if (!$pluginInfo) {
-            return parent::addUniqueField($field);
-        } else {
-            return $this->___callPlugins('addUniqueField', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('addUniqueField', func_get_args(), $pluginInfo) : parent::addUniqueField($field);
     }
 
     /**
@@ -267,11 +191,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function resetUniqueField()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'resetUniqueField');
-        if (!$pluginInfo) {
-            return parent::resetUniqueField();
-        } else {
-            return $this->___callPlugins('resetUniqueField', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('resetUniqueField', func_get_args(), $pluginInfo) : parent::resetUniqueField();
     }
 
     /**
@@ -280,11 +200,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function unserializeFields(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'unserializeFields');
-        if (!$pluginInfo) {
-            return parent::unserializeFields($object);
-        } else {
-            return $this->___callPlugins('unserializeFields', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('unserializeFields', func_get_args(), $pluginInfo) : parent::unserializeFields($object);
     }
 
     /**
@@ -293,11 +209,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getUniqueFields()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getUniqueFields');
-        if (!$pluginInfo) {
-            return parent::getUniqueFields();
-        } else {
-            return $this->___callPlugins('getUniqueFields', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getUniqueFields', func_get_args(), $pluginInfo) : parent::getUniqueFields();
     }
 
     /**
@@ -306,11 +218,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function hasDataChanged($object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'hasDataChanged');
-        if (!$pluginInfo) {
-            return parent::hasDataChanged($object);
-        } else {
-            return $this->___callPlugins('hasDataChanged', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('hasDataChanged', func_get_args(), $pluginInfo) : parent::hasDataChanged($object);
     }
 
     /**
@@ -319,11 +227,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getChecksum($table)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getChecksum');
-        if (!$pluginInfo) {
-            return parent::getChecksum($table);
-        } else {
-            return $this->___callPlugins('getChecksum', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getChecksum', func_get_args(), $pluginInfo) : parent::getChecksum($table);
     }
 
     /**
@@ -332,11 +236,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function afterLoad(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'afterLoad');
-        if (!$pluginInfo) {
-            return parent::afterLoad($object);
-        } else {
-            return $this->___callPlugins('afterLoad', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('afterLoad', func_get_args(), $pluginInfo) : parent::afterLoad($object);
     }
 
     /**
@@ -345,11 +245,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function beforeSave(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'beforeSave');
-        if (!$pluginInfo) {
-            return parent::beforeSave($object);
-        } else {
-            return $this->___callPlugins('beforeSave', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('beforeSave', func_get_args(), $pluginInfo) : parent::beforeSave($object);
     }
 
     /**
@@ -358,11 +254,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function afterSave(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'afterSave');
-        if (!$pluginInfo) {
-            return parent::afterSave($object);
-        } else {
-            return $this->___callPlugins('afterSave', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('afterSave', func_get_args(), $pluginInfo) : parent::afterSave($object);
     }
 
     /**
@@ -371,11 +263,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function beforeDelete(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'beforeDelete');
-        if (!$pluginInfo) {
-            return parent::beforeDelete($object);
-        } else {
-            return $this->___callPlugins('beforeDelete', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('beforeDelete', func_get_args(), $pluginInfo) : parent::beforeDelete($object);
     }
 
     /**
@@ -384,11 +272,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function afterDelete(\Magento\Framework\DataObject $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'afterDelete');
-        if (!$pluginInfo) {
-            return parent::afterDelete($object);
-        } else {
-            return $this->___callPlugins('afterDelete', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('afterDelete', func_get_args(), $pluginInfo) : parent::afterDelete($object);
     }
 
     /**
@@ -397,11 +281,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function serializeFields(\Magento\Framework\Model\AbstractModel $object)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'serializeFields');
-        if (!$pluginInfo) {
-            return parent::serializeFields($object);
-        } else {
-            return $this->___callPlugins('serializeFields', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('serializeFields', func_get_args(), $pluginInfo) : parent::serializeFields($object);
     }
 
     /**
@@ -410,11 +290,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function beginTransaction()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'beginTransaction');
-        if (!$pluginInfo) {
-            return parent::beginTransaction();
-        } else {
-            return $this->___callPlugins('beginTransaction', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('beginTransaction', func_get_args(), $pluginInfo) : parent::beginTransaction();
     }
 
     /**
@@ -423,11 +299,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function addCommitCallback($callback)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'addCommitCallback');
-        if (!$pluginInfo) {
-            return parent::addCommitCallback($callback);
-        } else {
-            return $this->___callPlugins('addCommitCallback', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('addCommitCallback', func_get_args(), $pluginInfo) : parent::addCommitCallback($callback);
     }
 
     /**
@@ -436,11 +308,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function commit()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'commit');
-        if (!$pluginInfo) {
-            return parent::commit();
-        } else {
-            return $this->___callPlugins('commit', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('commit', func_get_args(), $pluginInfo) : parent::commit();
     }
 
     /**
@@ -449,11 +317,7 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function rollBack()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'rollBack');
-        if (!$pluginInfo) {
-            return parent::rollBack();
-        } else {
-            return $this->___callPlugins('rollBack', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('rollBack', func_get_args(), $pluginInfo) : parent::rollBack();
     }
 
     /**
@@ -462,10 +326,6 @@ class Interceptor extends \Magento\Eav\Model\ResourceModel\Entity\Attribute impl
     public function getValidationRulesBeforeSave()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getValidationRulesBeforeSave');
-        if (!$pluginInfo) {
-            return parent::getValidationRulesBeforeSave();
-        } else {
-            return $this->___callPlugins('getValidationRulesBeforeSave', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getValidationRulesBeforeSave', func_get_args(), $pluginInfo) : parent::getValidationRulesBeforeSave();
     }
 }

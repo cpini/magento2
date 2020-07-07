@@ -20,11 +20,7 @@ class Interceptor extends \Magento\Framework\App\MaintenanceMode implements \Mag
     public function isOn($remoteAddr = '')
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isOn');
-        if (!$pluginInfo) {
-            return parent::isOn($remoteAddr);
-        } else {
-            return $this->___callPlugins('isOn', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('isOn', func_get_args(), $pluginInfo) : parent::isOn($remoteAddr);
     }
 
     /**
@@ -33,11 +29,7 @@ class Interceptor extends \Magento\Framework\App\MaintenanceMode implements \Mag
     public function set($isOn)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'set');
-        if (!$pluginInfo) {
-            return parent::set($isOn);
-        } else {
-            return $this->___callPlugins('set', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('set', func_get_args(), $pluginInfo) : parent::set($isOn);
     }
 
     /**
@@ -46,11 +38,7 @@ class Interceptor extends \Magento\Framework\App\MaintenanceMode implements \Mag
     public function setAddresses($addresses)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setAddresses');
-        if (!$pluginInfo) {
-            return parent::setAddresses($addresses);
-        } else {
-            return $this->___callPlugins('setAddresses', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('setAddresses', func_get_args(), $pluginInfo) : parent::setAddresses($addresses);
     }
 
     /**
@@ -59,10 +47,6 @@ class Interceptor extends \Magento\Framework\App\MaintenanceMode implements \Mag
     public function getAddressInfo()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getAddressInfo');
-        if (!$pluginInfo) {
-            return parent::getAddressInfo();
-        } else {
-            return $this->___callPlugins('getAddressInfo', func_get_args(), $pluginInfo);
-        }
+        return $pluginInfo ? $this->___callPlugins('getAddressInfo', func_get_args(), $pluginInfo) : parent::getAddressInfo();
     }
 }
