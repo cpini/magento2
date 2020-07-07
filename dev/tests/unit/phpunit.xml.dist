@@ -11,6 +11,8 @@
          columns="max"
          beStrictAboutTestsThatDoNotTestAnything="false"
          bootstrap="./framework/bootstrap.php"
+         convertErrorsToExceptions="false"
+         convertNoticesToExceptions="false"
          convertWarningsToExceptions="false"
         >
     <testsuite name="Magento_Unit_Tests_App_Code">
