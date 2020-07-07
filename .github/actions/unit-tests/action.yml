@@ -1,0 +1,6 @@
+# action.yml
+name: 'Unit test'
+description: 'Exectue Magento2 QA unit tests'
+runs:
+  using: 'docker'
+  image: '../../docker/Dockerfile'
