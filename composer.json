@@ -30,7 +30,6 @@
         "lib-libxml": "*",
         "colinmollenhour/cache-backend-file": "~1.4.1",
         "colinmollenhour/cache-backend-redis": "1.11.0",
-<<<<<<< HEAD
         "colinmollenhour/credis": "1.11.1",
         "colinmollenhour/php-redis-session-abstract": "~1.4.0",
         "composer/composer": "^1.9",
@@ -65,22 +64,12 @@
         "laminas/laminas-uri": "^2.5.1",
         "laminas/laminas-validator": "^2.6.0",
         "laminas/laminas-view": "~2.11.2",
-=======
-        "colinmollenhour/credis": "1.10.0",
-        "colinmollenhour/php-redis-session-abstract": "~1.4.0",
-        "composer/composer": "^1.6",
-        "elasticsearch/elasticsearch": "~2.0||~5.1||~6.1",
->>>>>>> origin/2.4-develop
         "magento/composer": "1.6.x-dev",
         "magento/magento-composer-installer": ">=0.1.11",
         "magento/zendframework1": "~1.14.2",
         "monolog/monolog": "^1.17",
         "paragonie/sodium_compat": "^1.6",
-<<<<<<< HEAD
         "pelago/emogrifier": "^3.1.0",
-=======
-        "pelago/emogrifier": "^2.0.0",
->>>>>>> origin/2.4-develop
         "php-amqplib/php-amqplib": "~2.7.0||~2.10.0",
         "phpseclib/mcrypt_compat": "1.0.8",
         "phpseclib/phpseclib": "2.0.*",
@@ -99,7 +88,6 @@
         "friendsofphp/php-cs-fixer": "~2.16.0",
         "lusitanian/oauth": "~0.8.10",
         "magento/magento-coding-standard": "*",
-<<<<<<< HEAD
         "magento/magento2-functional-testing-framework": "3.0.0-RC5",
         "pdepend/pdepend": "~2.7.1",
         "phpcompatibility/php-compatibility": "^9.3",
@@ -108,16 +96,6 @@
         "phpunit/phpunit": "^9",
         "sebastian/phpcpd": "~5.0.0",
         "squizlabs/php_codesniffer": "~3.5.4"
-=======
-        "magento/magento2-functional-testing-framework": "2.6.1",
-        "pdepend/pdepend": "2.5.2",
-        "phpcompatibility/php-compatibility": "^9.3",
-        "phpmd/phpmd": "@stable",
-        "phpstan/phpstan": "^0.12.3",
-        "phpunit/phpunit": "~6.5.0",
-        "sebastian/phpcpd": "~3.0.0",
-        "squizlabs/php_codesniffer": "~3.4.0"
->>>>>>> origin/2.4-develop
     },
     "suggest": {
         "ext-pcntl": "Need for run processes in parallel mode"
