@@ -17,5 +17,5 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
  && curl -sS https://getcomposer.org/installer | php \
  && mv composer.phar /usr/local/bin/composer 
 COPY . .
-RUN composer install --no-cache --no-dev
+RUN composer install --no-cache
 ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
