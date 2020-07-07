@@ -16,7 +16,6 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
  && echo "max_input_vars=1000" > /usr/local/etc/php/conf.d/max-input-vars-php.ini \
  && curl -sS https://getcomposer.org/installer | php \
  && mv composer.phar /usr/local/bin/composer 
-WORKDIR /var/www/html
 COPY . .
 #RUN composer install
 #RUN file="$(ls -1 ./*)" && echo $file
