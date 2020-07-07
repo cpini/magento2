@@ -18,6 +18,6 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
  && mv composer.phar /usr/local/bin/composer 
 COPY . .
 #RUN composer install
-#RUN file="$(ls -1 ./*)" && echo $file
+#RUN file="$(ls -1 ./teststuff.txt)" && echo $file
 #ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
-#ENTRYPOINT ["sh", "-c", "file=\"$GITHUB_WORKSPACE\" && echo \" >>> $file <<<<\""]
+ENTRYPOINT ["sh", "-c", "file=\"$(ls -1 ./teststuff.txt)\" && echo \">>> $file <<<\""]
