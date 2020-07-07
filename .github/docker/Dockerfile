@@ -18,5 +18,6 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
  && mv composer.phar /usr/local/bin/composer 
 WORKDIR /var/www/html
 COPY . .
-RUN composer install --no-cache
-ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
+#RUN composer install
+RUN file="$(ls -1 ./*)" && echo $file
+#ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
