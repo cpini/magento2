@@ -5,7 +5,7 @@ ENV TZ=Europe/London
 RUN apk update; \
     apk upgrade; \
     apk add --no-cache tzdata freetype freetype-dev libxslt-dev libpng libjpeg libxml2-dev zlib libwebp-dev libpng-dev jpeg-dev icu-dev zlib-dev libzip-dev; \
-    apk add --no-cache $PHPIZE_DEPS && pecl; 
+    apk add --no-cache $PHPIZE_DEPS; 
 RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
                                    --with-jpeg-dir=/usr/include/ \
                                    --with-webp-dir=/usr/include/ \
@@ -17,7 +17,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
  && curl -sS https://getcomposer.org/installer | php \
  && mv composer.phar /usr/local/bin/composer 
 COPY . .
-RUN cd /github/workspace && composer install
+#RUN cd /github/workspace && composer install
 #RUN file="$(ls -1 ./*)" && echo $file
-ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
-#ENTRYPOINT ["sh", "-c", "file=\"GITHUB_WORKSPACE\" && echo $file"]
+#ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
+ENTRYPOINT ["sh", "-c", "file=\"$GITHUB_WORKSPACE\" && echo \" >>> $file <<<<\"""]
