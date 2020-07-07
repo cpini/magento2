@@ -13,7 +13,9 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
  && docker-php-ext-configure zip --with-libzip \
  && docker-php-ext-install mysqli bcmath gd pdo_mysql soap xsl zip intl opcache  \
  && echo "memory_limit=2G" > /usr/local/etc/php/conf.d/memory-limit.ini \
- && echo "max_input_vars=1000" > /usr/local/etc/php/conf.d/max-input-vars-php.ini 
+ && echo "max_input_vars=1000" > /usr/local/etc/php/conf.d/max-input-vars-php.ini \
+ && curl -sS https://getcomposer.org/installer | php \
+ && mv composer.phar /usr/local/bin/composer 
 COPY . .
 RUN composer install --no-cache --no-dev
 ENTRYPOINT ["sh", "-c", "./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"]
