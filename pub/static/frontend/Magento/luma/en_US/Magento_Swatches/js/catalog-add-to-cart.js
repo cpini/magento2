@@ -1,1 +1,0 @@
-/var/www/html/app/code/Magento/Swatches/view/frontend/web/js/catalog-add-to-cart.js

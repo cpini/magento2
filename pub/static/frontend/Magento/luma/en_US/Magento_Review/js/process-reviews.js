@@ -1,1 +1,0 @@
-/var/www/html/app/code/Magento/Review/view/frontend/web/js/process-reviews.js

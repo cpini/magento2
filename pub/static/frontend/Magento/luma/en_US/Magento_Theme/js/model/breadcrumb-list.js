@@ -1,1 +1,0 @@
-/var/www/html/app/code/Magento/Theme/view/frontend/web/js/model/breadcrumb-list.js

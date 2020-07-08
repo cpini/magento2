@@ -1,1 +1,0 @@
-/var/www/html/app/code/Magento/Backend/view/adminhtml/web/js/translate.js
