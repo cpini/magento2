@@ -8,11 +8,11 @@ jobs:
     name: QA Operations
     strategy:
       matrix:
-        php: [7.3]
+        php: [7.3.17]
         node: [12.9.0]
     runs-on: ubuntu-latest
     container:
-      image: php:${{ matrix.php }}-fpm
+      image: php:${{ matrix.php }}-fpm-alpine
       volumes:
       - $GITHUB_WORKSPACE:/var/www/html
     steps:
@@ -23,6 +23,7 @@ jobs:
       apk upgrade
       echo "Install base packages."
       apk add --no-cache tzdata freetype freetype-dev libxslt-dev libpng libjpeg libxml2-dev zlib libwebp-dev libpng-dev jpeg-dev icu-dev zlib-dev libzip-dev 
+      apk add --no-cache $PHPIZE_DEPS
       echo "Install PHP extensions."
       docker-php-ext-configure gd --with-png-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/ --with-freetype-dir=/usr/inlcude/ 
       docker-php-ext-configure zip --with-libzip 
