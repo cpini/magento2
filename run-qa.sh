@@ -3,9 +3,9 @@
 exitCode=0
 
 ################################################################
-##   ~~~~ CodeSniffer for custom mods ~~~~
-#vendor/squizlabs/php_codesniffer/bin/phpcs --standard=vendor/magento/magento-coding-standard/Magento2/ --ignore=/app/code/Magento --extensions=php,phtml app/code
-vendor/squizlabs/php_codesniffer/bin/phpcs --standard=vendor/magento/magento-coding-standard/Magento2/ --ignore=/app/code/Magento --extensions=php,phtml --severity=error app/code
+##   ~~~~ CodeSniffer for non core mods ~~~~
+vendor/squizlabs/php_codesniffer/bin/phpcs --standard=vendor/magento/magento-coding-standard/Magento2/ --ignore=/app/code/Magento --extensions=php,phtml app/code
+#vendor/squizlabs/php_codesniffer/bin/phpcs --standard=vendor/magento/magento-coding-standard/Magento2/ --ignore=/app/code/Magento --extensions=php,phtml --severity=error app/code
 status=$?
 if test "$status" -eq 0
 then

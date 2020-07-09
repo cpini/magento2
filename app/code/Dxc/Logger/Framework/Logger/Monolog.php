@@ -16,6 +16,4 @@ class Monolog extends ParentMonolog
         $handlers = array_values($handlers);
         parent::__construct($instanceName, $handlers, $processors);
     }
-
-
 }
