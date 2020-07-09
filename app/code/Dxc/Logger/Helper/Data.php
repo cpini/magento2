@@ -23,10 +23,9 @@ class Data
         $podName        = trim(getenv('K8S_POD_NAME'));
         $nodeName       = trim(getenv('K8S_NODE_NAME'));
         $nodeNameSpace  = trim(getenv('K8S_POD_NAMESPACE'));
-        if ($podName!=='' && $nodeName!=='' && $nodeNameSpace!==''){
+        if ($podName!=='' && $nodeName!=='' && $nodeNameSpace!=='') {
             return sprintf("%s:%s:%s", $nodeNameSpace, $nodeName, $podName);
         }
         return 'main';
     }
-
 }
