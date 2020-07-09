@@ -3,7 +3,7 @@
 exitCode=0
 
 ################################################################
-##   ~~~~ CodeSniffer for non core mods ~~~~
+##   ~~~~ CodeSniffer for custom mods ~~~~
 #vendor/squizlabs/php_codesniffer/bin/phpcs --standard=vendor/magento/magento-coding-standard/Magento2/ --ignore=/app/code/Magento --extensions=php,phtml app/code
 vendor/squizlabs/php_codesniffer/bin/phpcs --standard=vendor/magento/magento-coding-standard/Magento2/ --ignore=/app/code/Magento --extensions=php,phtml --severity=error app/code
 status=$?
