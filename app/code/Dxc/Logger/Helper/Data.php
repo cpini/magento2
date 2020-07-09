@@ -7,7 +7,7 @@
  */
 namespace Dxc\Logger\Helper;
 
-use Magento\Framework\App\DeploymentConfig;
+use Magento\Config\Model\Config\Reader\Source\Deployed\SettingChecker;
 
 /**
  * Dxc Logger data helper
@@ -16,18 +16,16 @@ use Magento\Framework\App\DeploymentConfig;
 class Data
 {
     /**
-     * @var DeploymentConfig
+     * @var Config\Reader\Source\Deployed\SettingChecker
      */
-    private $config;
+    private $settingChecker;
 
     /**
-     * @param DeploymentConfig $config
-     * @param PlaceholderFactory $placeholderFactory
-     * @param ScopeCodeResolver $scopeCodeResolver
+     * @param SettingChecker $settingChecker
      */
-    public function __construct(DeploymentConfig $config)
+    public function __construct(SettingChecker $settingChecker)
     {
-        $this->config = $config;
+        $this->settingChecker = $settingChecker;
     }
 
     /**
@@ -37,9 +35,9 @@ class Data
      */
     public function getKubernetesPodDetails()
     {
-        $podName        = trim($this->config->getEnv('K8S_POD_NAME'));
-        $nodeName       = trim($this->config->getEnv('K8S_NODE_NAME'));
-        $nodeNameSpace  = trim($this->config->getEnv('K8S_POD_NAMESPACE'));
+        $podName        = trim($this->settingChecker->getEnvValue('K8S_POD_NAME'));
+        $nodeName       = trim($this->settingChecker->getEnvValue('K8S_NODE_NAME'));
+        $nodeNameSpace  = trim($this->settingChecker->getEnvValue('K8S_POD_NAMESPACE'));
         if ($podName!=='' && $nodeName!=='' && $nodeNameSpace!=='') {
             return sprintf("%s:%s:%s", $nodeNameSpace, $nodeName, $podName);
         }
