@@ -3,7 +3,7 @@
 exitCode=0
 
 ########################################
-##   ~~~~ install dependencies ~~~~
+##   ~~~~ install dependencies ~~~~ st
 composer install
 
 ################################################################
