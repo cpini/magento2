@@ -7,6 +7,8 @@
  */
 namespace Dxc\Logger\Helper;
 
+use Magento\Framework\App\DeploymentConfig;
+
 /**
  * Dxc Logger data helper
  * @author Cris Pini <cpini@dxc.com>
@@ -14,15 +16,30 @@ namespace Dxc\Logger\Helper;
 class Data
 {
     /**
+     * @var DeploymentConfig
+     */
+    private $config;
+
+    /**
+     * @param DeploymentConfig $config
+     * @param PlaceholderFactory $placeholderFactory
+     * @param ScopeCodeResolver $scopeCodeResolver
+     */
+    public function __construct(DeploymentConfig $config)
+    {
+        $this->config = $config;
+    }
+
+    /**
      * Inject container details as first param into Monloog\Logger
      * @author Cristian Pini <cpini@dxc.com>
      * @return string
      */
-    public static function getKubernetesPodDetails()
+    public function getKubernetesPodDetails()
     {
-        $podName        = trim(getenv('K8S_POD_NAME'));
-        $nodeName       = trim(getenv('K8S_NODE_NAME'));
-        $nodeNameSpace  = trim(getenv('K8S_POD_NAMESPACE'));
+        $podName        = trim($this->config->getEnv('K8S_POD_NAME'));
+        $nodeName       = trim($this->config->getEnv('K8S_NODE_NAME'));
+        $nodeNameSpace  = trim($this->config->getEnv('K8S_POD_NAMESPACE'));
         if ($podName!=='' && $nodeName!=='' && $nodeNameSpace!=='') {
             return sprintf("%s:%s:%s", $nodeNameSpace, $nodeName, $podName);
         }
