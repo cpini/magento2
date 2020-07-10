@@ -30,6 +30,10 @@ services:
     volumes:
       - ${PROJECT_ROOT}/:/var/www/html:delegated
     container_name: php
+    environment:
+      K8S_POD_NAME: "localpod"
+      K8S_NODE_NAME: "localnode"
+      K8S_POD_NAMESPACE: "localnamespace"
   apache:
     image: apache24:1
     build:
