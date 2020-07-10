@@ -461,7 +461,7 @@ class Translate implements \Magento\Framework\TranslateInterface
      * @param string $locale
      * @return string
      *
-     * @deprecated 102.0.1
+     * @deprecated
      *
      * @see \Magento\Framework\Translate::getThemeTranslationFilesList
      */
@@ -589,7 +589,7 @@ class Translate implements \Magento\Framework\TranslateInterface
      * Get serializer
      *
      * @return \Magento\Framework\Serialize\SerializerInterface
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      */
     private function getSerializer()
     {

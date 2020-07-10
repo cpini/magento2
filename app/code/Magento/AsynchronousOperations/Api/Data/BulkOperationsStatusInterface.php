@@ -14,7 +14,6 @@ namespace Magento\AsynchronousOperations\Api\Data;
  * Bulk summary data with list of operations items summary data.
  *
  * @api
- * @since 100.2.3
  */
 interface BulkOperationsStatusInterface extends BulkSummaryInterface
 {
@@ -25,7 +24,6 @@ interface BulkOperationsStatusInterface extends BulkSummaryInterface
      * Retrieve list of operation with statuses (short data).
      *
      * @return \Magento\AsynchronousOperations\Api\Data\SummaryOperationStatusInterface[]
-     * @since 100.2.3
      */
     public function getOperationsList();
 
@@ -34,7 +32,6 @@ interface BulkOperationsStatusInterface extends BulkSummaryInterface
      *
      * @param \Magento\AsynchronousOperations\Api\Data\SummaryOperationStatusInterface[] $operationStatusList
      * @return $this
-     * @since 100.2.3
      */
     public function setOperationsList($operationStatusList);
 }

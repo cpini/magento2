@@ -7,7 +7,6 @@ namespace Magento\Framework\Filesystem\File;
 
 /**
  * @api
- * @since 100.0.2
  */
 interface WriteInterface extends ReadInterface
 {

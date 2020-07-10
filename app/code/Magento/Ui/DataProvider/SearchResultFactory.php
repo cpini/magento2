@@ -17,7 +17,6 @@ use Magento\Framework\EntityManager\HydratorInterface;
  * Allows to use Repositories (instead of Collections) in UI Components Data providers
  *
  * @api
- * @since 101.1.0
  */
 class SearchResultFactory
 {
@@ -65,7 +64,6 @@ class SearchResultFactory
      * @param SearchCriteriaInterface SearchCriteriaInterface $searchCriteria
      * @param string $idFieldName
      * @return SearchResultInterface
-     * @since 101.1.0
      */
     public function create(
         array $items,

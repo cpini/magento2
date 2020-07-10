@@ -352,7 +352,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 
     /**
      * @inheritdoc
-     * @since 101.1.3
      */
     protected function _renderFiltersBefore()
     {

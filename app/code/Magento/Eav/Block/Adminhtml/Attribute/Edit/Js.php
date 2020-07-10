@@ -38,7 +38,7 @@ class Js extends \Magento\Backend\Block\Template
     }
 
     /**
-     * @deprecated 102.0.0 Misspelled method
+     * @deprecated Misspelled method
      * @see getCompatibleInputTypes
      */
     public function getComaptibleInputTypes()

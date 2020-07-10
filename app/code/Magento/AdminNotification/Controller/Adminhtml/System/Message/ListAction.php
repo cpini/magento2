@@ -17,7 +17,7 @@ class ListAction extends \Magento\Backend\App\AbstractAction
 
     /**
      * @var \Magento\Framework\Json\Helper\Data
-     * @deprecated 100.3.0
+     * @deprecated
      */
     protected $jsonHelper;
 

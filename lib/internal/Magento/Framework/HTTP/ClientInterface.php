@@ -10,7 +10,6 @@ namespace Magento\Framework\HTTP;
  * Interface for HTTP clients
  *
  * @api
- * @since 100.0.2
  */
 interface ClientInterface
 {

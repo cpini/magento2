@@ -79,7 +79,7 @@ class Toolbar extends \Magento\Framework\View\Element\Template
 
     /**
      * @var bool $_paramsMemorizeAllowed
-     * @deprecated 103.0.1
+     * @deprecated
      */
     protected $_paramsMemorizeAllowed = true;
 
@@ -99,7 +99,7 @@ class Toolbar extends \Magento\Framework\View\Element\Template
      * Catalog session
      *
      * @var \Magento\Catalog\Model\Session
-     * @deprecated 103.0.1
+     * @deprecated
      */
     protected $_catalogSession;
 
@@ -188,7 +188,7 @@ class Toolbar extends \Magento\Framework\View\Element\Template
      * Disable list state params memorizing
      *
      * @return $this
-     * @deprecated 103.0.1
+     * @deprecated
      */
     public function disableParamsMemorizing()
     {
@@ -202,7 +202,7 @@ class Toolbar extends \Magento\Framework\View\Element\Template
      * @param string $param parameter name
      * @param mixed $value parameter value
      * @return $this
-     * @deprecated 103.0.1
+     * @deprecated
      */
     protected function _memorizeParam($param, $value)
     {
@@ -263,7 +263,7 @@ class Toolbar extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     * Get grit products sort order field
+     * Get grid products sort order field
      *
      * @return string
      */

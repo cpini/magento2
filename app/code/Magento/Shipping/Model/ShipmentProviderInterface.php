@@ -11,7 +11,6 @@ namespace Magento\Shipping\Model;
  * Provide shipment items data.
  *
  * @api
- * @since 100.3.0
  */
 interface ShipmentProviderInterface
 {
@@ -19,7 +18,6 @@ interface ShipmentProviderInterface
      * Retrieve shipment items.
      *
      * @return array
-     * @since 100.3.0
      */
     public function getShipmentData(): array;
 }

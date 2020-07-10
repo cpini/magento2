@@ -125,7 +125,7 @@ class EavSetup
     /**
      * Gets setup model.
      *
-     * @deprecated 102.0.0
+     * @deprecated
      * @return ModuleDataSetupInterface
      */
     public function getSetup()

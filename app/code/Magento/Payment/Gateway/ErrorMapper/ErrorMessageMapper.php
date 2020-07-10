@@ -17,7 +17,6 @@ use Magento\Framework\Config\DataInterface;
  * In that case, this implementation can be extended via di.xml and configured with appropriate mappers.
  *
  * @api
- * @since 100.2.2
  */
 class ErrorMessageMapper implements ErrorMessageMapperInterface
 {
@@ -36,7 +35,6 @@ class ErrorMessageMapper implements ErrorMessageMapperInterface
 
     /**
      * @inheritdoc
-     * @since 100.2.2
      */
     public function getMessage(string $code)
     {

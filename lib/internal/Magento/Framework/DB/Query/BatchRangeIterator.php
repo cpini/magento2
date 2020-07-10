@@ -35,7 +35,7 @@ class BatchRangeIterator implements BatchIteratorInterface
 
     /**
      * @var string
-     * @deprecated 102.0.0 unused class property
+     * @deprecated unused class property
      */
     private $rangeFieldAlias;
 

@@ -27,7 +27,6 @@ namespace Magento\Framework\Webapi\Rest\Request;
  * adding to the parameter list for ParamsOverrider's dependency injection configuration.
  *
  * @api
- * @since 100.0.2
  */
 interface ParamOverriderInterface
 {

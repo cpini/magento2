@@ -24,7 +24,7 @@ interface CustomAttributeTypeLocatorInterface
      * Get list of all Data Interface corresponding to complex custom attribute types
      *
      * @return string[] array of Data Interface class names
-     * @deprecated 102.0.0
+     * @deprecated
      * @see \Magento\Framework\Webapi\CustomAttribute\ServiceTypeListInterface::getDataTypes()
      */
     public function getAllServiceDataInterfaces();

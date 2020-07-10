@@ -54,14 +54,14 @@ class Repository implements \Magento\Catalog\Api\ProductLinkRepositoryInterface
 
     /**
      * @var CollectionProvider
-     * @deprecated 103.0.4 Not used anymore.
+     * @deprecated Not used anymore.
      * @see query
      */
     protected $entityCollectionProvider;
 
     /**
      * @var LinksInitializer
-     * @deprecated 103.0.4 Not used.
+     * @deprecated Not used.
      */
     protected $linkInitializer;
 
@@ -77,14 +77,14 @@ class Repository implements \Magento\Catalog\Api\ProductLinkRepositoryInterface
 
     /**
      * @var ProductLinkInterfaceFactory
-     * @deprecated 103.0.4 Not used anymore, search delegated.
+     * @deprecated Not used anymore, search delegated.
      * @see getList()
      */
     protected $productLinkFactory;
 
     /**
      * @var ProductLinkExtensionFactory
-     * @deprecated 103.0.4 Not used anymore, search delegated.
+     * @deprecated Not used anymore, search delegated.
      * @see getList()
      */
     protected $productLinkExtensionFactory;

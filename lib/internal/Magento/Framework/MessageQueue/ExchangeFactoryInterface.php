@@ -9,7 +9,7 @@ namespace Magento\Framework\MessageQueue;
  * Factory class for @see \Magento\Framework\MessageQueue\ExchangeInterface
  *
  * @api
- * @since 102.0.4
+ * @since 100.2.0
  */
 interface ExchangeFactoryInterface
 {
@@ -19,7 +19,7 @@ interface ExchangeFactoryInterface
      * @param string $connectionName
      * @param array $data
      * @return ExchangeInterface
-     * @since 102.0.4
+     * @since 100.2.0
      */
     public function create($connectionName, array $data = []);
 }

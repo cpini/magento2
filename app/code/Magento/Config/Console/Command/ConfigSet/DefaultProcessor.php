@@ -21,7 +21,7 @@ use Magento\Config\Model\PreparedValueFactory;
  *
  * @inheritdoc
  * @api
- * @since 101.0.0
+ * @since 100.2.0
  */
 class DefaultProcessor implements ConfigSetProcessorInterface
 {
@@ -76,7 +76,7 @@ class DefaultProcessor implements ConfigSetProcessorInterface
      * Requires installed application.
      *
      * @inheritdoc
-     * @since 101.0.0
+     * @since 100.2.0
      */
     public function process($path, $value, $scope, $scopeCode)
     {

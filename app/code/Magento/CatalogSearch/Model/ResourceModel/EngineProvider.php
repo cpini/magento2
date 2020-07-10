@@ -29,7 +29,7 @@ class EngineProvider
 
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
-     * @deprecated 101.0.0 since it is not used anymore
+     * @deprecated since it is not used anymore
      */
     protected $scopeConfig;
 

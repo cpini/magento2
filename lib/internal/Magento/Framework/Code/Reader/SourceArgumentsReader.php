@@ -87,7 +87,7 @@ class SourceArgumentsReader
      * @param string $argument
      * @param array $availableNamespaces
      * @return string
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      * @see getConstructorArgumentTypes
      */
     protected function resolveNamespaces($argument, $availableNamespaces)
@@ -102,7 +102,7 @@ class SourceArgumentsReader
      * @param string $token
      * @return string
      *
-     * @deprecated 102.0.0 Not used anymore.
+     * @deprecated Not used anymore.
      */
     protected function removeToken($argument, $token)
     {
@@ -118,7 +118,7 @@ class SourceArgumentsReader
      *
      * @param array $file
      * @return array
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      * @see getConstructorArgumentTypes
      */
     protected function getImportedNamespaces(array $file)

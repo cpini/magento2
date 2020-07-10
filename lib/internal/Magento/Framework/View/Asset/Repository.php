@@ -17,7 +17,6 @@ use Magento\Framework\Exception\LocalizedException;
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  *
  * @api
- * @since 100.0.2
  */
 class Repository
 {
@@ -38,7 +37,7 @@ class Repository
 
     /**
      * @var \Magento\Framework\View\Design\Theme\ListInterface
-     * @deprecated 100.0.2
+     * @deprecated 100.1.1
      */
     private $themeList;
 

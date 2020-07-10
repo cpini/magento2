@@ -76,7 +76,6 @@ class Navigation extends \Magento\Framework\View\Element\Template
 
     /**
      * @inheritdoc
-     * @since 100.3.4
      */
     protected function _beforeToHtml()
     {

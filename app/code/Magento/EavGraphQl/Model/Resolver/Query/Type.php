@@ -15,7 +15,6 @@ use Magento\Framework\GraphQl\Exception\GraphQlInputException;
  * Translate type names found by the custom type locator to GraphQL type names.
  *
  * @api
- * @since 100.3.0
  */
 class Type
 {
@@ -56,7 +55,6 @@ class Type
      * @param string $entityType
      * @return string
      * @throws GraphQlInputException
-     * @since 100.3.0
      */
     public function getType(string $attributeCode, string $entityType) : string
     {

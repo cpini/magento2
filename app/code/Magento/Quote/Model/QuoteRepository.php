@@ -43,7 +43,7 @@ class QuoteRepository implements CartRepositoryInterface
 
     /**
      * @var QuoteFactory
-     * @deprecated 101.1.2
+     * @deprecated
      */
     protected $quoteFactory;
 
@@ -54,7 +54,7 @@ class QuoteRepository implements CartRepositoryInterface
 
     /**
      * @var QuoteCollection
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      */
     protected $quoteCollection;
 
@@ -261,7 +261,7 @@ class QuoteRepository implements CartRepositoryInterface
      * @param FilterGroup $filterGroup The filter group.
      * @param QuoteCollection $collection The quote collection.
      * @return void
-     * @deprecated 101.0.0
+     * @deprecated 100.2.0
      * @throws InputException The specified filter group or quote collection does not exist.
      */
     protected function addFilterGroupToCollection(FilterGroup $filterGroup, QuoteCollection $collection)
