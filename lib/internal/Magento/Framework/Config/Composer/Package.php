@@ -9,7 +9,6 @@ namespace Magento\Framework\Config\Composer;
 /**
  * A model that represents composer package
  * @api
- * @since 100.0.2
  */
 class Package
 {

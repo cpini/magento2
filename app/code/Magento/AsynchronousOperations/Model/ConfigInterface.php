@@ -15,7 +15,6 @@ use Magento\AsynchronousOperations\Api\Data\OperationInterface;
  * Class for accessing to Webapi_Async configuration.
  *
  * @api
- * @since 100.2.3
  */
 interface ConfigInterface
 {
@@ -46,7 +45,6 @@ interface ConfigInterface
      * Get array of generated topics name and related to this topic service class and methods
      *
      * @return array
-     * @since 100.2.3
      */
     public function getServices();
 
@@ -57,7 +55,6 @@ interface ConfigInterface
      * @param string $httpMethod GET|POST|PUT|DELETE
      * @return string
      * @throws \Magento\Framework\Exception\LocalizedException
-     * @since 100.2.3
      */
     public function getTopicName($routeUrl, $httpMethod);
 }

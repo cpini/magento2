@@ -229,7 +229,7 @@ abstract class AbstractConfig implements ConfigInterface
     /**
      * Check whether WPP API credentials are available for this method
      *
-     * @deprecated 100.3.1
+     * @deprecated
      * @return bool
      */
     public function isWppApiAvailabe()

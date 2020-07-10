@@ -62,7 +62,7 @@ class Fulltext extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * Reset search results
      *
      * @return $this
-     * @deprecated 101.0.0 Not used anymore
+     * @deprecated Not used anymore
      * @see Fulltext::resetSearchResultsByStore
      */
     public function resetSearchResults()
@@ -78,7 +78,6 @@ class Fulltext extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      *
      * @param int $storeId
      * @return $this
-     * @since 101.0.0
      */
     public function resetSearchResultsByStore($storeId)
     {

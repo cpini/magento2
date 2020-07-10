@@ -8,8 +8,7 @@ namespace Magento\Framework\Backup\Db;
 /**
  * @api
  *
- * @deprecated 101.0.7 Backups should be done using other means.
- * @since 100.0.2
+ * @deprecated Backups should be done using other means.
  */
 interface BackupDbInterface
 {

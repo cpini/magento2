@@ -14,7 +14,6 @@ use Magento\Framework\Search\Request\QueryInterface;
  *
  * @codeCoverageIgnore
  * @api
- * @since 100.0.2
  */
 class Request implements RequestInterface
 {
@@ -152,9 +151,8 @@ class Request implements RequestInterface
      * It must be move to different interface.
      * Scope to split Search request interface on two different 'Search' and 'Fulltext Search' contains in MC-16461.
      *
-     * @deprecated 102.0.2
+     * @deprecated
      * @return array
-     * @since 102.0.2
      */
     public function getSort()
     {

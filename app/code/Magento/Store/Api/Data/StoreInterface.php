@@ -69,13 +69,11 @@ interface StoreInterface extends \Magento\Framework\Api\ExtensibleDataInterface
     /**
      * @param int $isActive
      * @return $this
-     * @since 101.0.0
      */
     public function setIsActive($isActive);
 
     /**
      * @return int
-     * @since 101.0.0
      */
     public function getIsActive();
 

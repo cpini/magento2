@@ -12,7 +12,6 @@ use Magento\Framework\Phrase;
  * Exception thrown while processing bulk of entities
  *
  * @api
- * @since 101.0.7
  */
 class BulkException extends AbstractAggregateException
 {
@@ -43,7 +42,6 @@ class BulkException extends AbstractAggregateException
      * Add data
      *
      * @param array $data
-     * @since 101.0.7
      */
     public function addData($data)
     {
@@ -54,7 +52,6 @@ class BulkException extends AbstractAggregateException
      * Retrieve data
      *
      * @return array
-     * @since 101.0.7
      */
     public function getData()
     {

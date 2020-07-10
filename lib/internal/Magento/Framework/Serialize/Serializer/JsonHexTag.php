@@ -16,13 +16,13 @@ use Magento\Framework\Serialize\SerializerInterface;
  * unserialize JSON encoded data
  *
  * @api
- * @since 102.0.1
+ * @since 100.2.0
  */
 class JsonHexTag extends Json implements SerializerInterface
 {
     /**
      * @inheritDoc
-     * @since 102.0.1
+     * @since 100.2.0
      */
     public function serialize($data): string
     {

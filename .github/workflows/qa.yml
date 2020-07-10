@@ -1,0 +1,42 @@
+name: CI Build
+on:
+  pull_request:
+    branches: [ development ]
+
+jobs:
+  build:
+    name: QA Operations
+    strategy:
+      matrix:
+        php: [7.3.17]
+    runs-on: ubuntu-latest
+    container:
+      image: php:${{ matrix.php }}-fpm-alpine
+      volumes:
+      - ${{ github.workspace }}:/var/www/html
+    steps:
+    - name: Set up container
+      run: |
+        echo "Update package lists."
+        apk update
+        apk upgrade
+        echo "Install base packages."
+        apk add --no-cache tzdata freetype freetype-dev libxslt-dev libpng libjpeg libxml2-dev zlib libwebp-dev libpng-dev jpeg-dev icu-dev zlib-dev libzip-dev 
+        apk add --no-cache $PHPIZE_DEPS
+        echo "Install PHP extensions."
+        docker-php-ext-configure gd --with-png-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/ --with-freetype-dir=/usr/inlcude/ 
+        docker-php-ext-configure zip --with-libzip 
+        docker-php-ext-install mysqli bcmath gd pdo_mysql soap xsl zip intl opcache  
+        echo "memory_limit=2G" > /usr/local/etc/php/conf.d/memory-limit.ini 
+        echo "max_input_vars=1000" > /usr/local/etc/php/conf.d/max-input-vars-php.ini 
+        echo "Install composer"
+        curl -sS https://getcomposer.org/installer | php 
+        mv composer.phar /usr/local/bin/composer
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Run composer install
+      run: |
+        composer install
+    - name: Run QA script
+      run: |
+        sh ./run-qa.sh

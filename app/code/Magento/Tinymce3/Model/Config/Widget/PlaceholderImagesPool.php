@@ -8,7 +8,7 @@ namespace Magento\Tinymce3\Model\Config\Widget;
 
 /**
  * Class PlaceholderImages provide ability to override placeholder images for Widgets
- * @deprecated 100.3.0
+ * @deprecated
  */
 class PlaceholderImagesPool
 {

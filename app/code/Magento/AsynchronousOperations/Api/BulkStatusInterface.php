@@ -14,7 +14,6 @@ namespace Magento\AsynchronousOperations\Api;
  * Bulk summary data with list of operations items short data.
  *
  * @api
- * @since 100.2.3
  */
 interface BulkStatusInterface extends \Magento\Framework\Bulk\BulkStatusInterface
 {
@@ -24,7 +23,6 @@ interface BulkStatusInterface extends \Magento\Framework\Bulk\BulkStatusInterfac
      * @param string $bulkUuid
      * @return \Magento\AsynchronousOperations\Api\Data\DetailedBulkOperationsStatusInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @since 100.2.3
      */
     public function getBulkDetailedStatus($bulkUuid);
 
@@ -34,7 +32,6 @@ interface BulkStatusInterface extends \Magento\Framework\Bulk\BulkStatusInterfac
      * @param string $bulkUuid
      * @return \Magento\AsynchronousOperations\Api\Data\BulkOperationsStatusInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @since 100.2.3
      */
     public function getBulkShortStatus($bulkUuid);
 }

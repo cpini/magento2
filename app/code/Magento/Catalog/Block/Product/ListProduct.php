@@ -136,7 +136,14 @@ class ListProduct extends AbstractProduct implements IdentityInterface
      */
     public function getLoadedProductCollection()
     {
-        return $this->_getProductCollection();
+        $collection = $this->_getProductCollection();
+
+        $categoryId = $this->getLayer()->getCurrentCategory()->getId();
+        foreach ($collection as $product) {
+            $product->setData('category_id', $categoryId);
+        }
+
+        return $collection;
     }
 
     /**
@@ -370,7 +377,7 @@ class ListProduct extends AbstractProduct implements IdentityInterface
      */
     public function getAddToCartPostParams(Product $product)
     {
-        $url = $this->getAddToCartUrl($product, ['_escape' => false]);
+        $url = $this->getAddToCartUrl($product);
         return [
             'action' => $url,
             'data' => [
@@ -475,8 +482,6 @@ class ListProduct extends AbstractProduct implements IdentityInterface
         if ($origCategory) {
             $layer->setCurrentCategory($origCategory);
         }
-
-        $this->addToolbarBlock($collection);
 
         $this->_eventManager->dispatch(
             'catalog_block_product_list_collection',

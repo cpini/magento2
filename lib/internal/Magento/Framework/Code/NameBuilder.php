@@ -9,7 +9,6 @@ namespace Magento\Framework\Code;
  * Builds namespace with classname out of the parts.
  *
  * @api
- * @since 100.0.2
  */
 class NameBuilder
 {

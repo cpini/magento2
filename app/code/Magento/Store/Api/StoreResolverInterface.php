@@ -8,7 +8,7 @@ namespace Magento\Store\Api;
 /**
  * Store resolver interface
  *
- * @deprecated 101.0.0
+ * @deprecated
  * @see \Magento\Store\Model\StoreManagerInterface
  */
 interface StoreResolverInterface

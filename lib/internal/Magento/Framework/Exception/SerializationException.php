@@ -12,7 +12,6 @@ use Magento\Framework\Phrase;
  * Serialization Exception
  *
  * @api
- * @since 100.0.2
  */
 class SerializationException extends LocalizedException
 {

@@ -17,7 +17,6 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
  * Provide an ability to show confirmation message on click on the "Delete" button
  *
  * @api
- * @since 101.0.0
  */
 class DeleteButton implements ButtonProviderInterface
 {
@@ -85,7 +84,6 @@ class DeleteButton implements ButtonProviderInterface
 
     /**
      * {@inheritdoc}
-     * @since 101.0.0
      */
     public function getButtonData()
     {

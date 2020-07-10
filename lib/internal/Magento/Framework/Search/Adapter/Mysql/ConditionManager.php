@@ -12,9 +12,8 @@ use Magento\Framework\DB\Adapter\AdapterInterface;
  * MySQL search condition manager
  *
  * @api
- * @deprecated 102.0.0
+ * @deprecated
  * @see \Magento\ElasticSearch
- * @since 100.0.2
  */
 class ConditionManager
 {

@@ -9,9 +9,8 @@ namespace Magento\Framework\Mail;
  * Mail Message interface
  *
  * @api
- * @deprecated 102.0.0 in favor of MailMessageInterface to avoid temporal coupling (setMessageType + setBody)
+ * @deprecated in favor of MailMessageInterface to avoid temporal coupling (setMessageType + setBody)
  * @see \Magento\Framework\Mail\MailMessageInterface
- * @since 100.0.2
  */
 interface MessageInterface
 {
@@ -47,7 +46,7 @@ interface MessageInterface
      * @param mixed $body
      * @return $this
      *
-     * @deprecated 102.0.0
+     * @deprecated
      * @see \Magento\Framework\Mail\MailMessageInterface::setBodyHtml
      * @see \Magento\Framework\Mail\MailMessageInterface::setBodyText()
      */
@@ -106,7 +105,7 @@ interface MessageInterface
      * @param string $type
      * @return $this
      *
-     * @deprecated 102.0.0
+     * @deprecated
      * @see \Magento\Framework\Mail\MailMessageInterface::setBodyHtml
      * @see \Magento\Framework\Mail\MailMessageInterface::getBodyHtml
      * @see \Magento\Framework\Mail\MailMessageInterface::setBodyText()

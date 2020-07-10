@@ -14,7 +14,6 @@ use Magento\Ui\Component\Listing\Columns\Column;
  * Represents Edit link in grid for entity by its identifier field
  *
  * @api
- * @since 101.0.0
  */
 class EditAction extends Column
 {
@@ -44,7 +43,6 @@ class EditAction extends Column
     /**
      * @param array $dataSource
      * @return array
-     * @since 101.0.0
      */
     public function prepareDataSource(array $dataSource)
     {

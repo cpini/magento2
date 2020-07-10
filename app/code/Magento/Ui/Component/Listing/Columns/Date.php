@@ -77,7 +77,6 @@ class Date extends Column
 
     /**
      * @inheritdoc
-     * @since 101.1.1
      */
     public function prepare()
     {

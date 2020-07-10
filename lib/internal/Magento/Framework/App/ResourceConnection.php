@@ -15,7 +15,6 @@ use Magento\Framework\Model\ResourceModel\Type\Db\ConnectionFactoryInterface;
  * This class provides access to all these connections.
  *
  * @api
- * @since 100.0.2
  */
 class ResourceConnection
 {
@@ -299,7 +298,6 @@ class ResourceConnection
      *
      * @param string $resourceName
      * @return string
-     * @since 102.0.0
      */
     public function getSchemaName($resourceName)
     {

@@ -60,7 +60,7 @@ class LoadOptions extends \Magento\Backend\App\Action implements HttpGetActionIn
 
     /**
      * @return \Magento\Widget\Helper\Conditions
-     * @deprecated 101.0.0
+     * @deprecated 100.1.4
      */
     private function getConditionsHelper()
     {

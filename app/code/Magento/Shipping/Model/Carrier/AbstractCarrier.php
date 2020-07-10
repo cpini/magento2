@@ -332,7 +332,6 @@ abstract class AbstractCarrier extends \Magento\Framework\DataObject implements 
      * @param \Magento\Framework\DataObject $request
      * @return $this|bool|\Magento\Framework\DataObject
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     * @since 100.2.6
      */
     public function processAdditionalValidation(\Magento\Framework\DataObject $request)
     {
@@ -344,7 +343,7 @@ abstract class AbstractCarrier extends \Magento\Framework\DataObject implements 
      *
      * @param \Magento\Framework\DataObject $request
      * @return $this|bool|\Magento\Framework\DataObject
-     * @deprecated 100.2.6
+     * @deprecated
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function proccessAdditionalValidation(\Magento\Framework\DataObject $request)

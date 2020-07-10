@@ -38,7 +38,6 @@ interface BulkSummaryInterface extends \Magento\Framework\Bulk\BulkSummaryInterf
      * Get user type
      *
      * @return int
-     * @since 100.3.0
      */
     public function getUserType();
 
@@ -47,7 +46,6 @@ interface BulkSummaryInterface extends \Magento\Framework\Bulk\BulkSummaryInterf
      *
      * @param int $userType
      * @return $this
-     * @since 100.3.0
      */
     public function setUserType($userType);
 }

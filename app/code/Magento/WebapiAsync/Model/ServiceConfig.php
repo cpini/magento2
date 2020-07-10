@@ -17,7 +17,6 @@ use Magento\WebapiAsync\Model\ServiceConfig\Reader;
  * This class gives access to consolidated web API configuration from <Module_Name>/etc/webapi_async.xml files.
  *
  * @api
- * @since 100.2.0
  */
 class ServiceConfig
 {
@@ -64,7 +63,6 @@ class ServiceConfig
      * Return services loaded from cache if enabled or from files merged previously
      *
      * @return array
-     * @since 100.2.0
      */
     public function getServices()
     {

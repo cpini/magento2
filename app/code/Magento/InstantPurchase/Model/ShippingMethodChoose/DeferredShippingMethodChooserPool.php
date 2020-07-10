@@ -10,7 +10,6 @@ namespace Magento\InstantPurchase\Model\ShippingMethodChoose;
  * Use deferred shipping method code as a key for a deferred chooser.
  *
  * @api
- * @since 100.2.0
  */
 class DeferredShippingMethodChooserPool
 {
@@ -35,7 +34,6 @@ class DeferredShippingMethodChooserPool
     /**
      * @param string $type
      * @return DeferredShippingMethodChooserInterface
-     * @since 100.2.0
      */
     public function get($type) : DeferredShippingMethodChooserInterface
     {

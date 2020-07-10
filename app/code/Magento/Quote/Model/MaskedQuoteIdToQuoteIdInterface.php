@@ -12,7 +12,6 @@ use Magento\Framework\Exception\NoSuchEntityException;
 /**
  * Converts masked quote id to the quote id (entity id)
  * @api
- * @since 101.1.0
  */
 interface MaskedQuoteIdToQuoteIdInterface
 {
@@ -20,7 +19,6 @@ interface MaskedQuoteIdToQuoteIdInterface
      * @param string $maskedQuoteId
      * @return int
      * @throws NoSuchEntityException
-     * @since 101.1.0
      */
     public function execute(string $maskedQuoteId): int;
 }
