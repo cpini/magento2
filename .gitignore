@@ -1,5 +1,5 @@
 /app/code/Unit*
-/.ssl-certs
+!/.ssl-certs
 /.buildpath
 /.cache
 /.metadata
