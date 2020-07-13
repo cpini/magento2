@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
@@ -20,12 +18,25 @@ class Data
      */
     public function getKubernetesPodDetails()
     {
-        $podName        = trim($_ENV['K8S_POD_NAME']);
-        $nodeName       = trim($_ENV['K8S_NODE_NAME']);
-        $nodeNameSpace  = trim($_ENV['K8S_POD_NAMESPACE']);
+        $podName        = trim($this->getEnvValue('K8S_POD_NAME'));
+        $nodeName       = trim($this->getEnvValue('K8S_NODE_NAME'));
+        $nodeNameSpace  = trim($this->getEnvValue('K8S_POD_NAMESPACE'));
         if ($podName!=='' && $nodeName!=='' && $nodeNameSpace!=='') {
             return sprintf("%s:%s:%s", $nodeNameSpace, $nodeName, $podName);
         }
         return 'main';
+    }
+
+    /**
+     * Retrieve value of environment variable by key
+     * @param string $placeholder
+     * @return string|null
+     */
+    protected function getEnvValue($key = null)
+    {
+        // phpcs:disable Magento2.Security.Superglobal
+        $val = isset($_ENV[$key]) ? $_ENV[$key] : null;
+        // phpcs:enable
+        return $val;
     }
 }
