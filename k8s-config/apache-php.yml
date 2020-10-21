@@ -59,7 +59,7 @@ metadata:
   labels:
     app: magento
 spec:
-  replicas: 2
+  replicas: 1
   minReadySeconds: 30
   strategy:
     type: RollingUpdate
