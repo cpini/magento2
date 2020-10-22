@@ -11,7 +11,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
                                    --with-webp-dir=/usr/include/ \
                                    --with-freetype-dir=/usr/inlcude/ \
  && docker-php-ext-configure zip --with-libzip \
- && docker-php-ext-install mysqli bcmath gd pdo_mysql soap xsl zip intl opcache  \
+ && docker-php-ext-install mysqli bcmath gd pdo_mysql soap xsl zip intl opcache sockets \
  && echo "memory_limit=2G" > /usr/local/etc/php/conf.d/memory-limit.ini \
  && echo "max_input_vars=1000" > /usr/local/etc/php/conf.d/max-input-vars-php.ini \
  && curl -sS https://getcomposer.org/installer | php \
