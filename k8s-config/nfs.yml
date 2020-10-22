@@ -82,7 +82,8 @@ spec:
         env:
         - name: SHARED_DIRECTORY
           value: /data
-        image: eu.gcr.io/magento2-269418/nfs-server-alpine:1
+        #image: eu.gcr.io/magento2-269418/nfs-server-alpine:1
+        image: itsthenetwork/nfs-server-alpine:latest
         ports:
           - name: nfs
             containerPort: 2049
@@ -92,9 +93,9 @@ spec:
             containerPort: 111 
         resources:
           requests:
-            cpu: 3
+            cpu: 2
           limits:
-            cpu: 3 
+            cpu: 2 
         volumeMounts:
           - mountPath: /data
             name: nfs-pvc

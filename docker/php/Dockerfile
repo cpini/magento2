@@ -13,7 +13,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr/include/ \
                                    --with-webp-dir=/usr/include/ \
                                    --with-freetype-dir=/usr/inlcude/ \
  && docker-php-ext-configure zip --with-libzip \
- && docker-php-ext-install mysqli bcmath gd pdo_mysql soap xsl zip intl opcache \
+ && docker-php-ext-install mysqli bcmath gd pdo_mysql soap xsl zip intl opcache sockets \
  && docker-php-ext-enable xdebug \
  && npm install -g grunt-cli \
  && curl -sS https://getcomposer.org/installer | php \

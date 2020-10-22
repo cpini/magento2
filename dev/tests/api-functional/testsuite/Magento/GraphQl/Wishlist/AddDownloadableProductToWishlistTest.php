@@ -110,7 +110,7 @@ class AddDownloadableProductToWishlistTest extends GraphQlAbstract
             json_encode($itemOptions)
         ), '{}');
         $query = $this->getQuery($qty, $sku, $productOptionsQuery);
-        $this->expectExceptionMessage('The wishlist is not currently available.');
+        $this->expectExceptionMessage('The wishlist configuration is currently disabled.');
         $this->graphQlMutation($query, [], '', $this->getHeaderMap());
     }
 
@@ -181,7 +181,7 @@ mutation {
       }
     ]
 ) {
-    userInputErrors {
+    user_errors {
       code
       message
     }
