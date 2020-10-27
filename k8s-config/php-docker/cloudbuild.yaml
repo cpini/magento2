@@ -1,8 +1,8 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', "eu.gcr.io/$PROJECT_ID/magento2-php72:$SHORT_SHA", '-f', 'k8s-config/php-docker/Dockerfile', '.']
+  args: ['build', '-t', "eu.gcr.io/$PROJECT_ID/magento2-php72:latest", '-f', 'k8s-config/php-docker/Dockerfile', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-php72:$SHORT_SHA"]
+  args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-php72:latest"]
 # Run pre-release actions
 # - name: 'gcr.io/cloud-builders/gke-deploy'
 #   args:
@@ -16,7 +16,7 @@ steps:
   args:
   - run
   - --filename=k8s-config/apache-php.yml
-  - --image=eu.gcr.io/$PROJECT_ID/magento2-php72:$SHORT_SHA
+  - --image=eu.gcr.io/$PROJECT_ID/magento2-php72:latest
   - --location=${_CLOUDSDK_COMPUTE_ZONE}
   - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
   timeout: 1000s

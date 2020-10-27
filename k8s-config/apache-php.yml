@@ -80,7 +80,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: setup-pub-dir
-          image: eu.gcr.io/magento2-269418/magento2-php72
+          image: eu.gcr.io/magento2-269418/magento2-php72:latest
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -141,7 +141,7 @@ spec:
             periodSeconds: 50
             timeoutSeconds: 3
             initialDelaySeconds: 1
-        - image: eu.gcr.io/magento2-269418/magento2-php72
+        - image: eu.gcr.io/magento2-269418/magento2-php72:latest
           lifecycle:
             postStart:
               exec:
