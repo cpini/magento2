@@ -20,4 +20,4 @@ steps:
   - --image=eu.gcr.io/$PROJECT_ID/magento2-php72:$SHORT_SHA
   - --location=${_CLOUDSDK_COMPUTE_ZONE}
   - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
-  timeout: 600s
+  timeout: 1000s
