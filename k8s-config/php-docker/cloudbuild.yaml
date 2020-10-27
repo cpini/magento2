@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy']
+  args: ['builds']
   timeout: 1200s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', "eu.gcr.io/$PROJECT_ID/magento2-php72:latest", '-f', 'k8s-config/php-docker/Dockerfile', '.']
