@@ -20,4 +20,3 @@ steps:
   - --location=${_CLOUDSDK_COMPUTE_ZONE}
   - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
   timeout: 1000s
-timeout: 1500s
