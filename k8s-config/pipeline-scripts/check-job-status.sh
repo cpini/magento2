@@ -1,5 +1,6 @@
 #!/bin/bash
 
+`gcloud components install kubectl`
 `gcloud container clusters get-credentials magento-dev-cluster --zone europe-west2-a`
 while true; do
     status=$(kubectl wait --for=condition=complete job/pre-release-actions)
