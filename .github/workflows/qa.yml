@@ -30,8 +30,9 @@ jobs:
         echo "memory_limit=2G" > /usr/local/etc/php/conf.d/memory-limit.ini 
         echo "max_input_vars=1000" > /usr/local/etc/php/conf.d/max-input-vars-php.ini 
         echo "Install composer"
-        curl -sS https://getcomposer.org/installer | php 
-        mv composer.phar /usr/local/bin/composer
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version=1.10.16
+        php -r "unlink('composer-setup.php');" 
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Run composer install

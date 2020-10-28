@@ -26,7 +26,7 @@ spec:
     name: magento
   minReplicas: 1
   maxReplicas: 7
-  targetCPUUtilizationPercentage: 55
+  targetCPUUtilizationPercentage: 70
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
@@ -80,7 +80,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: setup-pub-dir
-          image: eu.gcr.io/magento2-269418/magento2-php72:$TAG_NAME
+          image: eu.gcr.io/magento2-269418/magento2-php72:latest
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -101,7 +101,7 @@ spec:
             requests:
               cpu: "500m"
       containers:
-        - image: eu.gcr.io/magento2-269418/magento2-apache24:$TAG_NAME
+        - image: eu.gcr.io/magento2-269418/magento2-apache24:latest
           name: apache
           ports:
             - containerPort: 80
@@ -133,7 +133,7 @@ spec:
             periodSeconds: 50
             timeoutSeconds: 3
             initialDelaySeconds: 1
-        - image: eu.gcr.io/magento2-269418/magento2-php72:$TAG_NAME
+        - image: eu.gcr.io/magento2-269418/magento2-php72:latest
           lifecycle:
             postStart:
               exec:

@@ -11,7 +11,7 @@ spec:
         fsGroup: 82
       containers:
       - name: php
-        image: eu.gcr.io/magento2-269418/magento2-php72:$TAG_NAME
+        image: eu.gcr.io/magento2-269418/magento2-php72:latest
         volumeMounts:
           - mountPath: /var/www/html/var
             name: magento-var-volume

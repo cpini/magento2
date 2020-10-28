@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest", '-f', 'k8s-config/apache-docker/Dockerfile', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest"]
+images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]

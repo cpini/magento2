@@ -1,0 +1,27 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', "eu.gcr.io/$PROJECT_ID/magento2-php72:latest", '-f', 'k8s-config/php-docker/Dockerfile', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-php72:latest"]
+# Run pre-release actions
+- name: 'gcr.io/cloud-builders/gke-deploy'
+  args:
+  - apply
+  - --filename=k8s-config/pre-release-actions.yml
+  - --location=${_CLOUDSDK_COMPUTE_ZONE}
+  - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
+# Chceck status of the job and delete when done
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: pre-release-job-success
+  entrypoint: 'bash'
+  args: ['k8s-config/pipeline-scripts/check-job-status.sh', '-c ${_CLOUDSDK_CONTAINER_CLUSTER}', '-z ${_CLOUDSDK_COMPUTE_ZONE}']
+# deploy containers to GKE
+- name: 'gcr.io/cloud-builders/gke-deploy'
+  args:
+  - run
+  - --filename=k8s-config/apache-php.yml
+  - --image=eu.gcr.io/$PROJECT_ID/magento2-php72:latest
+  - --location=${_CLOUDSDK_COMPUTE_ZONE}
+  - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
+  - --timeout=10m0s
+timeout: 1200s
