@@ -8,7 +8,6 @@ steps:
   args:
   - apply
   - --filename=k8s-config/pre-release-actions.yml
-  - --image=eu.gcr.io/$PROJECT_ID/magento2-php72:latest
   - --location=${_CLOUDSDK_COMPUTE_ZONE}
   - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
 # Chceck status of the job and delete when done
