@@ -18,7 +18,6 @@ steps:
   args: ['k8s-config/pipeline-scripts/check-job-status.sh', '-c ${_CLOUDSDK_CONTAINER_CLUSTER}', '-z ${_CLOUDSDK_COMPUTE_ZONE}']
 # deploy containers to GKE
 - name: 'gcr.io/cloud-builders/gke-deploy'
-  waitFor: ['pre-release-job-success']
   args:
   - run
   - --filename=k8s-config/apache-php.yml
