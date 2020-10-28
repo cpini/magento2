@@ -15,7 +15,7 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   id: pre-release-job-success
   entrypoint: 'bash'
-  args: ['k8s-config/pipeline-scripts/check-job-status.sh']
+  args: ['k8s-config/pipeline-scripts/check-job-status.sh', '-c ${_CLOUDSDK_CONTAINER_CLUSTER}', '-z ${_CLOUDSDK_COMPUTE_ZONE}']
 # deploy containers to GKE
 - name: 'gcr.io/cloud-builders/gke-deploy'
   waitFor: ['pre-release-job-success']
