@@ -7,11 +7,11 @@ while true; do
     response='job.batch/pre-release-actions condition met'
     if test "$status" == "$response"
     then
-        echo "$status >> $response\n"
-        `kubectl delete job pre-release-actions`
+        echo "$status >> $response"
+        $(kubectl delete job pre-release-actions)
         break
     else
-        echo "Still running\n"
+        echo "Still running"
         sleep 10
     fi
 done
