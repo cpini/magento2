@@ -1,6 +1,5 @@
 #!/bin/bash
 
-`gcloud components install kubectl`
 `gcloud container clusters get-credentials magento-dev-cluster --zone europe-west2-a`
 while true; do
     status=$(kubectl wait --for=condition=complete job/pre-release-actions)
@@ -8,11 +7,15 @@ while true; do
     if test "$status" == "$response"
     then
         echo "$status >> $response"
-        $(kubectl delete job pre-release-actions)
         break
     else
         echo "Still running"
         sleep 10
     fi
 done
-exit 0
+ret=$(kubectl delete job pre-release-actions)
+if test "ret" != ""
+then
+    exit 0
+fi  
+exit 1
