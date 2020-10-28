@@ -91,20 +91,12 @@ spec:
             name: magento-var-volume
             subPath: var
           command: ["/bin/sh"]
-          args:
+          args: 
             - -c
-            - |
-              chmod -R 0775 /var/www/html/var /var/www/html/pub 
-              chgrp -R 82 /var/www/html/var /var/www/html/pub
-              sh /var/www/html/start.sh
-              chgrp -R 82 /var/www/html/var /var/www/html/pub
-          # command: ["/bin/sh"]
-          # args: 
-          #   - -c
-          #   - | 
-          #     chmod -R 0777 /var/www/html/pub; 
-          #     chmod -R 0775 /var/www/html/var; 
-          #     chgrp -R 82 /var/www/html/pub /var/www/html/var; 
+            - | 
+              chmod -R 0777 /var/www/html/pub; 
+              chmod -R 0775 /var/www/html/var; 
+              chgrp -R 82 /var/www/html/pub /var/www/html/var; 
           resources:
             requests:
               cpu: "500m"
