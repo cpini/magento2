@@ -104,7 +104,7 @@ spec:
         - image: eu.gcr.io/magento2-269418/magento2-apache24:latest
           name: apache
           ports:
-            - containerPort: 80
+            - containerPort: 443
               name: apache
           resources:
             requests:
@@ -120,7 +120,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /healthz/
-              port: 80
+              port: 443
             failureThreshold: 1
             periodSeconds: 50
             timeoutSeconds: 3
@@ -128,7 +128,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /healthz/
-              port: 80
+              port: 443
             failureThreshold: 1
             periodSeconds: 50
             timeoutSeconds: 3
@@ -150,7 +150,7 @@ spec:
             exec:
               command:
                 - php-fpm-healthcheck
-                - --listen-queue=10 # fails if there are more than 10 processes waiting in the fpm queue
+                - --listen-queue=20 # fails if there are more than 10 processes waiting in the fpm queue
             initialDelaySeconds: 0
             periodSeconds: 10
           readinessProbe:
