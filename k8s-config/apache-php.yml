@@ -120,7 +120,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /healthz/
-              port: apache
+              port: 80
             failureThreshold: 1
             periodSeconds: 30
             timeoutSeconds: 3
@@ -128,7 +128,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /healthz/
-              port: apache
+              port: 80
             failureThreshold: 1
             periodSeconds: 30
             timeoutSeconds: 3
