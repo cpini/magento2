@@ -1,3 +1,5 @@
+/.sql_dumps
+/com.cpini.docker_10254_alias.plist
 /app/code/Unit*
 !/.ssl-certs
 /.buildpath

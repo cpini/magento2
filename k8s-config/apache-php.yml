@@ -5,6 +5,7 @@ metadata:
   annotations:
     #cloud.google.com/app-protocols: '{"mage-https-port":"HTTPS", "mage-http-port":"HTTP"}'
     #cloud.google.com/app-protocols: '{"mage-https-port":"HTTPS","mage-http-port":"HTTP"}'
+    cloud.google.com/backend-config: '{"ports": {"mage-https-port":"http-hc-config"}}'
     cloud.google.com/app-protocols: '{"mage-https-port":"HTTP2"}'
 spec:
   type: NodePort
@@ -14,6 +15,17 @@ spec:
   - name: mage-https-port
     port: 443
     protocol: TCP
+---
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: http-hc-config
+spec:
+  healthCheck:
+    checkIntervalSec: 15
+    timeoutSec: 3
+    type: HTTPS
+    requestPath: /healthz/
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -105,7 +117,7 @@ spec:
           name: apache
           ports:
             - containerPort: 443
-              name: apache
+              name: apache-port
           resources:
             requests:
               memory: "64Mi"
