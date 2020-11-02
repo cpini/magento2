@@ -1,7 +1,8 @@
 /.sql_dumps
 /com.cpini.docker_10254_alias.plist
 /app/code/Unit*
-!/.ssl-certs
+/.ssl-certs
+/k8s-config/apache-docker/.ssl-keys
 /.buildpath
 /.cache
 /.metadata
