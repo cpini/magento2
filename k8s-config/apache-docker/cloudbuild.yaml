@@ -7,6 +7,8 @@ steps:
     "docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile --build-arg WEB_SSL_KEY=$$SSL_KEY ."
     ]
   secretEnv: ['SSL_KEY']
+  secretEnv: ['SSL_CRT']
+  secretEnv: ['SSL_PEM']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest"]
 images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
