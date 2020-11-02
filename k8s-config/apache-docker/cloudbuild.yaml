@@ -10,6 +10,9 @@ steps:
   args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest"]
 images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
 
+# echo -n $path_to_enc_file | gcloud kms encrypt --plaintext-file=- \
+#   --ciphertext-file=- --location=global --keyring=$keyring-name \
+#   --key=$key-name | base64
 secrets:
 - kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver"
   secretEnv:
