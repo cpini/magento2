@@ -17,7 +17,7 @@ images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
 secrets:
 - kmsKeyName: 'projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver-new-cert'
   secretEnv:
-    SSL_CRT: CiQA4UGEtB0Gr9+8oGAi0oo93lSsdzH/YJZMlCzhGgDUfWLPPhgS+wkAwGvbDiECqiiUGh9ZIxdF
+    SSL_CRT: 'CiQA4UGEtB0Gr9+8oGAi0oo93lSsdzH/YJZMlCzhGgDUfWLPPhgS+wkAwGvbDiECqiiUGh9ZIxdF
 LdNSgFHmKFzc9n0S8bbngzLs9AGd3lD6OE2yEgNv8EjQ4B01hMoA4b1CPzOt59uJS8svFbSYN8jG
 sQvUzrEAHRzIWGHVFtzA5zxBHXfCH9rXcIkNdPmPAWnOqhzlSQMBhWbQe6cXZxpRmZ4+iPam/hhZ
 ghLXHeQ0QBPQbTMvydhq9wGA7j/I0Xinf84vTqycgmquUwIvCJmXv0FAEhAydtaDIMNHIHQFSvAq
@@ -40,4 +40,4 @@ RMNMM/AU0lkEDG/LhLskKA0eal4hhsZLm6WUAdwkzZTCP9JGzoNBHKNOb9jP18x68LzQ93pXX7h3
 k6bw2kEMn9sAowB1KCjOwWduCbWXhNTM6OUex7YJ9eSEjth6Sx0Ot7ykuKPKCdTqGv249BOAXVqj
 +xQyMR1LzXgE3LOS/Pek55j2vPf7dUm26yERklfBmqnhjrpO5OZoPniQYkt/dHg2JZQcOAW98JOn
 m290Hk28rzwkJwJGkdqAVcQM7SaylSHAHO0jzbDXCvh7PvPUHob0E+vdLe7uq1z3130cbpW43rNt
-ZvQaVIA=
+ZvQaVIA='
