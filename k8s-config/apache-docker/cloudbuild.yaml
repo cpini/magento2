@@ -3,10 +3,10 @@ steps:
   entrypoint: 'bash'
   args: [
     '-c',
-    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile --build-arg WEB_SSL_CRT=$$SSL_CRT .'
+    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile .'
     ]
   #secretEnv: ['SSL_KEY','SSL_CRT','SSL_PEM']
-  secretEnv: ['SSL_CRT']
+  #secretEnv: ['SSL_CRT']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest"]
 images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
@@ -14,10 +14,10 @@ images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
 # echo -n $path_to_enc_file | gcloud kms encrypt --plaintext-file=- \
 #   --ciphertext-file=- --location=global --keyring=$keyring-name \
 #   --key=$key-name | base64
-secrets:
-# - kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver"
+# secrets:
+# # - kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver"
+# #   secretEnv:
+# #     SSL_KEY: CiQAwLhXnYlnR9B+OjcU1r49DF8VqzIQDgWEZayVwSYtzGjkCpASYADjhmPvdzQE1zmvxQTZA2scCqmWaiwNDZQtin0JfCpE+JxUmzK90+xlYcpcpCyD0s5LSYXQGRTzNqV4+5pno7+ERmfRPR7QLR4gbjRmzsGInQLmcyeFeNJwV/zmHh2pwg==
+# - kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver-new-cert"
 #   secretEnv:
-#     SSL_KEY: CiQAwLhXnYlnR9B+OjcU1r49DF8VqzIQDgWEZayVwSYtzGjkCpASYADjhmPvdzQE1zmvxQTZA2scCqmWaiwNDZQtin0JfCpE+JxUmzK90+xlYcpcpCyD0s5LSYXQGRTzNqV4+5pno7+ERmfRPR7QLR4gbjRmzsGInQLmcyeFeNJwV/zmHh2pwg==
-- kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver-new-cert"
-  secretEnv:
-    SSL_CRT: CiQA4UGEtMDoyfu7c7cgVVvH55HU43o0Mnu6XaLLfdE6sIoUJVcS5gkAwGvbDtFovFupsE9vJmDdEtOtyyyRnJQbDM80KEKcvPRmX++MFGF/j3ZFh+ySEnggjmpAJkOCJsG+dXzoYaB4VnLuYMKnTkndVnlRhMxhOScqTbcoq7b8UMgD/hTTKZMszrPiTITswvjW3z80I2/mGN8s7QdKynNI6KSqqsQQPh/Vcg4HLEE8PITIPV8mFY2bUh/njOgOOBwoRAnkAUdRsLQAHV/IfIaIXP17Iiw/YYwghvaw4CGFZ7F9ayp9dwZ68fvJKsV6KD+e2GjXJhJfB1+pZIlsW0nXxT2sHMqYf8SG5d0Nie8r5XrsWoGJ9CBjLkV94NbMi17PVkuGtYwZ0lSgZErS8n8lzdowBHFz5eevHIbHbQhTSxXHQDjD3OMo05mZuVUoAxD/mh1FJ0kr8yMAnZ5A56AfcVqUH2rOrf+FiLwoXGTlJ+kJ0AcILIQFmLqixZ60NmSJfOmuGlo6Zdqn3c5gB1zlctSfBrYehVATxaAzST0Ghy7dxXt/KWRegBO99/k7V86/H1S2NKj1t+CDLkSqqzD7DBjV4IaQid/qXGW8V8Dl8TS3FRhrkFGW7qYmAaZOaL+Aj6pAZpCbDnS1QwJIa2DD9zCCrtQwYJWnpFC3AXo8kYZ+gl4OpKW1gHTWfjKO77swUv4DkXjEIouSDFcyb0SBtrGNCLDHUF8a0rYy/DO7mYGbKQ+RKsSrva/I7tBIXgSWrQ0j2ZdBFVZ907qctZ/ADZfqmjGBHblRc1GdOoaWQVKcLINrX/xpdsnJF/8nMJIBLD4z3F7H47ePcCNyYOexmz2tQ0jG5Koyka0oZWJ/5MXzv4jdfWhdGVFxuEycCDk38ckOal4mPRRxLH52j2lA3lc+P34Is3tBHOEbcNzoMWAWN9VituF/JWKx1ljI7khTpsb4/fRrwDDsURFqj553sNYhhUky7N7p0SSiNq8XMHO+e+ZdsEt3MW9cM9FxQBQlHhCveZT04Ab02604pjnJ0zkacyCjc1kcweL0q0q+xeZ2MonE5Sem04uKBUtzzz6Cl+ZIKfKfbcpJBaOwoBB0tyhWRrOtiCVWpHp2Z7LBcVeYLFA5oe0s3D4TFWYCku76I1r8Uc7LQQKLhM9Ey8F7kiENM2/zVdYSAir132+4tUo3JUEum0zbCMpvy+Ajjs2TzhxaJDgJOBC9yMLw3c2aLo6qMQIl0oGImlAbAoLHDxCtLXOepHvqJbxpptxWja4mY0yU+AST77G055byzetQzLcO01s80ykPMZj4gNMuMpvYj17o3PK7OOjFrN9O04bt0c7tnKr0PPAsGFAkg0vPzTLC6H7gYrTgsG0H+Dp4cEZn+dX/uO8gWBn5sgBOBugQN73mwX3sUBlTAtEtY3g2eQ53G9zqjEGrGoW3KXeAXPW72uZhhHCcSddvCKOab+WQOwm2Oo3qT7qG+h9S3Vq6yEUaFWRS/viFHvN3xbB9hAhtsE0r8Vf9QuIVtXsUzWffGwU6+mFG4Ndo3dT2L1WtziYLJsIF9j3yhhnBqi6z3B1DjKdnY+D4jQf5Y1pJJcNC/mlYvmVMqYKalGVwDNCVpOH5L1V2w0QS18rfT7+KI5f3yCPBwIUBAQ0HgtkVZ3GFzFdoQ+JmtHA0nVCaDqG81H4kIJmX+b+n74cgOoiFL5yR7rPr2ua7rVG7PM0=
+#     SSL_CRT: CiQA4UGEtMDoyfu7c7cgVVvH55HU43o0Mnu6XaLLfdE6sIoUJVcS5gkAwGvbDtFovFupsE9vJmDdEtOtyyyRnJQbDM80KEKcvPRmX++MFGF/j3ZFh+ySEnggjmpAJkOCJsG+dXzoYaB4VnLuYMKnTkndVnlRhMxhOScqTbcoq7b8UMgD/hTTKZMszrPiTITswvjW3z80I2/mGN8s7QdKynNI6KSqqsQQPh/Vcg4HLEE8PITIPV8mFY2bUh/njOgOOBwoRAnkAUdRsLQAHV/IfIaIXP17Iiw/YYwghvaw4CGFZ7F9ayp9dwZ68fvJKsV6KD+e2GjXJhJfB1+pZIlsW0nXxT2sHMqYf8SG5d0Nie8r5XrsWoGJ9CBjLkV94NbMi17PVkuGtYwZ0lSgZErS8n8lzdowBHFz5eevHIbHbQhTSxXHQDjD3OMo05mZuVUoAxD/mh1FJ0kr8yMAnZ5A56AfcVqUH2rOrf+FiLwoXGTlJ+kJ0AcILIQFmLqixZ60NmSJfOmuGlo6Zdqn3c5gB1zlctSfBrYehVATxaAzST0Ghy7dxXt/KWRegBO99/k7V86/H1S2NKj1t+CDLkSqqzD7DBjV4IaQid/qXGW8V8Dl8TS3FRhrkFGW7qYmAaZOaL+Aj6pAZpCbDnS1QwJIa2DD9zCCrtQwYJWnpFC3AXo8kYZ+gl4OpKW1gHTWfjKO77swUv4DkXjEIouSDFcyb0SBtrGNCLDHUF8a0rYy/DO7mYGbKQ+RKsSrva/I7tBIXgSWrQ0j2ZdBFVZ907qctZ/ADZfqmjGBHblRc1GdOoaWQVKcLINrX/xpdsnJF/8nMJIBLD4z3F7H47ePcCNyYOexmz2tQ0jG5Koyka0oZWJ/5MXzv4jdfWhdGVFxuEycCDk38ckOal4mPRRxLH52j2lA3lc+P34Is3tBHOEbcNzoMWAWN9VituF/JWKx1ljI7khTpsb4/fRrwDDsURFqj553sNYhhUky7N7p0SSiNq8XMHO+e+ZdsEt3MW9cM9FxQBQlHhCveZT04Ab02604pjnJ0zkacyCjc1kcweL0q0q+xeZ2MonE5Sem04uKBUtzzz6Cl+ZIKfKfbcpJBaOwoBB0tyhWRrOtiCVWpHp2Z7LBcVeYLFA5oe0s3D4TFWYCku76I1r8Uc7LQQKLhM9Ey8F7kiENM2/zVdYSAir132+4tUo3JUEum0zbCMpvy+Ajjs2TzhxaJDgJOBC9yMLw3c2aLo6qMQIl0oGImlAbAoLHDxCtLXOepHvqJbxpptxWja4mY0yU+AST77G055byzetQzLcO01s80ykPMZj4gNMuMpvYj17o3PK7OOjFrN9O04bt0c7tnKr0PPAsGFAkg0vPzTLC6H7gYrTgsG0H+Dp4cEZn+dX/uO8gWBn5sgBOBugQN73mwX3sUBlTAtEtY3g2eQ53G9zqjEGrGoW3KXeAXPW72uZhhHCcSddvCKOab+WQOwm2Oo3qT7qG+h9S3Vq6yEUaFWRS/viFHvN3xbB9hAhtsE0r8Vf9QuIVtXsUzWffGwU6+mFG4Ndo3dT2L1WtziYLJsIF9j3yhhnBqi6z3B1DjKdnY+D4jQf5Y1pJJcNC/mlYvmVMqYKalGVwDNCVpOH5L1V2w0QS18rfT7+KI5f3yCPBwIUBAQ0HgtkVZ3GFzFdoQ+JmtHA0nVCaDqG81H4kIJmX+b+n74cgOoiFL5yR7rPr2ua7rVG7PM0=
