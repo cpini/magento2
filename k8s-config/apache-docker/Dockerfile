@@ -18,7 +18,8 @@ COPY k8s-config/apache-docker/magento.apache.conf /usr/local/apache2/conf/magent
 #COPY k8s-config/apache-docker/mage.xyz.crt /usr/local/apache2/conf/ssl-certs/mage.xyz.crt
 #COPY k8s-config/apache-docker/mage.xyz.key /usr/local/apache2/conf/ssl-certs/mage.xyz.key
 #COPY k8s-config/apache-docker/myCA.pem /usr/local/apache2/conf/ssl-certs/myCA.pem
-RUN echo "Include /usr/local/apache2/conf/magento.apache.conf" >> /usr/local/apache2/conf/httpd.conf;
+RUN echo "Include /usr/local/apache2/conf/magento.apache.conf" \
+    >> /usr/local/apache2/conf/httpd.conf;
 #&& echo WEB_SSL_KEY} > /usr/local/apache2/conf/ssl-certs/test.key;
 #&& echo "${WEB_SSL_CRT}" > /usr/local/apache2/conf/ssl-certs/test.crt \
 #&& echo "${WEB_SSL_PEM}" > /usr/local/apache2/conf/ssl-certs/test.pem;
