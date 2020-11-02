@@ -8,9 +8,9 @@ RUN apk update; \
 #COPY /usr/share/zoneinfo/$TZ /etc/localtime 
 #RUN echo $TZ > /etc/timezone;
 
-ARG WEB_SSL_KEY
-ARG WEB_SSL_CRT
-ARG WEB_SSL_PEM
+#ARG WEB_SSL_KEY
+#ARG WEB_SSL_CRT
+#ARG WEB_SSL_PEM
 
 RUN mkdir -p /usr/local/apache2/conf/ssl-certs
 # Copy apache vhost file to proxy php requests to php-fpm container
