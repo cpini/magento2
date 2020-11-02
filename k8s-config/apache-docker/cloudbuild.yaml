@@ -1,13 +1,7 @@
 steps:
-- name: 'gcr.io/cloud-builders/gcloud'
-  args:
-   - kms
-   - decrypt
-   - --ciphertext-file=./mage.xyz.crt.enc1.new.txt
-   - --plaintext-file=./mage.test.crt
-   - --location=global
-   - --keyring=magento-web-secrets
-   - --key=magento-webserver-new-cert
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
+  args: [ '-c', "gcloud secrets versions access latest --secret=test-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-data.txt" ]
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: [
