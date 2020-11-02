@@ -3,9 +3,11 @@ steps:
   entrypoint: 'bash'
   args: [
     '-c',
-    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile --build-arg WEB_SSL_KEY=$$SSL_KEY --build-arg WEB_SSL_CRT=$$SSL_CRT --build-arg WEB_SSL_PEM=$$SSL_PEM .'
+    #'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile --build-arg WEB_SSL_KEY=$$SSL_KEY --build-arg WEB_SSL_CRT=$$SSL_CRT --build-arg WEB_SSL_PEM=$$SSL_PEM .'
+    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile --build-arg WEB_SSL_CRT=$$SSL_CRT .'
     ]
-  secretEnv: ['SSL_KEY','SSL_CRT','SSL_PEM']
+  #secretEnv: ['SSL_KEY','SSL_CRT','SSL_PEM']
+  secretEnv: ['SSL_CRT']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest"]
 images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
@@ -14,12 +16,12 @@ images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
 #   --ciphertext-file=- --location=global --keyring=$keyring-name \
 #   --key=$key-name | base64
 secrets:
-- kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver"
-  secretEnv:
-    SSL_KEY: CiQAwLhXnYlnR9B+OjcU1r49DF8VqzIQDgWEZayVwSYtzGjkCpASYADjhmPvdzQE1zmvxQTZA2scCqmWaiwNDZQtin0JfCpE+JxUmzK90+xlYcpcpCyD0s5LSYXQGRTzNqV4+5pno7+ERmfRPR7QLR4gbjRmzsGInQLmcyeFeNJwV/zmHh2pwg==
+# - kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver"
+#   secretEnv:
+#     SSL_KEY: CiQAwLhXnYlnR9B+OjcU1r49DF8VqzIQDgWEZayVwSYtzGjkCpASYADjhmPvdzQE1zmvxQTZA2scCqmWaiwNDZQtin0JfCpE+JxUmzK90+xlYcpcpCyD0s5LSYXQGRTzNqV4+5pno7+ERmfRPR7QLR4gbjRmzsGInQLmcyeFeNJwV/zmHh2pwg==
 - kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver-cert"
   secretEnv:
     SSL_CRT: CiQAw4sRuQDx4onUg2/1jDXKcT06bPboDvsmc3ovD5Ug6sP98asS+wkA0Ywmf8mv6yddJxCIodrCh/Ukllfm3O+1HuH2eK0pRDgyCSLzUC88HYiGCplqdirL5egAdFF/2wjCtKU+oN3rk+XYLRPAGMoWSnbTVLn20EcO9eRYiVNSJERTvwWjyUtYU1Tv/veoWjgEh0FOzfn7VAtF/oAEfTawWqBITybuS0TT2mxJu74Dk+rKlVTWxbfpCMONwtzO50OJ/YRrT9VIvkRsPGtA/V1z514UvBbmzEyuJT8TvToHxmerARyy3fIalulPTT4NxcZdlqfbQMBr82Im7io1nbzmjbnp8vPi/xo2JCXDZahHRhAvvj8ys2ZKlvTbTrgqZ+411d8T3E0dbLR5SDM6rwnk71qDaX0UV/5ipbay6T7kYGCDUvW9j2FbwAsmOY9k4mduCHesH4dstd6NTqiczLM83ZXuZRsX3nG7Q0WLX+xR8XpjyPS2+o17/zpbK10s8nTMDPF5U+1IlV4z2/D0vhuFAH32+3KZAiv0DQlDHbnmylkCItvqeOxFZgGryMUqqjVTviEjVIoPkb+klyUZBhrGfbARUUivcHJ/duZPgvzzdWacUSG+t757f03DjObq9zGIsW313t/RhKKNfg8hFan4URlmBYrGLOttNEzhshDLKFBEjX8bIOg+nGwzT1B4ybgX7rxkHwBvd8TtL4XvZCeEu5rvZP2A0tTJp/uRsxOzRAVVR+fljYLPq8SzvRMcK98kKOHQwnEiSJfsKPtYdZgP0HcUh8zHT9eTAVDaUIpJG5PqaevL3zRb/mYfBmK+Yi4TckS+ywKL4xheRmX7rDuMbyTOccl7kmvdMjaD50YSz299B5Cj5WTJ1qU0sIC0wnj6m+iwMtzqlxzZh6YbtPErxhc4LNwREOlE4EXfMOKLs5LqQEADJXRzU3IeRp2rdO2RdWI8pNYDe7ztqOVUBJ8dy7ZdQ3F8FHTnqAGGpTprnnGZSIjozLmzMxDZx24JDIs8dbr7eyjH4/ZC0OTKsN4idedNymiFzF8ni6xTQzvaOkvgYAOGoMONRlMcM7g0kR+Wmq7O0SvmxxppBRNGaNciLQzB0c7LaZyYrWrCKaGgSaxWGEWCpMBeyTwVULkCTb+Im5ys7OJmOhJwLBAjqT60fhI2PYkp6HcMzcnitE1SA+ODq+ssTcVU248frG/cUYZTw5er0dGAIOhcfyL8LR0KBpidw9ALvpn5GKq2ZvKlZq2n+xEeGLNEltmAsQc2WABow6f3Uw+G6Yv8o6vwrBXWHh2IbD9EMAqKx9Rdt5+upxhEGTMHZdorNcpORzpnJiu1u6kaXX6zUqeaqjoMtZ1n4k2gw3TMRpVnNwaJpBJDTNYqUcYgP3A2TIKPEXXKLnKFE2RlVZwQVa4dk2Ozqs8/IkofhXby/pTfZphqNAJKCcmGvOONrqnVnDS2J8RwUa0ul8tw9ay3JHfwTvCFwIpFRYcRLFQuQpuKmvpSQajAe4kmQqiso4Ej0OlT+R9hWqRo/ERxMvB8UnlUHYBUyfFveHBVxJj6sD+8CXEiyyBQVqLW+hgLoX+RgxZJkg8m8BIiPxLCeuNTD29wF6qgS9xuM2L58OIOKxjVK980GjsYfXo+4R0/zISql1QLRO+VKnxJ7/LpJzVRpq1XIdPjH+aYxt09/t7thS2oILKD4dZI4rZALHytyYenrhd9r3JKI6RD4u1uqhviYXFBnADj6Q1BTZ8=
-- kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver-pem"
-  secretEnv:
-    SSL_PEM: CiQAmlC+DSjiaWEuPxB702MvQEM85cRXRM4Viw5JNrRTPmh6TNASXACJnZ61D477HH4U9jcJubu7pSXjumdXCHXZ9KdVtBgCV5lWJZaBoG4SAKK4seWiMNq+p/ZUm9+06MQGi7iVxTIdtRxMzCT3qtQrfn03hya4ZLjR9i4MwnbHqWrd
+# - kmsKeyName: "projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver-pem"
+#   secretEnv:
+#     SSL_PEM: CiQAmlC+DSjiaWEuPxB702MvQEM85cRXRM4Viw5JNrRTPmh6TNASXACJnZ61D477HH4U9jcJubu7pSXjumdXCHXZ9KdVtBgCV5lWJZaBoG4SAKK4seWiMNq+p/ZUm9+06MQGi7iVxTIdtRxMzCT3qtQrfn03hya4ZLjR9i4MwnbHqWrd
