@@ -1,20 +1,19 @@
 steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+   - kms
+   - decrypt
+   - --ciphertext-file=./mage.xyz.crt.enc1.new.txt
+   - --plaintext-file=./mage.test.crt
+   - --location=global
+   - --keyring=magento-web-secrets
+   - --key=magento-webserver-new-cert
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: [
     '-c',
-    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile --build-arg WEB_SSL_CRT=$$SSL_CRT .'
+    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile .'
     ]
-  #secretEnv: ['SSL_KEY','SSL_CRT','SSL_PEM']
-  secretEnv: ['SSL_CRT']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest"]
 images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
-
-# echo -n $path_to_enc_file | gcloud kms encrypt --plaintext-file=- \
-#   --ciphertext-file=- --location=global --keyring=$keyring-name \
-#   --key=$key-name | base64
-secrets:
-- kmsKeyName: 'projects/magento2-269418/locations/global/keyRings/magento-web-secrets/cryptoKeys/magento-webserver-new-cert'
-  secretEnv:
-    SSL_CRT: CiQA4UGEtEBEujwm8ImPqd2u9QVXUfkMjIaXFfnaFB0wr8B5h6wS5gkAwGvbDtqTmsbXED2sXVJCjJ1St1fyTTlTvHOwVmJyqoE7M5l85UkEFYr4PnlB4WsUK6e0NKScO7ZgtohpLOAg1lElGfT9zKUp58tnHbpRk2yaNqvSmp1Ms01vsi6pSkLftdLUTF0sGWLQ72l5YszBsw+VtpfuU6bpSjEDjHF8PiqBPe2Lgvx4VIlp/4zwQAEZXBlZsrsdxtxjX6x95W096MzMlkV1+8SxGBvv4NqyzN3aUMc4GnTyI6sL8LrjmQWjLgD5hEVo949rBeAf8Ri4g1mNRmUp38qfyZd9SvyeMHvXHpXbtssUBTYtnnj+SfsyKv+4LM4TVk2MHnFX5m61CUtdejp6RDPvPz2nI5Vr6Hqn4GHA6wTjB5EyxnaWAeRHFltWwB7c8CPJT7W83pijOeafXPsD0diZguuKLCCiJdiSYI+cEV/hOxcbbLLMvivver/Pa96AzaZ0UOPTQHYjFl8S9xd67J5nYbFPM5t301OgaPHeLiFPR3Nv9W5+LbxEXQTbXa4qHDqs9ccym2rTRxIgR5IwYOkXDz2CU7StkVn8GM0X+ZPVArnhJcIye8Wp6teksvo5qgnfnvGmQShMjvWDjVavrGPSNDqtCais/n3oCB4MRJxj7VJil4d7B1x+Vr5R/XrVePo5vgC3lVp8f940p/lTzDdSxdP19BVt5iw3Y1PgWuF/idA/i5dw0CRbE9L0oqKJnfJp0AAFyFnIDe757UEK9V6aIBMvOxcqja+q8pipyS6Taeq7RWdpqpJhTkeAW6EDPNUy9c/xiW7e6X61Pc6MVLMWDgCFkW/xpfPFa0QcuvlfJBJwz2juhj6Unh2WTxOMkdC6lU39sLVUOpgU0zYaWy402jBvzO2u96UH/o+YtUpwRT+GHSW+Jw/NuI3kDMeucS+fLn+gGs3QgAbV/PSS/nxzetrQOYxyoCWxwq78C37DfbI90LNzDDeIq2lX9chrRqxVWIcANrghFMUJNFfXjGam5AWnruy3feCQTQvA2DbA3mt8v9jE7Cag6zK2ggiQ+FFsENyeYJyR4GF8IdZefkgtdKqscXOMcSHK+IWqV9mrFCkDXobLAGaEU3abNfrARe1TT56eQ7caR/ImZVgqz/jFqlq3uGjFMIWTG+mNtvtipHYk3Z/UFbmk0qnKwGhN3m5ijDduaLlxnb/4qEBc3PiYrZBQJFRIACDIMzb77jXrFfrYysgNxhJ73G2YHh8hV9ULap8bbI3VZ30scJllYduv5lXM++7ywL2BqidhEAAtAQ34e6B4vzOMfnzA0Y6MCneWXcE8+tiUigjP3iw+nmOlUY70Sqliz80KhAcVb/Ql0y2lOJGbRDCZyF6MNQtSjtIeNmFz3qtX3BvxaE6dA6VvvC8d5aXgVzoghiteKJPTuL+zGA51eejMM5dRwiVFFnKWRXzzSD/BIVN6fofA8KVmp0vcgShxYmJkgRxx+oQ5FntIei45qDC+PuEapdYXJ9+D3JPfSISJQVoMbMvslZMpOYpEg1UDAtEKOhaE8JmrZc5M7Kez8VLvxU9NZVfTM1OcnYkLON/ZOu7JgKAxlpHH7Bc8slTPBu2O3Aga7DkcbsrIUXttMCCnCuO8xxjEt9tFJMygd+DAwiif0IURtwlVS0haVGDe0aG/59H0BWJ/exWv+/8XK9yxPYEife0=
