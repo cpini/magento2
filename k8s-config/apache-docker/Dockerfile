@@ -14,11 +14,8 @@ RUN mkdir -p /usr/local/apache2/conf/ssl-certs
 # COPY k8s-config/apache-docker/mage.xyz.key /usr/local/apache2/conf/ssl-certs/mage.xyz.key
 # COPY k8s-config/apache-docker/mage.xyz.crt /usr/local/apache2/conf/ssl-certs/mage.xyz.crt
 # COPY k8s-config/apache-docker/myCA.pem /usr/local/apache2/conf/ssl-certs/myCA.pem
-# COPY ./decrypted-key.txt /usr/local/apache2/conf/ssl-certs/mage.xyz.key
-# COPY ./decrypted-crt.txt /usr/local/apache2/conf/ssl-certs/mage.xyz.crt
-# COPY ./decrypted-pem.txt /usr/local/apache2/conf/ssl-certs/myCA.pem
+COPY ./decrypted-key.txt /usr/local/apache2/conf/ssl-certs/mage.xyz.key
+COPY ./decrypted-crt.txt /usr/local/apache2/conf/ssl-certs/mage.xyz.crt
+COPY ./decrypted-pem.txt /usr/local/apache2/conf/ssl-certs/myCA.pem
 RUN echo "Include /usr/local/apache2/conf/magento.apache.conf" >> \
-    /usr/local/apache2/conf/httpd.conf \
-&& mv ./decrypted-key.txt /usr/local/apache2/conf/ssl-certs/mage.xyz.key \
-&& mv ./decrypted-crt.txt /usr/local/apache2/conf/ssl-certs/mage.xyz.crt \
-&& mv ./decrypted-pem.txt /usr/local/apache2/conf/ssl-certs/myCA.pem
+    /usr/local/apache2/conf/httpd.conf;
