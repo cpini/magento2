@@ -26,19 +26,18 @@ spec:
       storage: 10Gi
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: magento-mysql
   labels:
     app: magento-mysql
 spec:
   replicas: 1
+  serviceName: mysql-db-service
   selector:
     matchLabels:
       app: magento-mysql
       tier: mysql
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
