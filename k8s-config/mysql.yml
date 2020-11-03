@@ -52,14 +52,9 @@ spec:
           name: mysql
           args:
             - "--ignore-db-dir=lost+found"
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql
-                  key: password
-            - name: MYSQL_DATABASE
-              value: magento
+          envFrom:
+          - secretRef:
+              name: mysql-secret
           ports:
             - containerPort: 3306
               name: mysql
@@ -72,3 +67,12 @@ spec:
         - name: mysql-persistent-storage
           persistentVolumeClaim:
             claimName: mysql-volumeclaim
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+type: Opaque
+data:
+  MYSQL_DATABASE: bWFnZW50bw==
+  MYSQL_ROOT_PASSWORD: bWFnZW50bw==
