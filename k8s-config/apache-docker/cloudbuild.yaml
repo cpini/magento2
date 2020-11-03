@@ -3,9 +3,9 @@ steps:
   entrypoint: 'bash'
   args: [ 
       '-c', 
-      "gcloud secrets versions access latest --secret=mage-xyz-tls-crt --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-crt.txt",
-      "gcloud secrets versions access latest --secret=mage-xyz-tls-key --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-key.txt",
-      "gcloud secrets versions access latest --secret=mage-xyz-ca-pem --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-pem.txt"
+      "gcloud secrets versions access latest --secret=mage-xyz-tls-crt --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-crt.txt \
+        && gcloud secrets versions access latest --secret=mage-xyz-tls-key --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-key.txt \
+        && gcloud secrets versions access latest --secret=mage-xyz-ca-pem --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-pem.txt"
     ]
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
