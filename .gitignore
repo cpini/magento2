@@ -3,6 +3,7 @@
 /app/code/Unit*
 /.ssl-certs
 /k8s-config/apache-docker/.ssl-keys
+/docker/apache/.ssl-keys
 /.buildpath
 /.cache
 /.metadata
