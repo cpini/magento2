@@ -1,6 +1,18 @@
 steps:
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
+  args: [ 
+      '-c', 
+      "gcloud secrets versions access latest --secret=mage-xyz-tls-crt --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-crt.txt \
+        && gcloud secrets versions access latest --secret=mage-xyz-tls-key --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-key.txt \
+        && gcloud secrets versions access latest --secret=mage-xyz-ca-pem --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ./decrypted-pem.txt"
+    ]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest", '-f', 'k8s-config/apache-docker/Dockerfile', '.']
+  entrypoint: 'bash'
+  args: [
+    '-c',
+    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile .'
+    ]
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest"]
 images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
