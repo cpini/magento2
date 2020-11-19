@@ -6,17 +6,4 @@ steps:
 # Copy the deployment manifests to CS
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp', '-r', 'k8s-config/deployments/*', 'gs://$PROJECT_ID-magento-kubernetes-manifests']
-# Run pre-release actions
-- name: 'gcr.io/cloud-builders/gke-deploy'
-  args:
-  - apply
-  - --filename=k8s-config/pre-release-actions.yml
-  - --location=${_CLOUDSDK_COMPUTE_ZONE}
-  - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
-# Chceck status of the job and delete when done
-- name: 'gcr.io/cloud-builders/gcloud'
-  id: pre-release-job-success
-  entrypoint: 'bash'
-  args: ['k8s-config/pipeline-scripts/check-job-status.sh', '-c ${_CLOUDSDK_CONTAINER_CLUSTER}', '-z ${_CLOUDSDK_COMPUTE_ZONE}']
 images: ["eu.gcr.io/$PROJECT_ID/magento2-php72:$TAG_NAME"]
-timeout: 1200s
