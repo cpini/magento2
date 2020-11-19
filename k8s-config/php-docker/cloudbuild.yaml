@@ -5,5 +5,5 @@ steps:
   args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-php72:$TAG_NAME"]
 # Copy the deployment manifests to CS
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', '-r', 'k8s-config/deployments/*', 'gs://$PROJECT_ID-magento-kubernetes-manifests/deployments']
+  args: ['cp', '-r', 'k8s-config/deployments/*', 'gs://$PROJECT_ID-magento-kubernetes-manifests/deployments/']
 images: ["eu.gcr.io/$PROJECT_ID/magento2-php72:$TAG_NAME"]
