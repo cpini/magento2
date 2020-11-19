@@ -11,8 +11,8 @@ steps:
   entrypoint: 'bash'
   args: [
     '-c',
-    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:latest -f k8s-config/apache-docker/Dockerfile .'
+    'docker build -t eu.gcr.io/$PROJECT_ID/magento2-apache24:$TAG_NAME -f k8s-config/apache-docker/Dockerfile .'
     ]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:latest"]
+  args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-apache24:$TAG_NAME"]
 images: ["eu.gcr.io/$PROJECT_ID/magento2-apache24"]
