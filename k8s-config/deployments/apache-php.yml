@@ -92,7 +92,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: setup-pub-dir
-          image: eu.gcr.io/magento-295411/magento2-php72:$TAG_NAME
+          image: eu.gcr.io/magento-295411/magento2-php72
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -113,7 +113,7 @@ spec:
             requests:
               cpu: "500m"
       containers:
-        - image: eu.gcr.io/magento-295411/magento2-apache24:$TAG_NAME
+        - image: eu.gcr.io/magento-295411/magento2-apache24
           name: apache
           ports:
             - containerPort: 443
@@ -145,7 +145,7 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 3
             initialDelaySeconds: 1
-        - image: eu.gcr.io/magento-295411/magento2-php72:$TAG_NAME
+        - image: eu.gcr.io/magento-295411/magento2-php72
           name: php
           resources:
             requests:
