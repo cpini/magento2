@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: magento
+  name: magento-canary
   annotations:
     #cloud.google.com/app-protocols: '{"mage-https-port":"HTTPS", "mage-http-port":"HTTP"}'
     #cloud.google.com/app-protocols: '{"mage-https-port":"HTTPS","mage-http-port":"HTTP"}'
@@ -10,7 +10,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: magento
+    app: magento-canary
   ports:
   - name: mage-https-port
     port: 443
@@ -30,12 +30,12 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: magento
+  name: magento-canary
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: magento
+    name: magento-canary
   minReplicas: 1
   maxReplicas: 7
   targetCPUUtilizationPercentage: 70
@@ -43,7 +43,7 @@ spec:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: magento-ingress
+  name: magento-canary-ingress
   #annotations: 
   #  kubernetes.io/ingress.allow-http: "false"
 spec:
@@ -55,21 +55,21 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: magento
+          serviceName: magento-canary
           servicePort: mage-https-port
   - host: static.mage.xyz
     http:
       paths:
       - backend:
-          serviceName: magento
+          serviceName: magento-canary
           servicePort: mage-https-port
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: magento
+  name: magento-canary
   labels:
-    app: magento
+    app: magento-canary
 spec:
   replicas: 1
   minReadySeconds: 30
@@ -80,11 +80,11 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: magento
+      app: magento-canary
   template:
     metadata:
       labels:
-        app: magento
+        app: magento-canary
     spec:
       securityContext:
         supplementalGroups:
@@ -146,6 +146,10 @@ spec:
             timeoutSeconds: 3
             initialDelaySeconds: 1
         - image: eu.gcr.io/magento-295411/magento2-php72:$TAG_NAME
+          lifecycle:
+            postStart:
+              exec:
+                command: ["/bin/sh", "-c", "/var/www/html/post.sh"]
           name: php
           resources:
             requests:
