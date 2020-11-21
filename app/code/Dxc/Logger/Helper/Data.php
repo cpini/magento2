@@ -21,8 +21,9 @@ class Data
         $podName        = trim($this->getEnvValue('K8S_POD_NAME'));
         $nodeName       = trim($this->getEnvValue('K8S_NODE_NAME'));
         $nodeNameSpace  = trim($this->getEnvValue('K8S_POD_NAMESPACE'));
+        $replicaType    = trim($this->getEnvValue('REPLICA_TYPE'));
         if ($podName!=='' && $nodeName!=='' && $nodeNameSpace!=='') {
-            return sprintf("%s:%s:%s", $nodeNameSpace, $nodeName, $podName);
+            return sprintf("%s:%s:%s:%s", $nodeNameSpace, $nodeName, $podName, $replicaType);
         }
         return 'main';
     }

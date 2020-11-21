@@ -182,6 +182,8 @@ spec:
             name: magento-var-volume
             subPath: var   
           env:
+            - name: REPLICA_TYPE
+              value: CANARY
             - name: K8S_NODE_NAME
               valueFrom:
                 fieldRef:
