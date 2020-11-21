@@ -1,4 +1,5 @@
 /.sql_dumps
+/.spinnaker
 /com.cpini.docker_10254_alias.plist
 /app/code/Unit*
 /.ssl-certs
