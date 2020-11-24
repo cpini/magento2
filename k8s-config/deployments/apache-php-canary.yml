@@ -48,8 +48,8 @@ metadata:
   #  kubernetes.io/ingress.allow-http: "false"
 spec:
   tls:
-  - secretName: wwwmage-secret
-  - secretName: staticmage-secret
+  - secretName: wwwmage-secret-v000
+  - secretName: staticmage-secret-v000
   rules:
   - host: www.mage.xyz
     http:
