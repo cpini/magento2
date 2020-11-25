@@ -1,32 +1,3 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: magento-canary
-  annotations:
-    #cloud.google.com/app-protocols: '{"mage-https-port":"HTTPS", "mage-http-port":"HTTP"}'
-    #cloud.google.com/app-protocols: '{"mage-https-port":"HTTPS","mage-http-port":"HTTP"}'
-    cloud.google.com/backend-config: '{"ports": {"mage-https-port":"http-hc-config"}}'
-    cloud.google.com/app-protocols: '{"mage-https-port":"HTTP2"}'
-spec:
-  type: NodePort
-  selector:
-    app: magento-canary
-  ports:
-  - name: mage-https-port
-    port: 443
-    protocol: TCP
----
-apiVersion: cloud.google.com/v1
-kind: BackendConfig
-metadata:
-  name: http-hc-config
-spec:
-  healthCheck:
-    checkIntervalSec: 15
-    timeoutSec: 3
-    type: HTTP2
-    requestPath: /healthz/
----
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
@@ -40,36 +11,12 @@ spec:
   maxReplicas: 7
   targetCPUUtilizationPercentage: 70
 ---
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: magento-canary-ingress
-  #annotations: 
-  #  kubernetes.io/ingress.allow-http: "false"
-spec:
-  tls:
-  - secretName: wwwmage-secret-v000
-  - secretName: staticmage-secret-v000
-  rules:
-  - host: www.mage.xyz
-    http:
-      paths:
-      - backend:
-          serviceName: magento-canary
-          servicePort: mage-https-port
-  - host: static.mage.xyz
-    http:
-      paths:
-      - backend:
-          serviceName: magento-canary
-          servicePort: mage-https-port
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: magento-canary
   labels:
-    app: magento-canary
+    app: magento
 spec:
   replicas: 1
   minReadySeconds: 30
@@ -80,11 +27,14 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: magento-canary
+      app: magento
+      version: next
   template:
     metadata:
       labels:
-        app: magento-canary
+        app: magento
+        version: next
+        stack: canary
     spec:
       securityContext:
         supplementalGroups:

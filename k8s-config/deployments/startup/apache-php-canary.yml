@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: magento
+  name: magento-canary
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: magento
+    name: magento-canary
   minReplicas: 1
   maxReplicas: 7
   targetCPUUtilizationPercentage: 70
@@ -14,7 +14,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: magento
+  name: magento-canary
   labels:
     app: magento
 spec:
@@ -28,13 +28,13 @@ spec:
   selector:
     matchLabels:
       app: magento
-      version: now
+      version: next
   template:
     metadata:
       labels:
         app: magento
-        version: now
-        stack: prod
+        version: next
+        stack: canary
     spec:
       securityContext:
         supplementalGroups:
@@ -42,7 +42,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: setup-pub-dir
-          image: eu.gcr.io/magento-295411/magento2-php72
+          image: eu.gcr.io/magento-295411/magento2-php72:v1.0.31
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -63,7 +63,7 @@ spec:
             requests:
               cpu: "500m"
       containers:
-        - image: eu.gcr.io/magento-295411/magento2-apache24
+        - image: eu.gcr.io/magento-295411/magento2-apache24:latest
           name: apache
           ports:
             - containerPort: 443
@@ -95,7 +95,11 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 3
             initialDelaySeconds: 1
-        - image: eu.gcr.io/magento-295411/magento2-php72
+        - image: eu.gcr.io/magento-295411/magento2-php72:v1.0.31
+          lifecycle:
+            postStart:
+              exec:
+                command: ["/bin/sh", "-c", "/var/www/html/post.sh"]
           name: php
           resources:
             requests:
@@ -129,7 +133,7 @@ spec:
             subPath: var   
           env:
             - name: REPLICA_TYPE
-              value: PUBLIC
+              value: CANARY
             - name: K8S_NODE_NAME
               valueFrom:
                 fieldRef:

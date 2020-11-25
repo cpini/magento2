@@ -1,3 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: magento
+  annotations:
+    #cloud.google.com/app-protocols: '{"mage-https-port":"HTTPS", "mage-http-port":"HTTP"}'
+    #cloud.google.com/app-protocols: '{"mage-https-port":"HTTPS","mage-http-port":"HTTP"}'
+    cloud.google.com/backend-config: '{"ports": {"mage-https-port":"http-hc-config"}}'
+    cloud.google.com/app-protocols: '{"mage-https-port":"HTTP2"}'
+spec:
+  type: NodePort
+  selector:
+    app: magento
+  ports:
+  - name: mage-https-port
+    port: 443
+    protocol: TCP
+---
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: http-hc-config
+spec:
+  healthCheck:
+    checkIntervalSec: 15
+    timeoutSec: 3
+    type: HTTP2
+    requestPath: /healthz/
+---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
@@ -10,6 +39,30 @@ spec:
   minReplicas: 1
   maxReplicas: 7
   targetCPUUtilizationPercentage: 70
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: magento-ingress
+  #annotations: 
+  #  kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+  - secretName: wwwmage-secret-v000
+  - secretName: staticmage-secret-v000
+  rules:
+  - host: www.mage.xyz
+    http:
+      paths:
+      - backend:
+          serviceName: magento
+          servicePort: mage-https-port
+  - host: static.mage.xyz
+    http:
+      paths:
+      - backend:
+          serviceName: magento
+          servicePort: mage-https-port
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,13 +81,10 @@ spec:
   selector:
     matchLabels:
       app: magento
-      version: now
   template:
     metadata:
       labels:
         app: magento
-        version: now
-        stack: prod
     spec:
       securityContext:
         supplementalGroups:
