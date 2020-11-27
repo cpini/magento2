@@ -17,6 +17,7 @@ metadata:
   name: magento
   labels:
     app: magento
+    version: now
 spec:
   replicas: 1
   minReadySeconds: 30
@@ -42,7 +43,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: setup-pub-dir
-          image: eu.gcr.io/magento-295411/magento2-php72:v1.0.30
+          image: eu.gcr.io/magento-295411/magento2-php72:v1.0.34
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -95,7 +96,7 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 3
             initialDelaySeconds: 1
-        - image: eu.gcr.io/magento-295411/magento2-php72:v1.0.30
+        - image: eu.gcr.io/magento-295411/magento2-php72:v1.0.34
           name: php
           resources:
             requests:
