@@ -16,7 +16,7 @@ kind: Deployment
 metadata:
   name: magento-canary
   labels:
-    app: magento
+    app: magento-canary
 spec:
   replicas: 1
   minReadySeconds: 30
@@ -27,12 +27,12 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: magento
+      app: magento-canary
       version: next
   template:
     metadata:
       labels:
-        app: magento
+        app: magento-canary
         version: next
         stack: canary
     spec:
