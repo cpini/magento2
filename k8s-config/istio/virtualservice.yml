@@ -4,7 +4,7 @@ metadata:
   name: magento-gateway
 spec:
   selector:
-    istio: ingressgateway
+    istio: magento
   servers:
   - port:
       number: 443

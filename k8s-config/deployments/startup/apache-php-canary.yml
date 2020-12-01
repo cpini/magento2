@@ -16,7 +16,7 @@ kind: Deployment
 metadata:
   name: magento-canary
   labels:
-    app: magento-canary
+    app: magento
     version: next
 spec:
   replicas: 1
@@ -28,12 +28,12 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: magento-canary
+      app: magento
       version: next
   template:
     metadata:
       labels:
-        app: magento-canary
+        app: magento
         version: next
         stack: canary
     spec:
@@ -43,7 +43,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: setup-pub-dir
-          image: eu.gcr.io/magento-295411/magento2-php72:v1.0.34
+          image: eu.gcr.io/magento-295411/magento2-php72:v1.0.37
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -96,7 +96,7 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 3
             initialDelaySeconds: 1
-        - image: eu.gcr.io/magento-295411/magento2-php72:v1.0.34
+        - image: eu.gcr.io/magento-295411/magento2-php72:v1.0.37
           lifecycle:
             postStart:
               exec:
