@@ -1,5 +1,5 @@
 ARG PHP_VERSION="7.4.13"
-ARG TAG_NAME_ARG
+ARG TAG_NAME_ARG='latest'
 FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
 LABEL maintainer="Cristian Pini"
 ENV TZ=Europe/London
@@ -26,7 +26,7 @@ COPY k8s-config/php-docker/fpm-www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY k8s-config/php-docker/php-fpm-healthcheck /usr/local/bin/
 COPY --chown=www-data . /var/www/html
 USER www-data
-RUN cd /var/www/html \
-&& cp .htaccess pub/ \
-&& mv pub pub.release \
-&& composer install --no-cache --no-dev
+# RUN cd /var/www/html \
+# && cp .htaccess pub/ \
+# && mv pub pub.release \
+# && composer install --no-cache --no-dev
