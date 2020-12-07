@@ -1,13 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', 
-          '--build-arg',
-          'TAG_NAME_ARG=${TAG_NAME}',
-          '-t', 
-          "eu.gcr.io/$PROJECT_ID/magento2-php72:$TAG_NAME", 
-          '-f', 
-          'k8s-config/php-docker/Dockerfile', 
-          '.']
+  entrypoint: 'bash'
+  args: ['-c', 'docker build --build-arg TAG_NAME_ARG="$TAG_NAME" -t eu.gcr.io/$PROJECT_ID/magento2-php72:$TAG_NAME -f k8s-config/php-docker/Dockerfile .']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', "eu.gcr.io/$PROJECT_ID/magento2-php72:$TAG_NAME"]
 # Copy the deployment manifests to CS
