@@ -1,6 +1,6 @@
 ARG PHP_VERSION="7.4.13"
 ARG TAG_NAME
-ENV BUILD_VERSION=$TAG_NAME
+#ENV BUILD_VERSION=$TAG_NAME
 FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
 LABEL maintainer="Cristian Pini"
 ENV TZ=Europe/London
@@ -26,7 +26,7 @@ COPY k8s-config/php-docker/php-fpm-healthcheck /usr/local/bin/
 COPY --chown=www-data . /var/www/html
 USER www-data
 RUN cd /var/www/html \
-&& echo $BUILD_VERSION > ./build_version.txt \
+&& echo $TAG_NAME > ./build_version.txt \
 && cp .htaccess pub/ \
 && mv pub pub.release \
 && composer install --no-cache --no-dev
