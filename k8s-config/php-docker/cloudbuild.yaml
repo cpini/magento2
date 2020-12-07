@@ -2,7 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', 
           '--build-arg',
-         "TAG_NAME_ARG=$TAG_NAME",
+          'TAG_NAME_ARG=$TAG_NAME',
           '-t', 
           "eu.gcr.io/$PROJECT_ID/magento2-php72:$TAG_NAME", 
           '-f', 
