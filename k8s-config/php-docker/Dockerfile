@@ -26,7 +26,7 @@ COPY k8s-config/php-docker/php-fpm-healthcheck /usr/local/bin/
 COPY --chown=www-data . /var/www/html
 USER www-data
 RUN cd /var/www/html \
-&& echo "${TAG_NAME_ARG}" > ./build_version.txt \
+#&& echo "${TAG_NAME_ARG}" > ./build_version.txt \
 && cp .htaccess pub/ \
 && mv pub pub.release \
 && composer install --no-cache --no-dev
