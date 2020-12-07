@@ -43,7 +43,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: setup-pub-dir
-          image: eu.gcr.io/magento-295411/magento2-php72:v1.0.37
+          image: eu.gcr.io/magento-295411/magento2-php72:v1.0.38
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -96,11 +96,11 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 3
             initialDelaySeconds: 1
-        - image: eu.gcr.io/magento-295411/magento2-php72:v1.0.37
-          lifecycle:
-            postStart:
-              exec:
-                command: ["/bin/sh", "-c", "/var/www/html/post.sh"]
+        - image: eu.gcr.io/magento-295411/magento2-php72:v1.0.38
+          #lifecycle:
+          # exec:
+          #  postStart:
+          #      command: ["/bin/sh", "-c", "/var/www/html/post.sh"]
           name: php
           resources:
             requests:

@@ -1,4 +1,4 @@
-ARG PHP_VERSION="7.3.17"
+ARG PHP_VERSION="7.4.13"
 FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
 LABEL maintainer="Cristian Pini"
 ENV TZ=Europe/London
@@ -6,11 +6,10 @@ RUN apk update; \
 apk upgrade; \
 apk add --no-cache fcgi tzdata freetype freetype-dev libxslt-dev libpng libjpeg libxml2-dev zlib libwebp-dev libpng-dev jpeg-dev icu-dev zlib-dev libzip-dev; \
 apk add --no-cache $PHPIZE_DEPS; \
-docker-php-ext-configure gd --with-png-dir=/usr/include/ \
-                                --with-jpeg-dir=/usr/include/ \
-                                --with-webp-dir=/usr/include/ \
-                                --with-freetype-dir=/usr/inlcude/ \
-&& docker-php-ext-configure zip --with-libzip \
+docker-php-ext-configure gd --with-jpeg \
+                                --with-webp \
+                                --with-freetype \
+&& docker-php-ext-configure zip \
 && docker-php-ext-install mysqli bcmath gd pdo_mysql soap xsl zip intl opcache sockets \
 && echo "memory_limit=2G" > /usr/local/etc/php/conf.d/memory-limit.ini \
 && echo "max_input_vars=1000" > /usr/local/etc/php/conf.d/max-input-vars-php.ini \

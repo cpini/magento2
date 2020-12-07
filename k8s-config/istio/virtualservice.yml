@@ -35,14 +35,14 @@ spec:
   hosts:
   - "*"
   gateways:
-  - app-gateway
+  - magento-gateway
   http:
     - route:
       - destination:
           host: magento
           subset: now
-        weight: 50
+        weight: 100
       - destination:
           host: magento
           subset: next
-        weight: 50
+        weight: 0
