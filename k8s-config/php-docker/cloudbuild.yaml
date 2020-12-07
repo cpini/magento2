@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  env: ['_TAG_NAME=$TAG_NAME']
+  env: ["_TAG_NAME=$TAG_NAME"]
   args: ['build', 
           "--build-arg=TAG_NAME_ARG=${_TAG_NAME}",
           '-t', 
