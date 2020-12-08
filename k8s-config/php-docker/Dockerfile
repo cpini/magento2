@@ -1,9 +1,9 @@
 ARG PHP_VERSION="7.4.13"
-ARG TAG_NAME_ARG="latest"
 FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
 LABEL maintainer="Cristian Pini"
+ARG TAG_NAME_ARG="latest"
 ENV TZ=Europe/London
-ENV BUILD_VERSION="${TAG_NAME_ARG}"
+ENV APP_TAG_VERSION="${TAG_NAME_ARG}"
 RUN apk update; \
 apk upgrade; \
 apk add --no-cache fcgi tzdata freetype freetype-dev libxslt-dev libpng libjpeg libxml2-dev zlib libwebp-dev libpng-dev jpeg-dev icu-dev zlib-dev libzip-dev; \
