@@ -3,7 +3,7 @@ FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
 LABEL maintainer="Cristian Pini"
 ARG TAG_NAME_ARG="latest"
 ENV TZ=Europe/London
-ENV APP_TAG_VERSION="${TAG_NAME_ARG}"
+ENV APP_TAG_VERSION=${TAG_NAME_ARG}
 RUN apk update; \
 apk upgrade; \
 apk add --no-cache fcgi tzdata freetype freetype-dev libxslt-dev libpng libjpeg libxml2-dev zlib libwebp-dev libpng-dev jpeg-dev icu-dev zlib-dev libzip-dev; \
@@ -25,7 +25,7 @@ COPY k8s-config/php-docker/fpm-www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY k8s-config/php-docker/php-fpm-healthcheck /usr/local/bin/
 COPY --chown=www-data . /var/www/html
 USER www-data
-# RUN cd /var/www/html \
-# && cp .htaccess pub/ \
-# && mv pub pub.release \
-# && composer install --no-cache --no-dev
+RUN cd /var/www/html \
+&& cp .htaccess pub/ \
+&& mv pub pub.release \
+&& composer install --no-cache --no-dev
