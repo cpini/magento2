@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# sh init1.sh -c <k8s cluster name> -z <zone> -p <project>
-# sh init1.sh -c magento-dev-cluster -z europe-west2-a -p magento-295411
+# sh mage-init.sh -c <k8s cluster name> -z <zone> -p <project>
+# sh mage-init.sh -c magento-dev-cluster -z europe-west2-a -p magento-295411
 while getopts c:z:p: flag
 do
     case "${flag}" in
@@ -34,5 +34,6 @@ DATA_POP=`kubectl exec -it magento-mysql-0 -- mysql -uroot -pmagento  magento < 
 echo "Rollout Deployments"
 DEP_CANARY=`kubectl apply -f ./deployments/startup/apache-php-canary.yml`
 DEP=`kubectl apply -f ./deployments/startup/apache-php.yml`
+sleep 180
 echo "K8S deployment complete - https://www.mage.xyz/"
 exit 1
