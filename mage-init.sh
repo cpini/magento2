@@ -25,8 +25,12 @@ echo "Deploy Elastic Search"
 ELASTIC1=`kubectl apply -f https://download.elastic.co/downloads/eck/1.2.1/all-in-one.yaml`
 ELASTIC2=`kubectl apply -f ./elastic.yml`
 echo "Deploy Services, Ingresses and Secrets"
-SECRET_CANARY=`kubectl apply -f ./secrets/mage-canary-secrets.yml`
-SECRET=`kubectl apply -f ./secrets/mage-secrets.yml`
+TLS_CRT=`gcloud secrets versions access latest --secret=mage-xyz-tls-crt --format='get(payload.data)'`
+TLS_KEY=`gcloud secrets versions access latest --secret=mage-xyz-tls-key --format='get(payload.data)'`
+#SECRET_CANARY=`kubectl apply -f ./secrets/mage-canary-secrets.yml`
+#SECRET=`kubectl apply -f ./secrets/mage-secrets.yml`
+SECRET_CANARY=`cat k8s-config/secrets/mage-canary-secrets-test.yml | sed "s/\!\!REPLACE_WITH_WWWMAGESECRET_CRT\!\!/$TLS_CRT/g" | sed "s/\!\!REPLACE_WITH_WWWMAGESECRET_KEY\!\!/$TLS_KEY/g" | kubectl apply -f -`
+SECRET=`cat k8s-config/secrets/mage-secrets-test.yml | sed "s/\!\!REPLACE_WITH_WWWMAGESECRET_CRT\!\!/$TLS_CRT/g" | sed "s/\!\!REPLACE_WITH_WWWMAGESECRET_KEY\!\!/$TLS_KEY/g" | kubectl apply -f -`
 SERVICE=`kubectl apply -f ./services/magento-service.yml`
 SERVICE_CANARY=`kubectl apply -f ./services/magento-service-canary.yml`  
 sleep 45
